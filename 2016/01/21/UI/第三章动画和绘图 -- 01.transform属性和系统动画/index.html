@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>01.transform属性和系统动画 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="第三章动画和绘图 – 01.transform属性和系统动画一、学习目标
+Transform属性的介绍和使用
+UIView的系统动画介绍和使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="01.transform属性和系统动画">
+<meta property="og:url" content="http://yoursite.com/2016/01/21/UI/第三章动画和绘图 -- 01.transform属性和系统动画/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第三章动画和绘图 – 01.transform属性和系统动画一、学习目标
+Transform属性的介绍和使用
+UIView的系统动画介绍和使用">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/va1l4i8xber1l91lzqqmbwiq/xib30.gif">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/amvnuzh977p348sfrwjd4mig/xib31.gif">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/zr6fbs0kks9kme2r4kxtl34r/xib32.gif">
+<meta property="og:updated_time" content="2016-09-15T15:38:07.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="01.transform属性和系统动画">
+<meta name="twitter:description" content="第三章动画和绘图 – 01.transform属性和系统动画一、学习目标
+Transform属性的介绍和使用
+UIView的系统动画介绍和使用">
+<meta name="twitter:image" content="http://static.zybuluo.com/zhuoming/va1l4i8xber1l91lzqqmbwiq/xib30.gif">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <script src="/style.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">John Doe</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">John Doe</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="null" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">John Doe</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-UI/第三章动画和绘图 -- 01.transform属性和系统动画" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      01.transform属性和系统动画
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="第三章动画和绘图-–-01-transform属性和系统动画"><a href="#第三章动画和绘图-–-01-transform属性和系统动画" class="headerlink" title="第三章动画和绘图 – 01.transform属性和系统动画"></a>第三章动画和绘图 – 01.transform属性和系统动画</h1><h2 id="一、学习目标"><a href="#一、学习目标" class="headerlink" title="一、学习目标"></a><strong>一、学习目标</strong></h2><ul>
+<li>Transform属性的介绍和使用</li>
+<li>UIView的系统动画介绍和使用</li>
+</ul>
+<a id="more"></a>
+<h2 id="二、课堂内容"><a href="#二、课堂内容" class="headerlink" title="二、课堂内容"></a><strong>二、课堂内容</strong></h2><h3 id="1-transform"><a href="#1-transform" class="headerlink" title="1.transform"></a><strong>1.transform</strong></h3><p>在UIView中有一个transform属性，我们通过transform属性可以修改对象的平移、缩放比例和旋转角度。<br>常用的创建transform结构体方法分两大类：<br><strong>1:针对视图原始坐标的变化：</strong></p>
+<blockquote>
+<ul>
+<li>CAFFineTransforMakeTransion平移操作</li>
+<li>CAFFineTransforMakescale缩放操作</li>
+<li>CAFFineTransforMakeRatone翻转操作</li>
+</ul>
+</blockquote>
+<p><strong>2:针对视图当前坐标的变化</strong>：</p>
+<blockquote>
+<ul>
+<li>CAFFineTransforTransion 在当前view的transform基础上平移</li>
+<li>CAFFineTransforscale        在当前view的transform基础上缩放</li>
+<li>CAFFineTransforRatone    在当前view的transform基础上翻转</li>
+</ul>
+</blockquote>
+<p>直接看代码和效果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">// 旋转 传入参数是double类型，代表弧度，弧度制的0-2pi相当于角度制的0-360,可以借助枚举或自己转化</div><div class="line">- (IBAction)btnTurnLeftClick:(id)sender &#123;</div><div class="line">    // 只能旋转一次</div><div class="line">    //self.headImg.transform = CGAffineTransformMakeRotation(M_PI_4);</div><div class="line">    // 当前的基础上旋转</div><div class="line">    self.headImg.transform = CGAffineTransformRotate(self.headImg.transform, -M_PI_4);</div><div class="line">&#125;</div><div class="line">// 旋转</div><div class="line">- (IBAction)btnTurnRightClick:(id)sender &#123;</div><div class="line">    self.headImg.transform = CGAffineTransformRotate(self.headImg.transform, M_PI_4);</div><div class="line">&#125;</div><div class="line">// 放大</div><div class="line">- (IBAction)btnBigCLick:(id)sender &#123;</div><div class="line">    //CGAffineTransformMakeScale(1.1, 1.1); 只能放大原来图片到1.1倍</div><div class="line">    //self.headImg.transform = CGAffineTransformMakeScale(1.1, 1.1);</div><div class="line">    self.headImg.transform = CGAffineTransformScale(self.headImg.transform, 1.1, 1.1);</div><div class="line">    </div><div class="line">&#125;</div><div class="line">// 缩小</div><div class="line">- (IBAction)btnSmallCLick:(id)sender &#123;</div><div class="line">    //CGAffineTransformMakeScale(0.9, 0.9); 只能缩小原来图片到0.9倍</div><div class="line">    //self.headImg.transform = CGAffineTransformMakeScale(0.9, 0.9);</div><div class="line">    self.headImg.transform = CGAffineTransformScale(self.headImg.transform,0.9,0.9);</div><div class="line">&#125;</div><div class="line">// 往上移动 10</div><div class="line">- (IBAction)btnUpClick:(UIButton *)sender &#123;</div><div class="line">    self.headImg.transform = CGAffineTransformTranslate(self.headImg.transform, 0, -10);</div><div class="line">&#125;</div><div class="line">// 往右移动 10</div><div class="line">- (IBAction)btnRightClick:(id)sender &#123;</div><div class="line">   self.headImg.transform = CGAffineTransformTranslate(self.headImg.transform, 10, 0);</div><div class="line">&#125;</div><div class="line">// 往下移动 10</div><div class="line">- (IBAction)btnDownClick:(id)sender &#123;</div><div class="line">    self.headImg.transform = CGAffineTransformTranslate(self.headImg.transform, 0, +10);</div><div class="line">&#125;</div><div class="line">// 往左移动 10</div><div class="line">- (IBAction)btnLeftClick:(id)sender &#123;</div><div class="line">    self.headImg.transform = CGAffineTransformTranslate(self.headImg.transform, -10, 0);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="http://static.zybuluo.com/zhuoming/va1l4i8xber1l91lzqqmbwiq/xib30.gif" alt="xib30.gif-1973.6kB"></p>
+<h3 id="2-系统动画"><a href="#2-系统动画" class="headerlink" title="2.系统动画"></a><strong>2.系统动画</strong></h3><p>在iOS中随处都可以看到绚丽的动画效果，实现这些动画的过程并不复杂，今天我来学习简单的系统基础动画。并结合上面的例子，添加动画效果。<br>添加动画有两种方式</p>
+<ul>
+<li><p>使用UIView类函数实现:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[UIView beginAnimations:@&quot;animationID&quot; context:nil];</div><div class="line">[UIView setAnimationDuration:1.2f]; //动画时长</div><div class="line">[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];</div><div class="line">//在这里添加动画代码</div><div class="line">self.headImg.transform = CGAffineTransformTranslate(self.headImg.transform, -30, 0);</div><div class="line">[UIView commitAnimations]; //提交动画</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用block语法实现动画效果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[UIView animateWithDuration:1.3f animations:^&#123;</div><div class="line">        self.headImg.transform = CGAffineTransformRotate(self.headImg.transform, -M_PI_4);</div><div class="line">    &#125; completion:^(BOOL finished) &#123;</div><div class="line">        // 结束的回调</div><div class="line">    &#125;];</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://static.zybuluo.com/zhuoming/amvnuzh977p348sfrwjd4mig/xib31.gif" alt="xib31.gif-1012.5kB"></p>
+<h2 id="三、课程作业"><a href="#三、课程作业" class="headerlink" title="三、课程作业"></a><strong>三、课程作业</strong></h2><ul>
+<li>利用基础动画实现以下效果<br><img src="http://static.zybuluo.com/zhuoming/zr6fbs0kks9kme2r4kxtl34r/xib32.gif" alt="xib32.gif-392.7kB"></li>
+</ul>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/01/21/UI/第三章动画和绘图 -- 01.transform属性和系统动画/" class="archive-article-date">
+  	<time datetime="2016-01-21T07:08:01.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-01-21</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UI/">UI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/01/22/UI/第三章动画和绘图 -- 02.绘图/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          02.绘图
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/01/20/UI/第二章UI控件 -- 18.UICollectionView（1）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">18.UICollectionView（1）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 John Doe
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接1</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接2</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接3</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接4</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接5</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接6</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

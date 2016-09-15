@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>自动布局 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="第五章 自动布局一、学习目标
+自动布局介绍
+使用IB进行Autolayout布局
+使用代码进行Autolayout布局">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自动布局">
+<meta property="og:url" content="http://yoursite.com/2016/01/25/UI/第五章 自动布局/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第五章 自动布局一、学习目标
+自动布局介绍
+使用IB进行Autolayout布局
+使用代码进行Autolayout布局">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/c27vvi9hxy7bs03u3hg9fere/Snip20160215_4.png">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/jg3d0ltebfbza0wqupkum53b/Snip20160215_6.png">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/hed1akj50bouv1i31fdxf61k/auto1.gif">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/qwpocrb5ejnp22jzsmwc2t6p/Snip20160216_5.png">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/24xniesocn62csbjojjo96ts/Snip20160216_7.png">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/ohft088iszo28k0km0kqmau3/Snip20160216_9.png">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/h3vwk3gyxkzh1h0da0eruw35/Snip20160216_10.png">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/i3b45oesatn9gri0glvywj5u/Snip20160216_13.png">
+<meta property="og:updated_time" content="2016-09-15T16:00:19.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="自动布局">
+<meta name="twitter:description" content="第五章 自动布局一、学习目标
+自动布局介绍
+使用IB进行Autolayout布局
+使用代码进行Autolayout布局">
+<meta name="twitter:image" content="http://static.zybuluo.com/zhuoming/c27vvi9hxy7bs03u3hg9fere/Snip20160215_4.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <script src="/style.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">John Doe</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">John Doe</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="null" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">John Doe</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-UI/第五章 自动布局" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      自动布局
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="第五章-自动布局"><a href="#第五章-自动布局" class="headerlink" title="第五章 自动布局"></a>第五章 自动布局</h1><h2 id="一、学习目标"><a href="#一、学习目标" class="headerlink" title="一、学习目标"></a><strong>一、学习目标</strong></h2><ul>
+<li>自动布局介绍</li>
+<li>使用IB进行Autolayout布局</li>
+<li>使用代码进行Autolayout布局</li>
+</ul>
+<a id="more"></a>
+<h2 id="二、课程内容"><a href="#二、课程内容" class="headerlink" title="二、课程内容"></a><strong>二、课程内容</strong></h2><h3 id="自动布局介绍"><a href="#自动布局介绍" class="headerlink" title="自动布局介绍"></a><strong>自动布局介绍</strong></h3><p>从iOS6/xcode4开始，苹果开始提供了Autolayout——一种对不同屏幕尺寸有更好兼容的自动布局机制。但是由于当时的屏幕比较少，而且当时的Xcode4并没有很好的支持。但是随着iPhone6和iPhone6plus的发布，Xcode对Autolayout的支持，大家开始慢慢放弃frame或Autosizing布局。<br>苹果官方对其描述是：<strong>AutoLayout是一种基于约束的，描述性的布局系统。 <em>Auto Layout Is a Constraint-Based, Descriptive Layout System.</em></strong></p>
+<ul>
+<li><strong>参照</strong> frame布局下，控件参考的都是父视图，Autolayout可以参考父视图和同级的兄弟视图。frame.size是固定的，以致于常常需要为不同屏幕尺寸计算各自的位置点坐标和大小了。Autolayout则可以根据屏幕或需求进行自动的拉伸压缩。</li>
+<li><strong>约束</strong> 和以往定义frame的位置和尺寸不同，AutoLayout的位置确定是以所谓相对位置的约束来定义的，比如x坐标为superView的中心，y坐标为屏幕底部上方10像素等。</li>
+</ul>
+<blockquote>
+<p>本章不对<strong>Size Class</strong>做介绍</p>
+</blockquote>
+<p>###<strong>IB的应用</strong></p>
+<p>创建一个新的工程，选择storyBoard，因为本章不对sizeClass做介绍，所以我们第一步就是更改viewController的size。</p>
+<p><img src="http://static.zybuluo.com/zhuoming/c27vvi9hxy7bs03u3hg9fere/Snip20160215_4.png" alt="Snip20160215_4.png-95.7kB"></p>
+<p>介绍Xcode的一些重要按钮</p>
+<p><img src="http://static.zybuluo.com/zhuoming/jg3d0ltebfbza0wqupkum53b/Snip20160215_6.png" alt="Snip20160215_6.png-77.2kB"></p>
+<p>我们展示如何在IB界面中设置一个UIImageView的约束.<br>右键（ctr+左键）选中需要添加约束的view（IB界面里或者左边的目录栏）拖向参考view，松手可以选择需要添加的约束类型。</p>
+<table>
+<thead>
+<tr>
+<th>约束</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Height</td>
+<td>高度（参考自己）</td>
+</tr>
+<tr>
+<td>Width</td>
+<td>宽度  (参考自己)</td>
+</tr>
+<tr>
+<td>Aspect Ratio</td>
+<td>保持自身比例 （参考自己）</td>
+</tr>
+<tr>
+<td>Vertical Spacing</td>
+<td>垂直距离</td>
+</tr>
+<tr>
+<td>leading</td>
+<td>左对齐</td>
+</tr>
+<tr>
+<td>Trailing</td>
+<td>右对齐</td>
+</tr>
+<tr>
+<td>Equal Widths</td>
+<td>等宽</td>
+</tr>
+<tr>
+<td>Equal Height</td>
+<td>等宽</td>
+</tr>
+<tr>
+<td>Center Horizontally</td>
+<td>水平居中</td>
+</tr>
+<tr>
+<td>Center Vertical</td>
+<td>垂直居中</td>
+</tr>
+<tr>
+<td>Equal Widths</td>
+<td>等宽</td>
+</tr>
+<tr>
+<td>Equal Height</td>
+<td>等宽</td>
+</tr>
+</tbody>
+</table>
+<p>以下gif图添加了3个约束。</p>
+<ul>
+<li>顶部参考父视图并设置成60.</li>
+<li>X中心与父view对齐</li>
+<li>宽高固定为</li>
+</ul>
+<p><img src="http://static.zybuluo.com/zhuoming/hed1akj50bouv1i31fdxf61k/auto1.gif" alt="auto1.gif-143.3kB"></p>
+<p>接下来我们完善一下得到下图</p>
+<p><img src="http://static.zybuluo.com/zhuoming/qwpocrb5ejnp22jzsmwc2t6p/Snip20160216_5.png" alt="Snip20160216_5.png-167kB"></p>
+<p>这时候不需要运行就可以预览该界面在不同屏幕上的效果，在左上角的按钮</p>
+<p><img src="http://static.zybuluo.com/zhuoming/24xniesocn62csbjojjo96ts/Snip20160216_7.png" alt="Snip20160216_7.png-46.8kB"></p>
+<p>出现弹框后，双击右侧的加号<br><img src="http://static.zybuluo.com/zhuoming/ohft088iszo28k0km0kqmau3/Snip20160216_9.png" alt="Snip20160216_9.png-55.7kB"><br>这时在右侧出现了一个预览窗口，在该窗口的左下角有个加号按钮，点击添加需要预览的屏幕尺寸。</p>
+<p><img src="http://static.zybuluo.com/zhuoming/h3vwk3gyxkzh1h0da0eruw35/Snip20160216_10.png" alt="Snip20160216_10.png-75.6kB"></p>
+<p><img src="http://static.zybuluo.com/zhuoming/i3b45oesatn9gri0glvywj5u/Snip20160216_13.png" alt="Snip20160216_13.png-106.7kB"></p>
+<h3 id="代码的应用"><a href="#代码的应用" class="headerlink" title="代码的应用"></a><strong>代码的应用</strong></h3><h4 id="NSLayoutConstraint简单介绍"><a href="#NSLayoutConstraint简单介绍" class="headerlink" title="NSLayoutConstraint简单介绍"></a><strong>NSLayoutConstraint简单介绍</strong></h4><p>Autolayout同样可以用代码(NSLayoutConstraint)来实现，其主要思想是<code>firstItem.firstAttribute {==,&lt;=,&gt;=} secondItem.secondAttribute * multiplier + constant</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">[self.view setBackgroundColor:[UIColor redColor]];</div><div class="line">//创建子view</div><div class="line">UIView *subView = [[UIView alloc] init];</div><div class="line">[subView setBackgroundColor:[UIColor blackColor]];</div><div class="line">[self.view addSubview:subView];</div><div class="line">//使用Auto Layout约束，禁止将Autoresizing Mask转换为约束</div><div class="line">[subView setTranslatesAutoresizingMaskIntoConstraints:NO];</div><div class="line">//layout 子view</div><div class="line">//子view的中心横坐标等于父view的中心横坐标</div><div class="line">NSLayoutConstraint *constrant1 = [NSLayoutConstraint constraintWithItem:subView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0];</div><div class="line">//子view的中心纵坐标等于父view的中心纵坐标</div><div class="line">NSLayoutConstraint *constrant2 = [NSLayoutConstraint constraintWithItem:subView attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0.0];</div><div class="line">//子view的宽度为300</div><div class="line">NSLayoutConstraint *constrant3 = [NSLayoutConstraint constraintWithItem:subView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:300.0];</div><div class="line">//子view的高度为200</div><div class="line">NSLayoutConstraint *constrant4 = [NSLayoutConstraint constraintWithItem:subView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:200.0];</div><div class="line">//把约束添加到父视图上</div><div class="line">NSArray *array = [NSArray arrayWithObjects:constrant1, constrant2, constrant3, constrant4, nil nil];</div><div class="line">[self.view addConstraints:array];</div></pre></td></tr></table></figure>
+<h4 id="VFL简单介绍"><a href="#VFL简单介绍" class="headerlink" title="VFL简单介绍"></a><strong>VFL简单介绍</strong></h4><p>NSLayoutConstraint实在是太麻烦，连苹果自己都看不下去了，推出了VFL。VFL全称是Visual Format Language,翻译过来是“可视化格式语言”<br><code>@&quot;H:|-10-[view]-20-|&quot;</code>意思就是view距离superview的左边10点，右边20点，这样是不是就可以确定了这个view的宽度了？<br>其中H:表示横向，|表示父视图边缘，-10-表示10点距离，[view]表示子视图。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">UIView *view = [[UIView alloc] init];</div><div class="line">view.backgroundColor = [UIColor brownColor];</div><div class="line">view.translatesAutoresizingMaskIntoConstraints = NO;</div><div class="line">[self.view addSubview:view];</div><div class="line"></div><div class="line">//通过宏映射成[NSDictionary dictionaryWithObjectsAndKeys:v1, @&quot;v1&quot;, v2, @&quot;v2&quot;, nil];</div><div class="line">NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(view);</div><div class="line">//约束1 横向</div><div class="line">[self.view addConstraints:</div><div class="line"> [NSLayoutConstraint constraintsWithVisualFormat:@&quot;H:|-10-[view]-20-|&quot;</div><div class="line">                                         options:0</div><div class="line">                                         metrics:nil</div><div class="line">                                           views:viewsDictionary]];</div></pre></td></tr></table></figure></p>
+<h4 id="Masonry"><a href="#Masonry" class="headerlink" title="Masonry"></a><strong>Masonry</strong></h4><p>不要被上面冗长的NSLayoutConstraint，和奇怪的VFL给吓到，我们现在来重点学习一个名为<a href="https://github.com/SnapKit/Masonry" target="_blank" rel="external">Masonry</a>的框架，它是一个轻量级的布局框架，拥有自己的描述语法，采用更优雅的链式语法封装自动布局 简洁明了，并具有高可读性。</p>
+<table>
+<thead>
+<tr>
+<th>Masonry</th>
+<th>NSAutoLayout</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>left</td>
+<td>NSLayoutAttributeLeft</td>
+<td>左侧</td>
+</tr>
+<tr>
+<td>top</td>
+<td>NSLayoutAttributeTop</td>
+<td>上侧</td>
+</tr>
+<tr>
+<td>right</td>
+<td>NSLayoutAttributeRight</td>
+<td>右侧</td>
+</tr>
+<tr>
+<td>bottom</td>
+<td>NSLayoutAttributeBottom</td>
+<td>下侧</td>
+</tr>
+<tr>
+<td>leading</td>
+<td>NSLayoutAttributeLeading</td>
+<td>首部</td>
+</tr>
+<tr>
+<td>trailing</td>
+<td>NSLayoutAttributeTrailing</td>
+<td>尾部</td>
+</tr>
+<tr>
+<td>width</td>
+<td>NSLayoutAttributeWidth</td>
+<td>宽</td>
+</tr>
+<tr>
+<td>height</td>
+<td>NSLayoutAttributeHeight</td>
+<td>高</td>
+</tr>
+<tr>
+<td>centerX</td>
+<td>NSLayoutAttributeCenterX</td>
+<td>横向中点</td>
+</tr>
+<tr>
+<td>centerY</td>
+<td>NSLayoutAttributeCenterY</td>
+<td>纵向中点</td>
+</tr>
+<tr>
+<td>baseline</td>
+<td>NSLayoutAttributeBaseline</td>
+<td>文本基线</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>对中文来说 left = mas_left = leading<br>left、right 不能与 leading、trailing混用</p>
+</blockquote>
+<p>我们先看一个简单的例子<br>设置一个view居中，宽高一样，宽比父视图少50。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">// 创建一个子视图，不需要添加frame</div><div class="line">UIView * subView = [UIView new];</div><div class="line">subView.backgroundColor = [UIColor purpleColor];</div><div class="line">// 添加约束前一定要先加入到父视图</div><div class="line">[self.view addSubview:subView];</div><div class="line"></div><div class="line">[subView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">    // 中心对齐</div><div class="line">    make.center.equalTo(self.view);</div><div class="line">    // 宽、高等于父视图的宽-50</div><div class="line">    make.width.and.height.mas_equalTo(self.view.mas_width).offset(-50);</div><div class="line">    // 设置size</div><div class="line">    //make.size.mas_equalTo(CGSizeMake(100, 200));</div><div class="line">&#125;];</div></pre></td></tr></table></figure></p>
+<p>各种约束的使用说明在github上已经有详细的说明，这是不多做说明，以下是对Masonry的三个方法的说明<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">- (NSArray *)mas_makeConstraints:(void(^)(MASConstraintMaker *make))block;</div><div class="line">- (NSArray *)mas_updateConstraints:(void(^)(MASConstraintMaker *make))block;</div><div class="line">- (NSArray *)mas_remakeConstraints:(void(^)(MASConstraintMaker *make))block;</div><div class="line"></div><div class="line">/*</div><div class="line">    mas_makeConstraints 只负责新增约束 Autolayout不能同时存在两条针对于同一对象的约束 否则会报错 </div><div class="line">    mas_updateConstraints 针对上面的情况 会更新在block中出现的约束 不会导致出现两个相同约束的情况</div><div class="line">    mas_remakeConstraints 则会清除之前的所有约束 仅保留最新的约束</div><div class="line">    </div><div class="line">    三种函数善加利用 就可以应对各种情况了</div><div class="line">*/</div></pre></td></tr></table></figure></p>
+<p> equalTo 和 mas_equalTo的区别如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#define mas_equalTo(...)                 equalTo(MASBoxValue((__VA_ARGS__)))</div><div class="line">#define mas_greaterThanOrEqualTo(...)    greaterThanOrEqualTo(MASBoxValue((__VA_ARGS__)))</div><div class="line">#define mas_lessThanOrEqualTo(...)       lessThanOrEqualTo(MASBoxValue((__VA_ARGS__)))</div><div class="line"></div><div class="line">#define mas_offset(...)                  valueOffset(MASBoxValue((__VA_ARGS__)))</div></pre></td></tr></table></figure></p>
+<p>可以看到 mas_equalTo只是对其参数进行了一个BOX操作(装箱)<br>所支持的类型 除了NSNumber支持的那些数值类型之外 就只支持<code>CGPoint</code> <code>CGSize</code> <code>UIEdgeInsets</code></p>
+<h2 id="三、课程作业"><a href="#三、课程作业" class="headerlink" title="三、课程作业"></a><strong>三、课程作业</strong></h2><blockquote>
+<ul>
+<li>1.用StoryBoard或者IB完成上面示例的登录界面</li>
+<li>2.用masnory完成示例的登录界面</li>
+</ul>
+</blockquote>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/01/25/UI/第五章 自动布局/" class="archive-article-date">
+  	<time datetime="2016-01-25T07:08:32.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-01-25</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UI/">UI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/01/26/UI/第六章 Interface Builder/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Interface Builder
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/01/24/UI/第四章UITouch和手势/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS应用概述</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 John Doe
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接1</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接2</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接3</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接4</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接5</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接6</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

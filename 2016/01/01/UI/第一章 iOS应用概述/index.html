@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>iOS应用概述 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="第一章 iOS应用概述学习目标
+了解什么叫iOS、由什么组成、应用于什么设备。
+了解和使用iOS的开发工具Xcode。
+创建并运行第一个iOS的项目。
+  在这个章节，我们将学习有关iOS系统的相关知识，让读者对iOS系统有个了解。为后面的章节的学习奠定良好的基础和兴趣。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS应用概述">
+<meta property="og:url" content="http://yoursite.com/2016/01/01/UI/第一章 iOS应用概述/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第一章 iOS应用概述学习目标
+了解什么叫iOS、由什么组成、应用于什么设备。
+了解和使用iOS的开发工具Xcode。
+创建并运行第一个iOS的项目。
+  在这个章节，我们将学习有关iOS系统的相关知识，让读者对iOS系统有个了解。为后面的章节的学习奠定良好的基础和兴趣。">
+<meta property="og:image" content="http://static.zybuluo.com/whunfios/ldp7j0921b7w5yzyse0qq3oz/1333191260_7445.png">
+<meta property="og:image" content="http://static.zybuluo.com/whunfios/8rv58u9ub46189vggaeq37ji/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-05-20%20%E4%B8%8A%E5%8D%889.25.22.png">
+<meta property="og:image" content="http://static.zybuluo.com/whunfios/r6gd7mxmse1prn6il3qiropt/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-05-20%20%E4%B8%8A%E5%8D%889.26.33.png">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/07ff47jcw95yfcqudnyjp7jt/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-01-26%20%E4%B8%8A%E5%8D%8810.51.36.png">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/m8g316c3uw6lcej911ndvkvk/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-01-26%20%E4%B8%8A%E5%8D%8811.01.33.png">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/0aeecfjjxor77g2reqhcjs0q/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-01-26%20%E4%B8%8A%E5%8D%8811.04.51.png">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/36e50x981p3o7dhwmcgj8u3n/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-01-26%20%E4%B8%8A%E5%8D%8811.13.43.png">
+<meta property="og:image" content="http://static.zybuluo.com/whunfios/7bx19rhg1mb8zfecs7lltykg/xcode.jpeg">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/q8v2crkw87rz5z2kj3j0aijz/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-01-26%20%E4%B8%8A%E5%8D%8811.25.47.png">
+<meta property="og:image" content="http://static.zybuluo.com/whunfios/kjk4yp6a1l6xyo355eelynm6/Xcode01.gif">
+<meta property="og:image" content="http://static.zybuluo.com/whunfios/shexjcbfchptlfljddqf0ykk/xcode3.png">
+<meta property="og:image" content="http://static.zybuluo.com/whunfios/i0s8k5ykj5lgvfkkxg4hka88/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-05-16%20%E4%B8%8B%E5%8D%888.25.02.png">
+<meta property="og:image" content="http://static.zybuluo.com/whunfios/j9idhxkqd5aevl8rsnwz8nzb/ipad.png">
+<meta property="og:image" content="http://static.zybuluo.com/whunfios/gnmvdhy73dp52svv21xtyzly/ios.jpg">
+<meta property="og:image" content="http://static.zybuluo.com/whunfios/7nwwamkrrlrj6cqokkvum7jc/image_1aj62d5u8h4c1os9151614aqvus16.png">
+<meta property="og:image" content="http://static.zybuluo.com/whunfios/mohf6vwunw1jco361sj0ykmr/Resolutions.jpg">
+<meta property="og:image" content="http://static.zybuluo.com/whunfios/rzv17j8u1ybboy5r374oc8ej/Design-iPhone.jpg">
+<meta property="og:image" content="http://static.zybuluo.com/whunfios/n12kkixqzi2d7xe5c251w0of/Design-iPad.jpg">
+<meta property="og:image" content="http://static.zybuluo.com/whunfios/fgxbqzfn7id1gel8wxsbvuo1/Design-SlideOver.jpg">
+<meta property="og:image" content="http://static.zybuluo.com/whunfios/9l5bujyd4pf3n5ih0xn6qo3j/Design-SplitView.jpg">
+<meta property="og:image" content="http://static.zybuluo.com/whunfios/7eorkn56lsawx0405auhxs06/Design-AppIconsRes.jpg">
+<meta property="og:image" content="http://static.zybuluo.com/whunfios/wcegtq7hp2y1le7s4jnoe3df/Design-AppIconsRes.jpg">
+<meta property="og:updated_time" content="2016-09-15T15:29:43.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS应用概述">
+<meta name="twitter:description" content="第一章 iOS应用概述学习目标
+了解什么叫iOS、由什么组成、应用于什么设备。
+了解和使用iOS的开发工具Xcode。
+创建并运行第一个iOS的项目。
+  在这个章节，我们将学习有关iOS系统的相关知识，让读者对iOS系统有个了解。为后面的章节的学习奠定良好的基础和兴趣。">
+<meta name="twitter:image" content="http://static.zybuluo.com/whunfios/ldp7j0921b7w5yzyse0qq3oz/1333191260_7445.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <script src="/style.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">John Doe</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">John Doe</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="null" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">John Doe</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-UI/第一章 iOS应用概述" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iOS应用概述
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="第一章-iOS应用概述"><a href="#第一章-iOS应用概述" class="headerlink" title="第一章 iOS应用概述"></a>第一章 iOS应用概述</h1><h2 id="学习目标"><a href="#学习目标" class="headerlink" title="学习目标"></a>学习目标</h2><ul>
+<li>了解什么叫iOS、由什么组成、应用于什么设备。</li>
+<li>了解和使用iOS的开发工具Xcode。</li>
+<li><p>创建并运行第一个iOS的项目。</p>
+<p>  在这个章节，我们将学习有关iOS系统的相关知识，让读者对iOS系统有个了解。为后面的章节的学习奠定良好的基础和兴趣。</p>
+</li>
+</ul>
+<a id="more"></a>
+<h2 id="1-iOS介绍"><a href="#1-iOS介绍" class="headerlink" title="1. iOS介绍"></a>1. iOS介绍</h2><h3 id="1-1-iOS简介"><a href="#1-1-iOS简介" class="headerlink" title="1.1 iOS简介"></a>1.1 iOS简介</h3><p>iOS（原名：iPhone OS）是由苹果公司开发的移动操作系统  。最初是设计给iPhone使用的，后来陆续套用到iPod touch、iPad以及Apple TV等产品上。iOS与苹果的Mac OS X操作系统一样，属于类Unix的商业操作系统。原本这个系统名为iPhone OS，因为iPad，iPhone，iPod touch都使用iPhone OS，所以2010WWDC大会上宣布改名为iOS。</p>
+<p>历史重要版本更新如下：</p>
+<ul>
+<li>2007年1月9日苹果公司在Macworld展览会上公布，随后于同年的6月发布第一版iOS操作系统，最初的名称为“iPhone Runs OS X”。</li>
+<li>2007年10月17日，苹果公司发布了第一个本地化iPhone应用程序开发包（SDK），并且计划在2月发送到每个开发者以及开发商手中。</li>
+<li>2008年3月6日，苹果发布了第一个测试版开发包，并且将“iPhone runs OS X”改名为“iPhone OS”。</li>
+<li>2008年9月，苹果公司将iPod touch的系统也换成了”iPhone OS“。</li>
+<li>2010年2月27日，苹果公司发布iPad，iPad同样搭载了”iPhone OS”。这年，苹果公司重新设计了“iPhone OS”的系统结构和自带程序。</li>
+<li>2010年6月，苹果公司将“iPhone OS”改名为“iOS”，同时还获得了思科iOS的名称授权。</li>
+<li>2012年6月，苹果公司在WWDC 2012上宣布了iOS 6，提供了超过 200 项新功能。</li>
+<li>2013年6月10日，苹果公司在WWDC 2013上发布了iOS 7，几乎重绘了所有的系统APP，去掉了所有的仿实物化，整体设计风格转为扁平化设计。将于2013年秋正式开放下载更新。 </li>
+<li>2014年6月3日（西八区时间2014年6月2日），苹果公司在WWDC 2014上发布了iOS 8，并提供了开发者预览版更新。</li>
+<li>2015年4月15日，苹果于2015年6月8日至12日，在旧金山芳草地艺术中心举行第26届年度全球开发者大会(WWDC)。苹果一口气发布了iOS 9、OS X和Watch OS 2三大系统的更新。</li>
+</ul>
+<blockquote>
+<ul>
+<li>目前iOS的生态圈相当成熟，大量的事实证明：只要有创意+技术，不管是开发者还是公司团队都能获得相当可观的利润。</li>
+<li>Apple公司一年会有几次发布会：春季发布会主要发布产品更新、年中的WWDC主要是发布新的系统、秋季的发布会一般会发布新的硬件产品。在这里推荐大家关注WWDC，在这个发布会上，Apple公司会有专门的讲座来讲解新的技术。目前距离WWDC2016 还有一个月，WWDC2015早已经有中文字幕。</li>
+</ul>
+</blockquote>
+<h3 id="1-2-iOS框架构成"><a href="#1-2-iOS框架构成" class="headerlink" title="1.2 iOS框架构成"></a>1.2 iOS框架构成</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;  不少人还记得当初iPhone4的辉煌，除了超一流的硬件外，iOS UI的精致，系统运行稳定和流畅也是功不可没。那我接下来就来看看iOS的框架构成。</p>
+<p><img src="http://static.zybuluo.com/whunfios/ldp7j0921b7w5yzyse0qq3oz/1333191260_7445.png" alt="1333191260_7445.png-156.2kB"></p>
+<p> &nbsp;&nbsp;&nbsp;&nbsp;  iOS的系统架构分为四个层次：核心操作系统层（Core OS layer）、核心服务层（Core Services layer）、媒体层（Media layer）和可触摸层（Cocoa Touch layer）。</p>
+<ul>
+<li>1.Core OS层—–包含核心部分、文件系统、网络基础、安全特性、能量管理和一些设备驱动，还有一些系统级别的API。</li>
+<li>2.Core Services层—-提供核心服务，例如字符串处理函数、集合管理、网络管理、URL处理工具、联系人维护、偏好设置等。</li>
+<li>3.Media层—-该层框架和服务依赖Core Services层，向Cocoa Touch层提供画图和多媒体服务，如声音、图片、视频等。</li>
+<li>4.Cocoa Touch层—-该框架基于 iPhone OS应用层直接调用层，如触摸事件、照相机管理等，包该层含UIKit框架和Foundation框架。</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;  在Cocoa Touch层中的很多技术都是基于Objective-C语言的。Objective-C语言为iOS提供了像集合、文件管理、网络操作等支持。像UIKit框架，它为应用程序提供了各种可视化组件，比如像窗口（Window）、视图（View）和按钮组件（UIButton）。Cocoa Touch层中的其他框架，对我们在应用程序中的开发来说也是非常有用的，如访问用户通信录功能框架、获取照片信息功能的框架、负责加速感应器和三维陀螺仪等硬件支持的框架。</li>
+</ul>
+<h3 id="1-3-iOS设备"><a href="#1-3-iOS设备" class="headerlink" title="1.3 iOS设备"></a>1.3 iOS设备</h3><h3 id="1-4-iOS的最新功能"><a href="#1-4-iOS的最新功能" class="headerlink" title="1.4 iOS的最新功能"></a>1.4 iOS的最新功能</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>iOS 9 for iPhone</strong></p>
+<ul>
+<li><strong>更强的Siri</strong>  ：每周收到10亿条指令的Siri，在识别的速度和准确率上都提高了40%，Siri的功能也得到了丰富，可以用来查找图片、视频，也能让它提醒你看完网页上的文章。</li>
+<li><strong>更智能的推送</strong>  ：为了体现智能，当iPhone连接耳机或汽车时，会有主动推送音乐的功能。在日历中添加的事件若有地址信息，将会提醒出发时间。根据用户的行为习惯，打开通知栏，会在不同时间推送相应的APP和信息。</li>
+<li><strong>更强大的搜索功能</strong>  ：搜索功能增强，可搜索赛事日程、netflix 影片、app 内信息等更多内容。</li>
+<li><strong>关联起来的信息</strong> ：日历和邮件必须单说，日历会自动记录在邮件中收到的邀请函，并作出提醒。添加事件时若有地址信息，会提醒出发时间。有陌生电话打来，通过邮件的判断，会将来电人信息迅速显示在号码下方。</li>
+<li><strong>ApplePay</strong> ：与Apple Pay合作的银行和商铺越来越多，不少中国银行和商品已经支持Apple Pay。Apple Pay能收集银行卡、积分卡、交通卡、商户卡，因此，Passbook正式更名为Wallet。</li>
+<li><strong>备忘录升级</strong> ：自带的备忘录可以画图，核查清单，添加网页内容和APP内容。</li>
+<li><strong>NEWS</strong> ：iOS 9的压轴大戏是一个全新的APP——NEWS。根据个人喜好，高度定制新闻源，其中有超过 100 万的话题可供选择，用户界面也做得非常精致。最煞风景的是仅支持美国、澳大利亚和英国。</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>iOS 9 for iPad</strong></p>
+<ul>
+<li><strong>输入更方便了</strong>  ：QuickType在单词联想和快捷键使用两方面，为iPad的输入提供了便利。</li>
+<li><strong>更好的交互动画</strong>  ：重新设计了APP之间切换时的交互动画。</li>
+<li><strong>加入分屏功能</strong>  ：slideOver 功能让你在不离开当前 app 的同时就能打开第二个 app。Split View 功能，两个 app 能在同一屏幕上，同时开启、并行运作。Picture in Picture （画中画）功能可以缩小视频的尺寸，让你在回邮件的同时还能看视频节目。重点是，三者都将对开发者开放API。</li>
+<li><p><strong>性能优化提升</strong> ：利用Metal的技术优势，升级至iOS 9的苹果设备在性能和电池寿命上都会得到提升。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;最后 最令人兴奋的是苹果公司宣布Swift开源。</p>
+</li>
+</ul>
+<h2 id="2-第一个项目"><a href="#2-第一个项目" class="headerlink" title="2. 第一个项目"></a>2. 第一个项目</h2><h3 id="2-1-下载和安装Xcode"><a href="#2-1-下载和安装Xcode" class="headerlink" title="2.1 下载和安装Xcode"></a>2.1 下载和安装Xcode</h3><p> &nbsp;&nbsp;&nbsp;&nbsp;iOS开发需要的环境是一台运性MAC OSX系统的电脑如苹果公司计算机iMac、MacBook、Mac Mini等。软件方面需要在AppStore或者<a href="https://developer.apple.com/xcode/download/" target="_blank" rel="external">官方网站</a>下载Xcode。</p>
+<p> <img src="http://static.zybuluo.com/whunfios/8rv58u9ub46189vggaeq37ji/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-05-20%20%E4%B8%8A%E5%8D%889.25.22.png" alt="屏幕快照 2016-05-20 上午9.25.22.png-103.2kB"></p>
+<p> <img src="http://static.zybuluo.com/whunfios/r6gd7mxmse1prn6il3qiropt/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-05-20%20%E4%B8%8A%E5%8D%889.26.33.png" alt="屏幕快照 2016-05-20 上午9.26.33.png-238.6kB"></p>
+<p> &nbsp;&nbsp;&nbsp;&nbsp;在你的Mac上安装好Xcode之后，你已经可以进行iOS的开发学习了，但是你仍需要申请一个开发者账号，以便在真机上开发调试应用。</p>
+<p>苹果对开发者主要分为3类：个人、组织（公司、企业）、教育机构。即：<br>1、个人（Individual）<br>2、组织（Organizations）<br>组织类又分为2个小类：<br>（1）公司（Company）<br>（2）企业（Enterprise）<br>3、教育机构（Educational Institutions）<br>更多内容介绍，请看苹果官方说明：Choosing a Membership</p>
+<p>我们经常最关注的是个人、公司、企业这3类，公司和企业都属于“组织”大类，下面对这3个做下简单对比：<br>1、个人（Individual）：<br>（1）费用：99美元一年<br>（2）App Store上架：是<br>（3）最大uuid支持数：100<br>（4）协作人数：1人（开发者自己）<br>说明：“个人”开发者可以申请升级“公司”，可以通过拨打苹果公司客服电话（400 6701 855）来咨询和办理。</p>
+<p>2、公司（Company）：<br>（1）费用：99美元一年<br>（2）App Store上架：是<br>（3）最大uuid支持数：100<br>（4）协作人数：多人<br>允许多个开发者进行协作开发，比个人多一些帐号管理的设置，可设置多个Apple ID，分4种管理级别的权限。<br>说明：申请时需要填写公司的邓白氏编码（DUNS Number）。</p>
+<p>3、企业 （Enterprise）<br>（1）费用：299美元一年<br>（2）App Store上架：否<br>即该账号开发应用不能发布到App Store，只能企业内部应用。<br>（3）最大uuid支持数：不限制<br>（4）协作人数：多人<br>费用：299美元一年<br>说明：需要注意的是，企业账号开发的应用不能上线App Store，适合那些不希望公开发布应用的企业。同样，申请时也需要公司的邓白氏编码（DUNS Number）。</p>
+<blockquote>
+<p>好消息是：在Xcode7发布后个人免费账号也可以进行真机调试了。但如果要上架App还是需要付费的个人账号。</p>
+</blockquote>
+<h3 id="2-2-创建第一个iOS项目"><a href="#2-2-创建第一个iOS项目" class="headerlink" title="2.2  创建第一个iOS项目"></a>2.2  创建第一个iOS项目</h3><p>打开Xcode应用 <img src="http://static.zybuluo.com/zhuoming/07ff47jcw95yfcqudnyjp7jt/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-01-26%20%E4%B8%8A%E5%8D%8810.51.36.png" alt="屏幕快照 2016-01-26 上午10.51.36.png-13.4kB"></p>
+<p>我们可以看到以下界面</p>
+<p><img src="http://static.zybuluo.com/zhuoming/m8g316c3uw6lcej911ndvkvk/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-01-26%20%E4%B8%8A%E5%8D%8811.01.33.png" alt="屏幕快照 2016-01-26 上午11.01.33.png-79kB"></p>
+<p>点击新建一个Xcode项目</p>
+<p><img src="http://static.zybuluo.com/zhuoming/0aeecfjjxor77g2reqhcjs0q/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-01-26%20%E4%B8%8A%E5%8D%8811.04.51.png" alt="屏幕快照 2016-01-26 上午11.04.51.png-66.3kB"></p>
+<p>添加项目信息</p>
+<p><img src="http://static.zybuluo.com/zhuoming/36e50x981p3o7dhwmcgj8u3n/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-01-26%20%E4%B8%8A%E5%8D%8811.13.43.png" alt="屏幕快照 2016-01-26 上午11.13.43.png-59.1kB"></p>
+<p>按下next 并选择项目存放目录后我们的第一个UI项目工程就创建完成了。</p>
+<h3 id="2-3-Xcode介绍"><a href="#2-3-Xcode介绍" class="headerlink" title="2.3 Xcode介绍"></a>2.3 Xcode介绍</h3><p> &nbsp;&nbsp;&nbsp;&nbsp; 本节主要对Xcode的面板、常用配置和快捷操作进行介绍。<br> <img src="http://static.zybuluo.com/whunfios/7bx19rhg1mb8zfecs7lltykg/xcode.jpeg" alt="xcode.jpeg-207kB"></p>
+<h3 id="2-4-使用InterfaceBuilder搭建界面"><a href="#2-4-使用InterfaceBuilder搭建界面" class="headerlink" title="2.4 使用InterfaceBuilder搭建界面"></a>2.4 使用InterfaceBuilder搭建界面</h3><p>至此，我们学会了如何创建一个Xcode项目，并通过StoryBoard 添加简单的UILabel控件。</p>
+<p><img src="http://static.zybuluo.com/zhuoming/q8v2crkw87rz5z2kj3j0aijz/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-01-26%20%E4%B8%8A%E5%8D%8811.25.47.png" alt="屏幕快照 2016-01-26 上午11.25.47.png-178kB"></p>
+<p><img src="http://static.zybuluo.com/whunfios/kjk4yp6a1l6xyo355eelynm6/Xcode01.gif" alt="Xcode01.gif-512.5kB"></p>
+<h3 id="2-5-运行到模拟器"><a href="#2-5-运行到模拟器" class="headerlink" title="2.5 运行到模拟器"></a>2.5 运行到模拟器</h3><p>选择4英寸的iPhone5s模拟器，运行得到的结果如下</p>
+<p><img src="http://static.zybuluo.com/whunfios/shexjcbfchptlfljddqf0ykk/xcode3.png" alt="xcode3.png-13.9kB"></p>
+<h2 id="3-iOS系统知识补充"><a href="#3-iOS系统知识补充" class="headerlink" title="3. iOS系统知识补充"></a>3. iOS系统知识补充</h2><h3 id="3-1-iOS设备介绍"><a href="#3-1-iOS设备介绍" class="headerlink" title="3.1 iOS设备介绍"></a>3.1 iOS设备介绍</h3><p>上面提到iOS只能运行在Apple自家的硬件上，主要为iPhone和iPad。下面来介绍iPhone与iPad的历史和现状。<br><strong>iPhone</strong> </p>
+<ul>
+<li>2007年1月9日，乔布斯在旧金山马士孔尼会展中心的苹果公司全球软件开发者年会2007中透露推出第一代iPhone。</li>
+<li>2008年7月11日，iPhone 3G正式发售。</li>
+<li>2009年6月19日，苹果发布了iPhone 3GS。</li>
+<li>2010年6月7 日，苹果发布了iPhone 4，并将iPhone4称为自第一代iPhone以来最大的飞跃。</li>
+<li>2011年10月4日，苹果发布了第五代iPhone，即iPhone 4S。这款手机采用了iOS 5系统，并与Twitter进行了整合。此外，iOS 5系统中还推出了语音助手Siri。同年乔布斯去世。</li>
+<li>2012年9月，苹果发布了iPhone 5，这款手机的屏幕尺寸增加至4英寸。iPhone5引入了iOS 6系统。</li>
+<li>2013年9月10日，苹果公司推出两款新iPhone型号：iPhone 5C及iPhone 5S。</li>
+<li>2014年9月10日凌晨1点，苹果公司正式发布其新一代产品iPhone 6/iPhone 6 Plus。</li>
+<li>2015年9月10日，美国苹果公司发布了iPhone 6s和iPhone 6s Plus。</li>
+<li>2016年3月21日22时，iPhone SE正式发布。</li>
+</ul>
+<p><img src="http://static.zybuluo.com/whunfios/i0s8k5ykj5lgvfkkxg4hka88/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-05-16%20%E4%B8%8B%E5%8D%888.25.02.png" alt="屏幕快照 2016-05-16 下午8.25.02.png-181.4kB"></p>
+<p><strong>iPad</strong></p>
+<ul>
+<li>2010年1月27日，苹果公司在美国旧金山欧巴布也那艺术中心（美国芳草地艺术中心）发布会第一代<strong>iPad</strong></li>
+<li>2011年3月3日，<strong>iPad2</strong>发布。</li>
+<li>2012年3月8日，苹果公司在美国芳草地艺术中心发布第三代iPad–<strong>The new iPad</strong></li>
+<li>2012年10月24日，苹果公司举行新品发布会发布第四代iPad平板电脑–<strong>iPad with Retina display</strong>，发布首部设有7.9寸屏幕、并为体型最轻巧便携的<strong>iPad Mini</strong></li>
+<li>2013年10月23日，苹果公司发布了更轻、更薄的<strong>iPad Air</strong>，同时发布了配备Retina屏幕的<strong>iPad mini2</strong></li>
+<li>2014年10月17日，苹果在美国加州库比蒂诺总部Infinite Loop园区的Town Hall大会堂如期召开了新品发布会发布了<strong>iPad Air 2</strong> 和<strong>iPad mini 3</strong>。</li>
+<li>2015年9月10日，苹果公司在美国旧金山比尔格拉汉姆公民大礼堂(Bill Graham Civic Auditorium)召开新品发布会，发布<strong>iPad Pro</strong> 和 <strong>iPad mini 4</strong>。<br><img src="http://static.zybuluo.com/whunfios/j9idhxkqd5aevl8rsnwz8nzb/ipad.png" alt="ipad.png-53.1kB"></li>
+</ul>
+<p>不同设备的尺寸图如下<br><img src="http://static.zybuluo.com/whunfios/gnmvdhy73dp52svv21xtyzly/ios.jpg" alt="ios.jpg-222.1kB"></p>
+<h3 id="3-2-iOS资源文件说明"><a href="#3-2-iOS资源文件说明" class="headerlink" title="3.2 iOS资源文件说明"></a>3.2 iOS资源文件说明</h3><p> &nbsp;&nbsp;&nbsp;&nbsp; 在上面我们了解了各种iOS设备的尺寸后，我们来了解iOS的UI设计规范。下面是iOS默认系统的截图</p>
+<p><img src="http://static.zybuluo.com/whunfios/7nwwamkrrlrj6cqokkvum7jc/image_1aj62d5u8h4c1os9151614aqvus16.png" alt="iOS设计规范"></p>
+<ul>
+<li>Pt和Px<br>　　第一次推出iPhone时，这两个单位都是一样：1pt等于1px。然后当视网膜屏到来，1pt成为2px。因此现在正确算法是iPhone4,5,6=@2x, iPhone6Plus=@3x。<br><img src="http://static.zybuluo.com/whunfios/mohf6vwunw1jco361sj0ykmr/Resolutions.jpg" alt="Resolutions.jpg-113.6kB"><br>　　<br>iPhone分辨率<br>　　iPhone有4个主要的分辨率：320x480pt（4）、320x568pt（5）、375x667pt（6）、414x736pt（6P）布局不是整体缩放，而是扩大的基础上的分辨率。例如，导航栏只调整宽度，但保持相同的高度。它里面的元素保持不变。</li>
+</ul>
+<p><img src="http://static.zybuluo.com/whunfios/rzv17j8u1ybboy5r374oc8ej/Design-iPhone.jpg" alt="Design-iPhone.jpg-245.2kB"><br>　　<br>　　iPhone6Plus的横向模式是唯一像iPad的iPhone。换句话说，左导航将会出现，更换标签栏的布局。<br>　　iPad分辨率<br>　　而iPad有两个主要分辨率：768×1024pt（iPad），1024×1366pt（iPad Pro）<br>　　<img src="http://static.zybuluo.com/whunfios/n12kkixqzi2d7xe5c251w0of/Design-iPad.jpg" alt="Design-iPad.jpg-197.8kB"><br>　　<br>　　iPad 2的新功能：Slide Over、Split View。，Slide Over可以从侧边调用出另外一个应用，同时在屏幕上展示。<br>　　<br>　　<img src="http://static.zybuluo.com/whunfios/fgxbqzfn7id1gel8wxsbvuo1/Design-SlideOver.jpg" alt="Design-SlideOver.jpg-73.3kB"><br>　　<br>　　Split View：一个屏幕，做两件事！你终于可以在一个屏幕上同时打开两个应用，一边处理表格一边编辑文档；一边浏览网页一边刷朋友圈；<br>　　<img src="http://static.zybuluo.com/whunfios/9l5bujyd4pf3n5ih0xn6qo3j/Design-SplitView.jpg" alt="Design-SplitView.jpg-65.6kB"><br>　　<br>　　APP图标<br>　　图标是用户看到您的APP第一件事。它会出现在主屏幕上，App Store商店中, spotlight搜索和设置里。<br>　　<br>　　<img src="http://static.zybuluo.com/whunfios/7eorkn56lsawx0405auhxs06/Design-AppIconsRes.jpg" alt="Design-AppIconsRes.jpg-231.6kB"><br>　　<br>　　iPhone不再支持@1x，所以你不必生成它。APP图标现在只需要使用：@2x、@3x。有3种类型：应用程序图标，Spotlight搜索和设置。而iPad使用：@1x、@2x。更多细节参考<a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/IconMatrix.html#//apple_ref/doc/uid/TP40006556-CH27-SW1" target="_blank" rel="external">官方文档</a><br>　　<br>　　<img src="http://static.zybuluo.com/whunfios/wcegtq7hp2y1le7s4jnoe3df/Design-AppIconsRes.jpg" alt="Design-AppIconsRes.jpg-231.6kB"></p>
+<h3 id="3-3-iOS开发语言介绍"><a href="#3-3-iOS开发语言介绍" class="headerlink" title="3.3 iOS开发语言介绍"></a>3.3 iOS开发语言介绍</h3><p>目前开发iOS主要有两种言语：Objective-C 和 Swift。就目前行业现状来说只有小部分的公司完全用Swift开发，大部分公司仍然在使用Objective-C，但是可以预见的未来是Swift将会成为主流。需要注意的是：这并不意味着我们不用学习Objective-C，学会Objective-C后你将很容易的掌握Swift,并且相对现在还不完善的Swift，Objective-C更成熟更完善。<br>&nbsp;&nbsp;&nbsp;&nbsp;Swift是一种适用于iOS和OS X应用的全新编程语言，它建立在最好的C和Objective-C语言之上，并且没有C语言的兼容性限制。Swift采用安全的编程模式，增加了现代功能使编程更容易、更灵活、更有趣。Swift以成熟且备受宠爱的Cocoa和Cocoa Touch框架为支撑，这是一个重新构想软件开发的机会。<br>&nbsp;&nbsp;&nbsp;&nbsp;Swift经过了数年的酝酿，Apple通过改进现有的编译器、调试器和框架结构奠定了Swift的基础，并通过Automatic Reference Counting（ARC）简化了内存管理。Swift的framework stack建立在坚实的Foundation和Cocoa基础之上，实现了现代化和彻底标准化。Objective-C本身已经逐步发展到到支持blocks、 collection literals和modules，使框架不间断地采用现代语言技术。基于这个基础，我们可以为今后的Apple软件开发引入一种新语言。<br> &nbsp;&nbsp;&nbsp;&nbsp;对Objective-C开发者来说，Swift看起来会很熟悉。它具有Objective-C命名参数的易读性和动态对象模型的强大之处，提供了无缝接入现有Cocoa框架和与Objective-C混编的能力。基于这个共同点，Swift引入了许多新的特性、统一的程序和面向对象的语言部分</p>
+<h2 id="课程作业"><a href="#课程作业" class="headerlink" title="课程作业"></a>课程作业</h2><blockquote>
+<p>1、创建一个工程，公司名为 <strong>新研科技公司</strong>（用<strong>whunf</strong>代替），项目名自定义，然后在StoryBoard里面拖拽不同label等控件，最后运行到模拟器上。</p>
+</blockquote>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/01/01/UI/第一章 iOS应用概述/" class="archive-article-date">
+  	<time datetime="2016-01-01T07:08:32.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-01-01</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UI/">UI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/01/02/UI/第二章 UI控件 -- 01.UIView/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          01.UIView
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 John Doe
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接1</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接2</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接3</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接4</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接5</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接6</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

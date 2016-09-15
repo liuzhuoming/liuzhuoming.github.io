@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>15.UIViewController | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="第二章UI控件 – 15.UIViewController标签（空格分隔）： UI
+一、学习目标
+UIViewController介绍
+UIViewController的创建
+UIViewController的生命周期
+多个UIViewController切换">
+<meta property="og:type" content="article">
+<meta property="og:title" content="15.UIViewController">
+<meta property="og:url" content="http://yoursite.com/2016/01/16/UI/第二章UI控件 -- 15.UIViewController/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第二章UI控件 – 15.UIViewController标签（空格分隔）： UI
+一、学习目标
+UIViewController介绍
+UIViewController的创建
+UIViewController的生命周期
+多个UIViewController切换">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/xhqoo6vvpr6dxr5wbo23ud58/2013120612.png">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/7yp6ni3vfqh74n1yb6s4nagu/1366022316_4937.png">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/f7jhd5deamb2n2llxthz4d1b/%E9%A1%B5%E9%9D%A2%E8%B7%B3%E8%BD%AC.gif">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/xqc08uph5hxwjadyhj5uighu/575661-20151204113013143-898015979.jpg">
+<meta property="og:image" content="http://static.zybuluo.com/whunfios/gnnr8g91duppxjbmpyfnlflu/image_1alenbhgvj4l1lccpd614k216uj9.png">
+<meta property="og:image" content="http://static.zybuluo.com/whunfios/2jtglxow3cvhw6shwqb8cquy/image_1alenc72dt9915vj8ojrfn6hmm.png">
+<meta property="og:image" content="http://static.zybuluo.com/whunfios/s2dp18ws7wkq9wl583chhpgv/image_1alencnvkovo8krn0r1voucl813.png">
+<meta property="og:updated_time" content="2016-09-15T15:28:51.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="15.UIViewController">
+<meta name="twitter:description" content="第二章UI控件 – 15.UIViewController标签（空格分隔）： UI
+一、学习目标
+UIViewController介绍
+UIViewController的创建
+UIViewController的生命周期
+多个UIViewController切换">
+<meta name="twitter:image" content="http://static.zybuluo.com/zhuoming/xhqoo6vvpr6dxr5wbo23ud58/2013120612.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <script src="/style.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">John Doe</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">John Doe</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="null" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">John Doe</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-UI/第二章UI控件 -- 15.UIViewController" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      15.UIViewController
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="第二章UI控件-–-15-UIViewController"><a href="#第二章UI控件-–-15-UIViewController" class="headerlink" title="第二章UI控件 – 15.UIViewController"></a>第二章UI控件 – 15.UIViewController</h1><p>标签（空格分隔）： UI</p>
+<h2 id="一、学习目标"><a href="#一、学习目标" class="headerlink" title="一、学习目标"></a><strong>一、学习目标</strong></h2><ul>
+<li>UIViewController介绍</li>
+<li>UIViewController的创建</li>
+<li>UIViewController的生命周期</li>
+<li>多个UIViewController切换</li>
+</ul>
+<a id="more"></a>
+<h2 id="二、课程内容"><a href="#二、课程内容" class="headerlink" title="二、课程内容"></a><strong>二、课程内容</strong></h2><h3 id="1-UIViewController介绍"><a href="#1-UIViewController介绍" class="headerlink" title="1.UIViewController介绍"></a><strong>1.UIViewController介绍</strong></h3><p>  大部分的App都不止一个做多页面时候，UIViewController就是为了为此而存。就iOS开发来说，UIViewController就最核心的类型之一。而iOS的整个UI开发的核心思想也是MVC的架构，从UIViewController的命名就可以看出它在MVC中所扮演的角色，那就是其中的“C”–Controller。</p>
+<p><strong>MVC逻辑图</strong><br>  <img src="http://static.zybuluo.com/zhuoming/xhqoo6vvpr6dxr5wbo23ud58/2013120612.png" alt="2013120612.png-43.3kB"></p>
+<p><strong>UIWindow、UiView、UIViewController的关系如下图所示</strong></p>
+<p><img src="http://static.zybuluo.com/zhuoming/7yp6ni3vfqh74n1yb6s4nagu/1366022316_4937.png" alt="1366022316_4937.png-218.5kB"></p>
+<h3 id="2-UIViewController的创建"><a href="#2-UIViewController的创建" class="headerlink" title="2.UIViewController的创建"></a><strong>2.UIViewController的创建</strong></h3><p>在第一章我们手动创建了UIWindow外，还创建了一个UIViewController，并把他设置成了window的rootViewController,现在我们来详细了解这两行代码的作用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">UIViewController * vc = [UIViewController new];</div><div class="line">    self.window.rootViewController = vc;</div></pre></td></tr></table></figure>
+<p>UIViewController 有多种创建方式，以上是纯代码创建。它还可以通过xib、storyboard等方式创建（这两个后面的章节会详细讲解）。</p>
+<h3 id="3-UIViewController的生命周期"><a href="#3-UIViewController的生命周期" class="headerlink" title="3.UIViewController的生命周期"></a><strong>3.UIViewController的生命周期</strong></h3><p>我们在Objective-C的学习中知道一个对象的可以通过 <code>[[NSObject alloc] init]</code> 进行分配内存和初始化。而当对象销毁时系统会自动调用<code>[NSObject dealloc]</code>方法。而UIViewController的生命周期则具有更多的细节，当一个视图控制器被创建，并在屏幕上显示的时候。 代码的执行顺序</p>
+<blockquote>
+<p>1、 <strong>alloc</strong>  创建对象，分配空间<br>2、<strong>init (initWithNibName)</strong> 初始化对象，初始化数据,调用init时候self.view还没有分配空间<br>3、<strong>loadView</strong>  UIViewController自带了一个默认的View，我们自定义的UI控件通常添加到上面，从nib载入视图 ，通常这一步不需要去干涉。除非你没有使用xib文件创建视图<br>4、<strong>viewDidLoad</strong> 载入完成，可以进行自定义数据以及动态创建其他控件，在声明周期中只会执行一次。<br>5、<strong>viewWillAppear</strong> 视图将出现在屏幕之前，马上这个视图就会被展现在屏幕上了，每次将要出现都会执行，在这个函数中可以进行视图的刷新。<br>6、<strong>viewDidAppear</strong>    视图已在屏幕上渲染完成</p>
+</blockquote>
+<p>当一个视图被移除屏幕并且销毁的时候的执行顺序，这个顺序差不多和上面的相反</p>
+<blockquote>
+<p>1、<strong>viewWillDisappear</strong>  视图将被从屏幕上移除之前执行<br>2、<strong>viewDidDisappear</strong>   视图已经被从屏幕上移除，用户看不到这个视图了<br>3、<strong>dealloc</strong>   视图被销毁，此处需要对你在init和viewDidLoad中创建的对象进行释放</p>
+</blockquote>
+<p>通过对生命周期的了解，我们知道我们可以将UI控件的初始化函数放到<strong>viewDidLoad</strong>中，这样既不会多次实例化，而且在显示之前就初始化好了。</p>
+<h3 id="4-多个UIViewController切换"><a href="#4-多个UIViewController切换" class="headerlink" title="4.多个UIViewController切换"></a><strong>4.多个UIViewController切换</strong></h3><p>为了更好的理解UIViewController的生命周期，以及多个UIViewController切换，现在我们来学习其中一种名叫模态（modal）的方法。</p>
+<blockquote>
+<p>「 Talk is cheap. Show me the code 」</p>
+</blockquote>
+<ul>
+<li>1.新建两个UIViewController分别叫<strong>VC1</strong>和<strong>VC2</strong></li>
+<li><p>2.在AppDelegate中将VC1设置成window的rootViewController</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions &#123;</div><div class="line">    // 当前屏幕的尺寸</div><div class="line">    CGRect frame = [UIScreen mainScreen].bounds;</div><div class="line">    // 创建一个uiwindow</div><div class="line">    self.window = [[UIWindow alloc]initWithFrame:frame];</div><div class="line">    // 配置window的属性 背景色设置成紫色</div><div class="line">    self.window.backgroundColor = [UIColor purpleColor];</div><div class="line">    // 成为主窗口 并显示</div><div class="line">    [self.window makeKeyAndVisible];</div><div class="line">    // 创建一个VC1</div><div class="line">    VC1 * vc = [VC1 new];</div><div class="line">    // 将VC1的view 背景色设置成白色。大家试试不添加这一句会出现什么效果</div><div class="line">    vc.view.backgroundColor = [UIColor whiteColor];</div><div class="line">    self.window.rootViewController = vc;</div><div class="line">    return YES;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>3.在VC1中添加一个按钮，并给按钮添加事件用来跳转到VC2，请看代码示范。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"> VC2 * vc = [[VC2 alloc]init];</div><div class="line"> vc.view.backgroundColor = [UIColor yellowColor];</div><div class="line">// 通过modalTransitionStyle属性来设置不同的动画</div><div class="line">vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;</div><div class="line">[self presentViewController:vc   // 目标VC对象</div><div class="line">                   animated:YES  // 是否需要动画</div><div class="line">                 completion:^&#123;   // 跳转完成后的回调</div><div class="line">                     NSLog(@&quot;VC1跳转VC2完成&quot;);</div><div class="line">                              &#125;];</div></pre></td></tr></table></figure>
+</li>
+<li><p>4.在VC2中添加一个按钮，用来返回上一个界面。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[self dismissViewControllerAnimated:YES completion:^&#123;</div><div class="line">       NSLog(@&quot;返回完成的回调&quot;);</div><div class="line">   &#125;];</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>效果如下<br><img src="http://static.zybuluo.com/zhuoming/f7jhd5deamb2n2llxthz4d1b/%E9%A1%B5%E9%9D%A2%E8%B7%B3%E8%BD%AC.gif" alt="页面跳转.gif-183.1kB"></p>
+<h3 id="5-页面间的传值"><a href="#5-页面间的传值" class="headerlink" title="5.页面间的传值"></a><strong>5.页面间的传值</strong></h3><p>由于不同的UIViewController切换，不同页面间的传值必不可少，接下来我们来学习几种常用页面间的传值方式。我们知道不同的页面也是实例对象，那让我们回忆在Objective-C阶段学习的对象间传值的各种方法。分别有属性传值、代理传值、通知传值、Block传值、NSUserDefault、单例传值。</p>
+<h4 id="方法一：属性传值"><a href="#方法一：属性传值" class="headerlink" title="方法一：属性传值"></a>方法一：<strong>属性传值</strong></h4><blockquote>
+<p>属性传值试用于两个关联性比较强的页面之间使用比如<strong>A页面跳转到B页面</strong></p>
+</blockquote>
+<p>在B页面的控制器中，编写对应的属性，在A页面跳转到B页面的地方，给B的属性赋值即可。通常称这种情况为顺传。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//B_VC.h</div><div class="line"></div><div class="line">@property(nonatomic) NSInteger flag;//暴露在.h中才能被外部访问</div></pre></td></tr></table></figure></p>
+<p>在A页面的试图控制器中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//A_VC.m</div><div class="line"></div><div class="line">- (void)gotoB_VC:(id)sender &#123;</div><div class="line">    B_VC *vc = [[B_VC alloc] init];</div><div class="line">    // 属性传值</div><div class="line">    vc.flag = 0;</div><div class="line">    [self presentViewController:vc animated:YES completion:nil];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="方法二：代理传值"><a href="#方法二：代理传值" class="headerlink" title="方法二：代理传值"></a>方法二：<strong>代理传值</strong></h4><blockquote>
+<p>相较于方法一的属性传值，代理传值更适用<strong>与A页面跳转到B页面，B页面再跳转回A页面，并传值</strong>。</p>
+</blockquote>
+<p>实现原理是 在A成为B的代理，并实现代理方法，在B返回上个页面前，调用代理方法来实现传值。<br><img src="http://static.zybuluo.com/zhuoming/xqc08uph5hxwjadyhj5uighu/575661-20151204113013143-898015979.jpg" alt="575661-20151204113013143-898015979.jpg-26.1kB"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// B_VC.m</div><div class="line">- (void)back</div><div class="line">&#123;</div><div class="line">    //B的代理是A</div><div class="line">    [self.delegate postValue:@&quot;来自B页面的值&quot;];</div><div class="line">    [self dismissViewControllerAnimated:YES completion:^&#123;</div><div class="line">        NSLog(@&quot;返回完成的回调&quot;);</div><div class="line">    &#125;];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="方法三：通知传值"><a href="#方法三：通知传值" class="headerlink" title="方法三：通知传值"></a>方法三：<strong>通知传值</strong></h4><blockquote>
+<p>通知传值一般应用于多个接受对象，比如之前的练习VC1、VC2和VC3。从VC3往VC1和VC2同时传递值。需要注意的是：一定要先监听，并且监听的对象已经创建，对象销毁是要移除监听。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// VC3.m</div><div class="line">- (void)back</div><div class="line">&#123;</div><div class="line">    [[NSNotificationCenter defaultCenter]postNotificationName:@&quot;VC3&quot; object:@&quot;来自VC3的问候&quot;];</div><div class="line">    [self dismissViewControllerAnimated:YES completion:^&#123;</div><div class="line">        NSLog(@&quot;返回完成的回调&quot;);</div><div class="line">    &#125;];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="方法四：Block传值"><a href="#方法四：Block传值" class="headerlink" title="方法四：Block传值"></a>方法四：<strong>Block传值</strong></h4><blockquote>
+<p><strong>与A页面跳转到B页面，B页面再跳转回A页面并通过Block传值</strong></p>
+</blockquote>
+<p>分析思路如下</p>
+<ol>
+<li>B拥有一个Block,在A跳转B之前给B的block属性赋值。</li>
+<li>B返回A之前调用Block。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//B_VC.h</div><div class="line">typedef void (^CallBack)(NSString *str);</div><div class="line"></div><div class="line">//B_VC.h</div><div class="line">@property (nonatomic, copy) CallBack block;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">//A_VC.m</div><div class="line"></div><div class="line">- (void)gotoB_VC:(id)sender &#123;</div><div class="line">    B_VC *vc = [[B_VC alloc] init];</div><div class="line">    // 属性传值</div><div class="line">    vc.block = ^(NSString *str)&#123;</div><div class="line">        NSLog(@&quot;传过来的值是%@&quot;,str);</div><div class="line">    &#125;;</div><div class="line">    [self presentViewController:vc animated:YES completion:nil];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// B_VC.m</div><div class="line">- (void)back</div><div class="line">&#123;</div><div class="line">    //调用Block</div><div class="line">    self.block(@&quot;来自B_VC&quot;);</div><div class="line">    [self dismissViewControllerAnimated:YES completion:^&#123;</div><div class="line">        NSLog(@&quot;返回完成的回调&quot;);</div><div class="line">    &#125;];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="方法五：NSUserDefault"><a href="#方法五：NSUserDefault" class="headerlink" title="方法五：NSUserDefault"></a>方法五：<strong>NSUserDefault</strong></h4><blockquote>
+<p>这里对UserDefault，等归档类型的具体使用方法不多做赘述。需要注意的是userDefault等类型的传值相较于上面的四种方法有<strong>延时性</strong>、<strong>全局性</strong>、<strong>持久性</strong>,适用于缓存一些全局多处使用，不局限于UIViewController之间的使用。</p>
+</blockquote>
+<h4 id="方法六：单例传值"><a href="#方法六：单例传值" class="headerlink" title="方法六：单例传值"></a>方法六：<strong>单例传值</strong></h4><blockquote>
+<p>这里单例如何传值也不赘述，值得一提的是我们第一章学习过的UIApplication是个单例，同样的AppDelegate也是个单例。所以我们可以利用这个现成的单例来实现传值。</p>
+</blockquote>
+<p>在AppDelegate.h中声明一个指针<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// 用来实现传值</div><div class="line">@property(nonatomic,copy)NSString* value;</div></pre></td></tr></table></figure></p>
+<p>用以下代码来获取AppDelegate<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AppDelegate *appdelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];</div></pre></td></tr></table></figure></p>
+<h3 id="三-课堂作业"><a href="#三-课堂作业" class="headerlink" title="三.课堂作业"></a><strong>三.课堂作业</strong></h3><p>1、 新建3个UIViewController分别叫<strong>VC1</strong>、<strong>VC2</strong>和<strong>VC3</strong>，用不同的颜色或者用Label区分,实现以下功能并观察各个VC的生命周期：</p>
+<blockquote>
+<ul>
+<li>从VC1跳转至VC2</li>
+<li>在VC2可以选择返回VC1,或者跳转至VC3.</li>
+<li>在VC3可以返回VC2.</li>
+</ul>
+</blockquote>
+<p>2、 完成QQ登录界面，需要实现以下功能：</p>
+<blockquote>
+<ul>
+<li>登录成功的跳转到成功页面（成功页面只需一个label）</li>
+<li>在登录页面可以跳转并进行注册，注册的数据保存在本地.</li>
+<li>注册成功后会返回登录页面，并主动填写账号。</li>
+<li>用户同样可以取消注册以返回登录界面</li>
+</ul>
+</blockquote>
+<p><img src="http://static.zybuluo.com/whunfios/gnnr8g91duppxjbmpyfnlflu/image_1alenbhgvj4l1lccpd614k216uj9.png" alt="image_1alenbhgvj4l1lccpd614k216uj9.png-26kB">  <img src="http://static.zybuluo.com/whunfios/2jtglxow3cvhw6shwqb8cquy/image_1alenc72dt9915vj8ojrfn6hmm.png" alt="image_1alenc72dt9915vj8ojrfn6hmm.png-27.3kB"><img src="http://static.zybuluo.com/whunfios/s2dp18ws7wkq9wl583chhpgv/image_1alencnvkovo8krn0r1voucl813.png" alt="image_1alencnvkovo8krn0r1voucl813.png-23.8kB"></p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/01/16/UI/第二章UI控件 -- 15.UIViewController/" class="archive-article-date">
+  	<time datetime="2016-01-16T07:08:32.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-01-16</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UI/">UI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/01/17/UI/第二章UI控件 -- 16.UINavigationController/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          16.UINavigationController
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/01/15/UI/第二章UI控件 -- 12.UITableView（02）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">03.UIImageView</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 John Doe
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接1</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接2</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接3</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接4</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接5</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接6</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

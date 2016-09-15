@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>16.UINavigationController | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="第二章UI控件 – 16.UINavigationController一、学习目标
+UINavigationController 介绍
+UINavigationController 常用属性设置
+UINavigationController toolBar介绍和使用
+UINavigationController 原理分析和生命周期。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="16.UINavigationController">
+<meta property="og:url" content="http://yoursite.com/2016/01/17/UI/第二章UI控件 -- 16.UINavigationController/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第二章UI控件 – 16.UINavigationController一、学习目标
+UINavigationController 介绍
+UINavigationController 常用属性设置
+UINavigationController toolBar介绍和使用
+UINavigationController 原理分析和生命周期。">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/jxtz40jfaqylymqmd0f4m49m/xib6.gif">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/kuygjrhrwuqnqe9y0dtgvyve/NavigationViews_2x.png">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/6imdery9dy03qifotxtbt3lf/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-01-30%20%E4%B8%8B%E5%8D%883.01.40%20%282%29.png">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/jmiuszmr2cv3qae48csfpk93/navbar_custom.jpg">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/rbgs6y82evtg2o63bpmsebrf/xib11.png">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/koubhuiofjs3z7a6p4x2fe0u/xib7.gif">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/5jql958cccybn8pyb085o2s0/nav_controllers_stack.jpg">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/x57bielnl8o28mnewy585l83/15563272596372_!!5632.png">
+<meta property="og:updated_time" content="2016-09-15T15:31:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="16.UINavigationController">
+<meta name="twitter:description" content="第二章UI控件 – 16.UINavigationController一、学习目标
+UINavigationController 介绍
+UINavigationController 常用属性设置
+UINavigationController toolBar介绍和使用
+UINavigationController 原理分析和生命周期。">
+<meta name="twitter:image" content="http://static.zybuluo.com/zhuoming/jxtz40jfaqylymqmd0f4m49m/xib6.gif">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <script src="/style.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">John Doe</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">John Doe</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="null" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">John Doe</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-UI/第二章UI控件 -- 16.UINavigationController" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      16.UINavigationController
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="第二章UI控件-–-16-UINavigationController"><a href="#第二章UI控件-–-16-UINavigationController" class="headerlink" title="第二章UI控件 – 16.UINavigationController"></a>第二章UI控件 – 16.UINavigationController</h1><h2 id="一、学习目标"><a href="#一、学习目标" class="headerlink" title="一、学习目标"></a><strong>一、学习目标</strong></h2><ul>
+<li>UINavigationController 介绍</li>
+<li>UINavigationController 常用属性设置</li>
+<li>UINavigationController toolBar介绍和使用</li>
+<li>UINavigationController 原理分析和生命周期。</li>
+</ul>
+<a id="more"></a>
+<h2 id="二、课程内容"><a href="#二、课程内容" class="headerlink" title="二、课程内容"></a><strong>二、课程内容</strong></h2><h3 id="1-UINavigationController介绍"><a href="#1-UINavigationController介绍" class="headerlink" title="1.UINavigationController介绍"></a><strong>1.UINavigationController介绍</strong></h3><p>　在iOS系统中UINavigationController是一个非常常用的 <strong>容器类</strong> ViewController,常用来管理逻辑层次清晰的一组UIViewController,最经典的就是系统的设置应用。<br>　导航控制器的主要工作是管理视图控制器,也是提供一些自定义视图。具体地说,它提供了一个导航栏,包含一个返回按钮和一些可以自定义按钮。导航控制器还可以选择提供一个导航工具栏视图（Navigation Toolbar），我们可以将一些自定义按钮放在上面。</p>
+<p><img src="http://static.zybuluo.com/zhuoming/jxtz40jfaqylymqmd0f4m49m/xib6.gif" alt="xib6.gif-442.1kB"></p>
+<p>下图是来自官方的图解,可以看到NavigationController与它的父类有些不同，多了Navigation view 和 Navigation Toolbar。<br><img src="http://static.zybuluo.com/zhuoming/kuygjrhrwuqnqe9y0dtgvyve/NavigationViews_2x.png" alt="NavigationViews_2x.png-209.2kB"></p>
+<h3 id="2-UINavigationController设置"><a href="#2-UINavigationController设置" class="headerlink" title="2.UINavigationController设置"></a><strong>2.UINavigationController设置</strong></h3><h4 id="navigationItem"><a href="#navigationItem" class="headerlink" title="navigationItem"></a>navigationItem</h4><blockquote>
+<p>属于独立的UIViewController</p>
+</blockquote>
+<p>　注意navigationItem不是UINavigationController的属性而是UIViewController的一个属性，这个属性是为UINavigationController服务的。文档中是这么解释的“The navigation item used to represent the view controller in a parent’s navigation bar. (read-only)”，即navigation item在navigation Bar代表一个viewController，具体一点儿来说就是每一个加到navigationController的viewController都会有一个对应的navigationItem，该对象由viewController以懒加载的方式创建，稍后我们可以在对象中对navigationItem进行配置。</p>
+<h4 id="NavigationBar"><a href="#NavigationBar" class="headerlink" title="NavigationBar"></a>NavigationBar</h4><blockquote>
+<p>属于个NavigationController 影响所有的控制视图控制器</p>
+</blockquote>
+<p>NavigaitonBar就是导航栏，位于屏幕的上方，管理整个NavigationController的navigationItem，即类似navigationcontroller一样提供了一个栈来管理item。</p>
+<h4 id="navigationItem-1"><a href="#navigationItem-1" class="headerlink" title="navigationItem"></a>navigationItem</h4><p>　如设置应用头部显示的那样，我们可以往navigationItem上边可以设置leftBarButtonItem, rightBarButtonItem, backBarButtonItem, title以及prompt等属性。前三个每一个都是一个UIBarButtonItem对象，最后两个属性是一个NSString类型描述，注意添加该描述以后NavigationBar的高度会增加30，总的高度会变成74(不管当前方向是Portrait还是Landscape，此模式下navgationbar都使用高度44加上prompt30的方式进行显示)。当然如果觉得只是设置文字的title不够爽，你还可以通过titleview属性指定一个定制的titleview，这样你就可以随心所欲了，当然注意指定的titleview的frame大小，不要显示出界。</p>
+<p>　借住storyboard我们可以可视化的设置以上这些属性，将一个NavigationColer设置成window根视图控制器，同时将VC1 设置成Navigation的rootViewController，并设置了左右按钮和title。<br><img src="http://static.zybuluo.com/zhuoming/6imdery9dy03qifotxtbt3lf/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-01-30%20%E4%B8%8B%E5%8D%883.01.40%20%282%29.png" alt="屏幕快照 2016-01-30 下午3.01.40 (2).png-144.9kB"></p>
+<h4 id="UIBarButtonItem"><a href="#UIBarButtonItem" class="headerlink" title="UIBarButtonItem"></a>UIBarButtonItem</h4><p>　在上面我们可以通过storyboard拖拽的方式设置导航栏中的 leftBarButtonItem 和 rightBarButtonItem。现在我们来学习用代码如何自定义这两个 UIBarButtonItem。<br>查看API可以看到系统提供了四种创建的方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// 创建系统样式的BarButtonItem</div><div class="line">- (instancetype)initWithBarButtonSystemItem:(UIBarButtonSystemItem)systemItem target:(id)target action:(SEL)action;</div><div class="line"></div><div class="line">// 根据图片创建</div><div class="line">- (instancetype)initWithImage:(UIImage *)image style:(UIBarButtonItemStyle)style target:(id)target action:(SEL)action;</div><div class="line"></div><div class="line">// 根据文字创建</div><div class="line">- (instancetype)initWithTitle:(NSString *)title style:(UIBarButtonItemStyle)style target:(id)target action:(SEL)action;</div><div class="line"></div><div class="line">// 根据传入自定义View来创建，自由度高</div><div class="line">- (instancetype)initWithCustomView:(UIView *)customView;</div></pre></td></tr></table></figure></p>
+<p>比如我们在VC1的viewDidLoad中设置通过文字创建左按钮<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@&quot;leftBtn&quot; style:UIBarButtonItemStylePlain target:self action:@selector(leftBtnCLick)];</div></pre></td></tr></table></figure></p>
+<p>通过图片创建自定义右按钮<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@&quot;test&quot;] style:UIBarButtonItemStylePlain target:self action:@selector(right:)];</div></pre></td></tr></table></figure></p>
+<p>自定义UIView的UIBarButtonItem<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">UIView *testView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 40, 60)];</div><div class="line">self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:testView];</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>探索左边一共可以添加多少个按钮</p>
+</blockquote>
+<h4 id="backBarButtonItem"><a href="#backBarButtonItem" class="headerlink" title="backBarButtonItem"></a>backBarButtonItem</h4><p>　　UINavigationItem 除了leftBarButtonItem,  rightBarButtonIte2个属性还有backBarButtonItem。backBarButtonItem默认是<code>&lt;上个页面的title</code>,如果上个页面没有title，则用back代替。backBarButton在根视图不会出现，在已经存在leftBarButtonItem情况下也不会出现。<br>　　值得注意的是，在VC1 通过Push跳转到VC2的情景下，如果你想修改VC2的左上方的返回按钮。则需要修改的是VC1<code>self.navigationItem.backBarButtonItem</code>。<br>　　官方图解如下<br>　　<br><img src="http://static.zybuluo.com/zhuoming/jmiuszmr2cv3qae48csfpk93/navbar_custom.jpg" alt="navbar_custom.jpg-50.2kB"></p>
+<h4 id="导航栏的透明效果"><a href="#导航栏的透明效果" class="headerlink" title="导航栏的透明效果"></a>导航栏的透明效果</h4><p><code>self.navigationController.navigationBar.translucent =NO;</code></p>
+<h4 id="导航栏的隐藏"><a href="#导航栏的隐藏" class="headerlink" title="导航栏的隐藏"></a>导航栏的隐藏</h4><p> <code>self.navigationController.navigationBarHidden =YES;</code></p>
+<h4 id="系统导航栏的颜色-和自定义标题"><a href="#系统导航栏的颜色-和自定义标题" class="headerlink" title="系统导航栏的颜色 和自定义标题"></a>系统导航栏的颜色 和自定义标题</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// 导航栏的颜色</div><div class="line">self.navigationController.navigationBar.barTintColor = [UIColor redColor];</div><div class="line">// 这个方法可与改变字体的颜色</div><div class="line">self.navigationController.navigationBar.tintColor = [UIColor blueColor];</div></pre></td></tr></table></figure>
+<h3 id="3-UINavigationController的使用"><a href="#3-UINavigationController的使用" class="headerlink" title="3.UINavigationController的使用"></a><strong>3.UINavigationController的使用</strong></h3><p>　　通过storyBoard情景模拟之前三个页面跳转的例子，这次练习使用Push。</p>
+<p><img src="http://static.zybuluo.com/zhuoming/rbgs6y82evtg2o63bpmsebrf/xib11.png" alt="xib11.png-30.4kB"><br>　　通过下面的运行效果图我们可以发现Push和Model不一样的跳转方式。而且左上角自带了返回按钮。<br><img src="http://static.zybuluo.com/zhuoming/koubhuiofjs3z7a6p4x2fe0u/xib7.gif" alt="xib7.gif-537.9kB"></p>
+<p>　　接下来我们看一下如何用代码实现首先我们设置一个UINavigationController当做根视图控制器，在AppDelegate的<code>didFinishLaunchingWithOptions</code>中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//1 创建一个VC1</div><div class="line">VC1 * rootVC = [VC1 new];</div><div class="line">//2.创建一个NavigationController，把rootvc当做根视图</div><div class="line">UINavigationController * navi = [[UINavigationController alloc]initWithRootViewController:rootVC];</div><div class="line">//3.将这个NavigationController 设置成window的根视图控制器</div><div class="line">self.window.rootViewController = navi;</div></pre></td></tr></table></figure></p>
+<p>　　使用<code>pushViewController: animated:</code> 来实现页面跳转，比如从VC1跳转到VC2的代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// vc1.m 按钮点击触发事件</div><div class="line">- (void)btnCLick</div><div class="line">&#123;</div><div class="line">    VC2 * vc = [[VC2 alloc]init];</div><div class="line">    vc.view.backgroundColor = [UIColor yellowColor];</div><div class="line">    [self.navigationController pushViewController:vc animated:YES];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>　　返回的方法有三种：</p>
+<blockquote>
+<ul>
+<li>popViewControllerAnimated：  返回上一页</li>
+<li>popToViewController：animated：   返回根视图</li>
+<li>popToViewRootViewControllerAnimated　返回到某一个视图</li>
+</ul>
+</blockquote>
+<h3 id="4-UINavigationController原理"><a href="#4-UINavigationController原理" class="headerlink" title="4.UINavigationController原理"></a><strong>4.UINavigationController原理</strong></h3><p>　　<strong>UINavigationController以栈的方式管理视图，各个视图的切换就是压栈和出栈操作，出栈后的视图会立即销毁</strong>。<br>　　UINavigationController是一个导航控制器，它用来组织有层次关系的视图，在UINavigationController中子控制器以栈的形式存储，只有在栈顶的控制器能够显示在界面中，一旦一个子控制器出栈则会被销毁。以下是官方图解<br>　　<br><img src="http://static.zybuluo.com/zhuoming/5jql958cccybn8pyb085o2s0/nav_controllers_stack.jpg" alt="nav_controllers_stack.jpg-32.7kB"></p>
+<p>　　UINavigationController默认也不会显示任何视图（这个控制器自身的UIView不会显示），它必须有一个根控制器rootViewController，而且这个根控制器不会像其他子控制器一样被销毁。<br>还是以系统自带的设置应用为例</p>
+<p><img src="http://static.zybuluo.com/zhuoming/x57bielnl8o28mnewy585l83/15563272596372_!!5632.png" alt="15563272596372_!!5632.png-62.5kB"></p>
+<h3 id="5-Navigation-Toolbar"><a href="#5-Navigation-Toolbar" class="headerlink" title="5.Navigation Toolbar"></a><strong>5.Navigation Toolbar</strong></h3><p>　NavigationController不仅会使它所控制的UIViewController多显示一个NavigationBar(默认显示，可是设置隐藏)，它还可以显示一个Toolbar，Toolbar默认是隐藏，可以通过<code>[self.navigationController setToolbarHidden:NO];</code>来显示toolbar。</p>
+<p>下面是配置toolbar的实例代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//和设置navigationBarItem类似</div><div class="line">  //先设置一个UIBarButtonItem，然后组成数组，然后把这个数组赋值给self.toolbarItems</div><div class="line">  UIBarButtonItem *btn1=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:nil];</div><div class="line">  UIBarButtonItem *btn2=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks target:self action:nil];</div><div class="line">  UIBarButtonItem *btn3=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:nil];</div><div class="line">  // 这个是类似弹簧效果可以撑开</div><div class="line">  UIBarButtonItem *btn4=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];</div><div class="line">  NSArray *arr1=[[NSArray alloc]initWithObjects:btn4,btn1,btn4,btn2,btn4,btn3,btn4, nil];</div><div class="line">  self.toolbarItems=arr1;</div></pre></td></tr></table></figure></p>
+<h2 id="三、课程作业"><a href="#三、课程作业" class="headerlink" title="三、课程作业"></a><strong>三、课程作业</strong></h2><blockquote>
+<ul>
+<li>利用代码和UINavigationController完成之前三个页面跳转的题目。</li>
+<li>使用StoryBoard和UINavigationController完成之前三个页面跳转的题目。</li>
+<li>完成系统设置应用，不需要实现所有的页面，只需实现6个左右。</li>
+</ul>
+</blockquote>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/01/17/UI/第二章UI控件 -- 16.UINavigationController/" class="archive-article-date">
+  	<time datetime="2016-01-17T07:08:01.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-01-17</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UI/">UI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/01/19/UI/第二章UI控件 -- 17.UITabBarController/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          17.UITabBarController
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/01/16/UI/第二章UI控件 -- 15.UIViewController/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">15.UIViewController</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 John Doe
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接1</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接2</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接3</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接4</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接5</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接6</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

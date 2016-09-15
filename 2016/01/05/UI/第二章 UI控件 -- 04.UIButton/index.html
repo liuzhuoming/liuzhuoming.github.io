@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>04.UIButton | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="第二章 UI控件 – 04.UIButton学习目标
+UI事件和响应者链
+了解UIButton的样式和状态
+精通UIButton使用
+
+
+1.了解什么是UI事件对于iOS设备用户来说，他们操作设备的方式主要有三种：触摸屏幕、晃动设备、通过遥控设施控制设备。对应的事件类型有以下三种：
+
+触屏事件（Touch Event）
+运动事件（Motion Event） 
+远端控制事件（Remote-Contr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="04.UIButton">
+<meta property="og:url" content="http://yoursite.com/2016/01/05/UI/第二章 UI控件 -- 04.UIButton/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第二章 UI控件 – 04.UIButton学习目标
+UI事件和响应者链
+了解UIButton的样式和状态
+精通UIButton使用
+
+
+1.了解什么是UI事件对于iOS设备用户来说，他们操作设备的方式主要有三种：触摸屏幕、晃动设备、通过遥控设施控制设备。对应的事件类型有以下三种：
+
+触屏事件（Touch Event）
+运动事件（Motion Event） 
+远端控制事件（Remote-Contr">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/prqzikchdulp4g61tftkdlsq/8EA2077E-30E9-4D03-927B-85AD7CE942A6.png">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/uosud6qymlji6izcqc4ljkrh/btn.gif">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/prqzikchdulp4g61tftkdlsq/8EA2077E-30E9-4D03-927B-85AD7CE942A6.png">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/uosud6qymlji6izcqc4ljkrh/btn.gif">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/xwza96swx54mcq3mkccd283w/btn%E4%B9%A0%E9%A2%98.png">
+<meta property="og:updated_time" content="2016-09-15T15:07:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="04.UIButton">
+<meta name="twitter:description" content="第二章 UI控件 – 04.UIButton学习目标
+UI事件和响应者链
+了解UIButton的样式和状态
+精通UIButton使用
+
+
+1.了解什么是UI事件对于iOS设备用户来说，他们操作设备的方式主要有三种：触摸屏幕、晃动设备、通过遥控设施控制设备。对应的事件类型有以下三种：
+
+触屏事件（Touch Event）
+运动事件（Motion Event） 
+远端控制事件（Remote-Contr">
+<meta name="twitter:image" content="http://static.zybuluo.com/zhuoming/prqzikchdulp4g61tftkdlsq/8EA2077E-30E9-4D03-927B-85AD7CE942A6.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <script src="/style.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">John Doe</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">John Doe</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="null" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">John Doe</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-UI/第二章 UI控件 -- 04.UIButton" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      04.UIButton
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="第二章-UI控件-–-04-UIButton"><a href="#第二章-UI控件-–-04-UIButton" class="headerlink" title="第二章 UI控件 – 04.UIButton"></a>第二章 UI控件 – 04.UIButton</h1><h2 id="学习目标"><a href="#学习目标" class="headerlink" title="学习目标"></a><strong>学习目标</strong></h2><ul>
+<li>UI事件和响应者链</li>
+<li>了解UIButton的样式和状态</li>
+<li>精通UIButton使用</li>
+</ul>
+<hr>
+<h2 id="1-了解什么是UI事件"><a href="#1-了解什么是UI事件" class="headerlink" title="1.了解什么是UI事件"></a><strong>1.了解什么是UI事件</strong></h2><p>对于iOS设备用户来说，他们操作设备的方式主要有三种：触摸屏幕、晃动设备、通过遥控设施控制设备。对应的事件类型有以下三种：</p>
+<ul>
+<li>触屏事件（Touch Event）</li>
+<li>运动事件（Motion Event） </li>
+<li>远端控制事件（Remote-Control<br>  Event）</li>
+</ul>
+<p>本章节我们主要了解其中的触屏事件（Touch Event）。<br><a id="more"></a></p>
+<p><strong>响应者链（Responder Chain）</strong><br>  先来说说响应者对象（Responder Object），顾名思义，指的是有响应和处理事件能力的对象。响应者链就是由一系列的响应者对象构成的一个层次结构。</p>
+<p>  UIResponder是所有响应对象的基类，在UIResponder类中定义了处理上述各种事件的接口。我们熟悉的UIApplication、 UIViewController、UIWindow和所有继承自UIView的UIKit类都直接或间接的继承自UIResponder，所以它们的实例都是可以构成响应者链的响应者对象。<br>  图一展示了响应者链的基本构成：<br><img src="http://static.zybuluo.com/zhuoming/prqzikchdulp4g61tftkdlsq/8EA2077E-30E9-4D03-927B-85AD7CE942A6.png" alt="20130707181937406.jpeg-16kB"></p>
+<p>从图一中可以看到，响应者链有以下特点：</p>
+<p>1、响应者链通常是由视图（UIView）构成的；</p>
+<p>2、一个视图的下一个响应者是它视图控制器（UIViewController）（如果有的话），然后再转给它的父视图（Super View）；</p>
+<p>3、视图控制器（如果有的话）的下一个响应者为其管理的视图的父视图；</p>
+<p>4、单例的窗口（UIWindow）的内容视图将指向窗口本身作为它的下一个响应者</p>
+<p>需要指出的是，Cocoa Touch应用不像Cocoa应用，它只有一个UIWindow对象，因此整个响应者链要简单一点；</p>
+<p>5、单例的应用（UIApplication）是一个响应者链的终点，它的下一个响应者指向nil，以结束整个循环。</p>
+<p><strong>事件分发（Event Delivery）</strong><br>第一响应者（First responder）指的是当前接受触摸的响应者对象（通常是一个UIView对象），即表示当前该对象正在与用户交互，它是响应者链的开端。整个响应者链和事件分发的使命都是找出第一响应者。</p>
+<p>UIWindow对象以消息的形式将事件发送给第一响应者，使其有机会首先处理事件。如果第一响应者没有进行处理，系统就将事件（通过消息）传递给响应者链中的下一个响应者，看看它是否可以进行处理。</p>
+<p>iOS系统检测到手指触摸(Touch)操作时会将其打包成一个UIEvent对象，并放入当前活动Application的事件队列，单例的UIApplication会从事件队列中取出触摸事件并传递给单例的UIWindow来处理，UIWindow对象首先会使用hitTest:withEvent:方法寻找此次Touch操作初始点所在的视图(View)，即需要将触摸事件传递给其处理的视图，这个过程称之为hit-test view。</p>
+<p>UIWindow实例对象会首先在它的内容视图上调用hitTest:withEvent:，此方法会在其视图层级结构中的每个视图上调用pointInside:withEvent:（该方法用来判断点击事件发生的位置是否处于当前视图范围内，以确定用户是不是点击了当前视图），如果pointInside:withEvent:返回YES，则继续逐级调用，直到找到touch操作发生的位置，这个视图也就是要找的hit-test view。<br>hitTest:withEvent:方法的处理流程如下:<br>首先调用当前视图的pointInside:withEvent:方法判断触摸点是否在当前视图内；<br>若返回NO,则hitTest:withEvent:返回nil;<br>若返回YES,则向当前视图的所有子视图(subviews)发送hitTest:withEvent:消息，所有子视图的遍历顺序是从最顶层视图一直到到最底层视图，即从subviews数组的末尾向前遍历，直到有子视图返回非空对象或者全部子视图遍历完毕；<br>若第一次有子视图返回非空对象，则hitTest:withEvent:方法返回此对象，处理结束；<br>如所有子视图都返回非，则hitTest:withEvent:方法返回自身(self)。</p>
+<p>我们来个示例图看看<br><img src="http://static.zybuluo.com/zhuoming/uosud6qymlji6izcqc4ljkrh/btn.gif" alt="8.png-13.7kB"></p>
+<p>加入用户点击了View E，下面结合图二介绍hit-test view的流程：</p>
+<p>1、A是UIWindow的根视图，因此，UIWindwo对象会首相对A进行hit-test；</p>
+<p>2、显然用户点击的范围是在A的范围内，因此，pointInside:withEvent:返回了YES，这时会继续检查A的子视图；</p>
+<p>3、这时候会有两个分支，B和C：</p>
+<p>点击的范围不再B内，因此B分支的pointInside:withEvent:返回NO，对应的hitTest:withEvent:返回nil；</p>
+<p>点击的范围在C内，即C的pointInside:withEvent:返回YES；</p>
+<p>4、这时候有D和E两个分支：</p>
+<p>点击的范围不再D内，因此D的pointInside:withEvent:返回NO，对应的hitTest:withEvent:返回nil；</p>
+<p>点击的范围在E内，即E的pointInside:withEvent:返回YES，由于E没有子视图（也可以理解成对E的子视图进行hit-test时返回了nil），因此，E的hitTest:withEvent:会将E返回，再往回回溯，就是C的hitTest:withEvent:返回E—&gt;&gt;A的hitTest:withEvent:返回E。</p>
+<p>至此，本次点击事件的第一响应者就通过响应者链的事件分发逻辑成功的找到了。</p>
+<p>不难看出，这个处理流程有点类似二分搜索的思想，这样能以最快的速度，最精确地定位出能响应触摸事件的UIView。</p>
+<hr>
+<h2 id="2-什么是UIButton"><a href="#2-什么是UIButton" class="headerlink" title="2. 什么是UIButton"></a><strong>2. 什么是UIButton</strong></h2><p>让我们看一张UIKit的继承图，我们可以注意到UIButton并不是直接继承自UIView，而是继承于<strong>UIControl</strong>。<br><img src="http://static.zybuluo.com/zhuoming/prqzikchdulp4g61tftkdlsq/8EA2077E-30E9-4D03-927B-85AD7CE942A6.png" alt="8EA2077E-30E9-4D03-927B-85AD7CE942A6.png-98.8kB"></p>
+<blockquote>
+<p>UIControl对象采用了一种新的事件处理机制，将触摸事件转换成简单操作，这样可以无需关心用户访问控件的具体方式。触摸事件到达UIControl对象（由响应者链派遣）后，在UIResponder的方法中（如touchBegan:withEvent）中，UIControl将标准的触摸事件转换为特殊的控件事件，简单的理解就是，UIControl把复杂的触摸事件封装成了简单的易于使用的控件事件。例如通过UIControl对象处理后，按下按钮的事件就被封装成一个控件事件，而不用去判断触摸屏幕的整个操作过程。更详细的细节会在后面的章节中讲解。</p>
+</blockquote>
+<h2 id="3-UIButton的常用属性和方法"><a href="#3-UIButton的常用属性和方法" class="headerlink" title="3. UIButton的常用属性和方法"></a><strong>3. UIButton的常用属性和方法</strong></h2><table>
+<thead>
+<tr>
+<th>UIButton常用属性和方法</th>
+<th>定义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数据结构</td>
+<td><code>UIButtonType、UIControlState、UIControlEvents</code></td>
+</tr>
+<tr>
+<td>构造方法</td>
+<td><code>+ (id)buttonWithType:(UIButtonType)buttonType;</code></td>
+</tr>
+<tr>
+<td>设置某个状态的文本</td>
+<td><code>- (void)setTitle:(NSString *)title forState:(UIControlState)state;</code></td>
+</tr>
+<tr>
+<td>设置某个状态的字体颜色</td>
+<td><code>- (void)setTitleColor:(UIColor *)color                     forState:(UIControlState)state</code></td>
+</tr>
+<tr>
+<td>设置图片</td>
+<td><code>-(void)setImage:(UIImage*)image            forState:(UIControlState)state;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>UIControl常用属性和方法</th>
+<th>定义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>是否可用</td>
+<td><code>@property(nonatomic,getter=isEnabled)BOOL enabled;</code></td>
+</tr>
+<tr>
+<td>是否选中</td>
+<td><code>@property(nonatomic,getter=isSelected) BOOL selected;</code></td>
+</tr>
+<tr>
+<td>是否高亮</td>
+<td><code>@property(nonatomic,getter=isHighlighted)BOOL highlighted;</code></td>
+</tr>
+<tr>
+<td>添加一个响应事件</td>
+<td><code>- (void)addTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents;</code></td>
+</tr>
+<tr>
+<td>删除一个响应事件</td>
+<td><code>- (void)removeTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents;</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>UIButtonType</strong><br>能够定义的button类型有以下6种<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">typedef enum &#123;</div><div class="line">UIButtonTypeCustom = 0, // 自定义风格</div><div class="line">UIButtonTypeRoundedRect,// 圆角矩形</div><div class="line">UIButtonTypeDetailDisclosure,// 蓝色小箭头按钮，主要做详细说明用</div><div class="line">UIButtonTypeInfoLight, //亮色感叹号</div><div class="line">UIButtonTypeInfoDark, //暗色感叹号</div><div class="line">UIButtonTypeContactAdd, //十字加号按钮</div><div class="line">&#125; UIButtonType;</div></pre></td></tr></table></figure></p>
+<p> <strong>UIControlState</strong><br>这个参数的作用是定义按钮的文字或图片在何种状态下才会显现<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">typedef NS_OPTIONS(NSUInteger, UIControlState) &#123;</div><div class="line">    UIControlStateNormal       = 0,//常规状态显现 </div><div class="line">    UIControlStateHighlighted  = 1 &lt;&lt; 0,// 高亮状态显现</div><div class="line">    UIControlStateDisabled     = 1 &lt;&lt; 1,// 禁用的状态才会显现</div><div class="line">    UIControlStateSelected     = 1 &lt;&lt; 2,//选中状态 </div><div class="line">    UIControlStateApplication  = 0x00FF0000,// 当应用程序标志时 </div><div class="line">    UIControlStateReserved     = 0xFF000000//为内部框架预留，可以不管他 </div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p><strong>UIControlEvents</strong><br>这个参数的作用区分用户不同的操作以作出不同的反应<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">UIControlEventTouchDown</div><div class="line">单点触摸按下事件：用户点触屏幕，或者又有新手指落下的时候。</div><div class="line">UIControlEventTouchDownRepeat</div><div class="line">多点触摸按下事件，点触计数大于1：用户按下第二、三、或第四根手指的时候。</div><div class="line">UIControlEventTouchDragInside</div><div class="line">当一次触摸在控件窗口内拖动时。</div><div class="line">UIControlEventTouchDragOutside</div><div class="line">当一次触摸在控件窗口之外拖动时。</div><div class="line">UIControlEventTouchDragEnter</div><div class="line">当一次触摸从控件窗口之外拖动到内部时。</div><div class="line">UIControlEventTouchDragExit</div><div class="line">当一次触摸从控件窗口内部拖动到外部时。</div><div class="line">UIControlEventTouchUpInside</div><div class="line">所有在控件之内触摸抬起事件。</div><div class="line">UIControlEventTouchUpOutside</div><div class="line">所有在控件之外触摸抬起事件(点触必须开始与控件内部才会发送通知,最常用)。</div><div class="line">UIControlEventTouchCancel</div><div class="line">所有触摸取消事件，即一次触摸因为放上了太多手指而被取消，或者被上锁或者电话呼叫打断。</div><div class="line">UIControlEventTouchChanged</div><div class="line">当控件的值发生改变时，发送通知。用于滑块、分段控件、以及其他取值的控件。你可以配置滑块控件何时发送通知，在滑块被放下时发送，或者在被拖动时发送。</div><div class="line">UIControlEventEditingDidBegin</div><div class="line">当文本控件中开始编辑时发送通知。</div><div class="line">UIControlEventEditingChanged</div><div class="line">当文本控件中的文本被改变时发送通知。</div><div class="line">UIControlEventEditingDidEnd</div><div class="line">当文本控件中编辑结束时发送通知。</div><div class="line">UIControlEventEditingDidOnExit</div><div class="line">当文本控件内通过按下回车键（或等价行为）结束编辑时，发送通知。</div><div class="line">UIControlEventAlltouchEvents</div><div class="line">通知所有触摸事件。</div><div class="line">UIControlEventAllEditingEvents</div><div class="line">通知所有关于文本编辑的事件。</div><div class="line">UIControlEventAllEvents</div><div class="line">通知所有事件。</div></pre></td></tr></table></figure></p>
+<h2 id="4-UIButton的实际应用"><a href="#4-UIButton的实际应用" class="headerlink" title="4. UIButton的实际应用"></a><strong>4. UIButton的实际应用</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//这里创建一个按钮</div><div class="line">    UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 280, 40)];</div><div class="line">    btn.center = self.window.center;</div><div class="line">    //button背景色</div><div class="line">    btn.backgroundColor = [UIColor blackColor];</div><div class="line">    //显示控件</div><div class="line">    [self.window addSubview:btn];</div><div class="line">    //设置button标题</div><div class="line">    [btn setTitle:@&quot;点击我&quot; forState:UIControlStateNormal];</div><div class="line">    // 添加UIControlEventTouchUpInside时间的处理方法 btnClick:</div><div class="line">    [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> *  响应btn的点击事件,把btn的位置往上移动10</div><div class="line"> *</div><div class="line"> *  @param btn 触发事件的按钮</div><div class="line"> */</div><div class="line">- (void)btnClick:(UIButton *)btn</div><div class="line">&#123;</div><div class="line">    NSLog(@&quot;按钮被点击了&quot;);</div><div class="line">    CGRect frame = btn.frame;</div><div class="line">    frame.origin.y -= 10;</div><div class="line">    btn.frame = frame;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>运行效果如下<br><img src="http://static.zybuluo.com/zhuoming/uosud6qymlji6izcqc4ljkrh/btn.gif" alt="btn.gif-135.2kB"></p>
+<h2 id="作业"><a href="#作业" class="headerlink" title="作业"></a>作业</h2><blockquote>
+<p>1、创建自定义的UIButton,试试给UIButton设置不同UIImage。<br>2、给刚刚创建的UIButton添加点击事件，每点击一次宽高都加10。<br>3、附加题 ：根据下图创建多个UIButton，并测试标出3个点击事件和范围<br><img src="http://static.zybuluo.com/zhuoming/xwza96swx54mcq3mkccd283w/btn%E4%B9%A0%E9%A2%98.png" alt="btn习题.png-24.9kB"></p>
+</blockquote>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/01/05/UI/第二章 UI控件 -- 04.UIButton/" class="archive-article-date">
+  	<time datetime="2016-01-05T07:08:32.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-01-05</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UI/">UI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/01/06/UI/第二章UI控件 -- 05.UITextField/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          05.UITextField
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/01/04/UI/第二章UI控件 -- 14.UITableView（04）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">03.UIImageView</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 John Doe
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接1</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接2</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接3</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接4</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接5</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接6</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

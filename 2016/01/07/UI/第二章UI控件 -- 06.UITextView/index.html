@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>06.UITextView | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="第二章UI控件 – 06.UITextView一、学习目标
+学会使用UITextView">
+<meta property="og:type" content="article">
+<meta property="og:title" content="06.UITextView">
+<meta property="og:url" content="http://yoursite.com/2016/01/07/UI/第二章UI控件 -- 06.UITextView/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第二章UI控件 – 06.UITextView一、学习目标
+学会使用UITextView">
+<meta property="og:image" content="http://static.zybuluo.com/whunfios/9t3ojggtd92p5qnhkz4o3ssh/IMG_1132.PNG">
+<meta property="og:image" content="http://static.zybuluo.com/whunfios/em8n18mlg9edcc394rowae9j/IMG_1133.PNG">
+<meta property="og:updated_time" content="2016-09-15T15:14:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="06.UITextView">
+<meta name="twitter:description" content="第二章UI控件 – 06.UITextView一、学习目标
+学会使用UITextView">
+<meta name="twitter:image" content="http://static.zybuluo.com/whunfios/9t3ojggtd92p5qnhkz4o3ssh/IMG_1132.PNG">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <script src="/style.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">John Doe</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">John Doe</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="null" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">John Doe</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-UI/第二章UI控件 -- 06.UITextView" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      06.UITextView
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="第二章UI控件-–-06-UITextView"><a href="#第二章UI控件-–-06-UITextView" class="headerlink" title="第二章UI控件 – 06.UITextView"></a>第二章UI控件 – 06.UITextView</h1><h2 id="一、学习目标"><a href="#一、学习目标" class="headerlink" title="一、学习目标"></a><strong>一、学习目标</strong></h2><ul>
+<li>学会使用UITextView</li>
+</ul>
+<h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><h2 id="二、课程内容"><a href="#二、课程内容" class="headerlink" title="二、课程内容"></a><strong>二、课程内容</strong></h2><h3 id="1-什么是UITextView"><a href="#1-什么是UITextView" class="headerlink" title="1.什么是UITextView"></a><strong>1.什么是UITextView</strong></h3><p>App中经常需要输入多行文本,这时,需要使用 UITextView 控件实现。与 UITextField 控件相比,UITextView 继承自 UIScrollView,它不仅可以输入并显示文本,而且可以 在固定的区域展示足够多的文本,并且这些文本内容可以换行显示。如下微信发送朋友圈的页面<br><img src="http://static.zybuluo.com/whunfios/9t3ojggtd92p5qnhkz4o3ssh/IMG_1132.PNG" alt="IMG_1132.PNG-35.1kB"></p>
+<h3 id="2-UITextView和UITextField的区别"><a href="#2-UITextView和UITextField的区别" class="headerlink" title="2.UITextView和UITextField的区别"></a><strong>2.UITextView和UITextField的区别</strong></h3><p>在之前我们学习过一个输入文本的控件UITextField,两者区别如下：</p>
+<ul>
+<li>UITextView继承自UIScrollView,UITextField继承自UIControl。两个控件在使用上相当相似。</li>
+<li>UITextView支持多行输入并且可以滚动显示浏览全文，而UITextField只能单行输入。</li>
+<li>UITextView继承自UIScrollView,UITextField继承自UIView[UIControl]。</li>
+<li>UITextview没有placeholder属性，UItextField有placeholder属性</li>
+</ul>
+<h3 id="3-UITextView的使用"><a href="#3-UITextView的使用" class="headerlink" title="3.UITextView的使用"></a><strong>3.UITextView的使用</strong></h3><p>结合之前我们学习UITextField和storyboard,我们可以轻易掌握UITextView的用法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">UITextView * textView = [[UITextView alloc]initWithFrame:CGRectMake(20, 100, self.view.frame.size.width - 40, 100)];</div><div class="line">// 字体颜色</div><div class="line">textView.textColor = [UIColor orangeColor];</div><div class="line">// 对其方式</div><div class="line">textView.textAlignment = NSTextAlignmentCenter;</div><div class="line">// 是否能滚动</div><div class="line">textView.scrollEnabled = YES;</div><div class="line">// 参考UITextField来设置更多属性</div><div class="line">[self.view addSubview:textView];</div></pre></td></tr></table></figure></p>
+<h3 id="4-UITextView的代理"><a href="#4-UITextView的代理" class="headerlink" title="4.UITextView的代理"></a><strong>4.UITextView的代理</strong></h3><p>同样的UITextView的代理方法和UITextField很像。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">@protocol UITextViewDelegate &lt;NSObject, UIScrollViewDelegate&gt; @optional</div><div class="line">// 用户将要开始编辑 UITextView 的内容时会激发该方法</div><div class="line">- (BOOL)textViewShouldBeginEditing:(UITextView *)textView;</div><div class="line">// 用户开始编辑该 UITextView 的内容时会激发该方法</div><div class="line">- (void)textViewDidBeginEditing:(UITextView *)textView; // 用户将要结束编辑该 UITextView 的内容时会激发该方法</div><div class="line">- (BOOL)textViewShouldEndEditing:(UITextView *)textView; // 用户结束编辑该 UITextView 的内容时会激发该方法</div><div class="line">- (void)textViewDidEndEditing:(UITextView *)textView;</div><div class="line">// 该 UITextView 内指定范围内的文本内容将要被替换时激发该方法</div><div class="line">- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text;</div><div class="line">// 该 UITextView 中包含的文本内容发生改变时会激发该方法</div><div class="line">- (void)textViewDidChange:(UITextView *)textView; // 用户选中该 UITextView 内某些文本时会激发该方法</div><div class="line">- (void)textViewDidChangeSelection:(UITextView *)textView; @end</div></pre></td></tr></table></figure></p>
+<h2 id="三、练习"><a href="#三、练习" class="headerlink" title="三、练习"></a><strong>三、练习</strong></h2><p>完成下面的网易云音乐的反馈界面，并注意键盘处理。<br><img src="http://static.zybuluo.com/whunfios/em8n18mlg9edcc394rowae9j/IMG_1133.PNG" alt="IMG_1133.PNG-40.2kB"></p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/01/07/UI/第二章UI控件 -- 06.UITextView/" class="archive-article-date">
+  	<time datetime="2016-01-07T07:08:32.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-01-07</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UI/">UI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/01/08/UI/第二章UI控件 -- 07.UISwitch和UISlider/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          07.UISwitch和UISlider
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/01/06/UI/第二章UI控件 -- 05.UITextField/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">05.UITextField</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 John Doe
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接1</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接2</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接3</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接4</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接5</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接6</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>03.核心动画 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="第三章动画和绘图 – 03.核心动画一、学习目标
+Core Animation框架介绍
+Core Animation中的一些属性
+CABasicAnimation 介绍和使用
+CAKeyframeAnimation 介绍和使用
+CAAnimationGroup 介绍和使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="03.核心动画">
+<meta property="og:url" content="http://yoursite.com/2016/01/23/UI/第三章动画和绘图 -- 03.核心动画/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第三章动画和绘图 – 03.核心动画一、学习目标
+Core Animation框架介绍
+Core Animation中的一些属性
+CABasicAnimation 介绍和使用
+CAKeyframeAnimation 介绍和使用
+CAAnimationGroup 介绍和使用">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/g0cetbj1dkaqopsafatczrzb/ca_architecture_2x.png">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/am0wtg6yot27ie9rp736jfna/Snip20160216_17.png">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/461l19rri9h34wfwmhna5jia/65cc0af7gw1dxlusbklpmj.jpg">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/hw9m6s2e012yojt6fkg79hwm/65cc0af7gw1dxlv7mhtj3j.jpg">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/m2httx90iu6q5qr1qv3g39qm/ca03.gif">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/emokmq1mrihb2nkaou3tjizk/ca05.gif">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/zj528p1ycx4brftx5l27pbxt/ca06.gif">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/5m8gzzbp4ii4t2nye2u1lpvi/ca07.gif">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/hudg3395dkx2nlwtbfdcn02p/ca08.gif">
+<meta property="og:updated_time" content="2016-09-15T16:00:05.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="03.核心动画">
+<meta name="twitter:description" content="第三章动画和绘图 – 03.核心动画一、学习目标
+Core Animation框架介绍
+Core Animation中的一些属性
+CABasicAnimation 介绍和使用
+CAKeyframeAnimation 介绍和使用
+CAAnimationGroup 介绍和使用">
+<meta name="twitter:image" content="http://static.zybuluo.com/zhuoming/g0cetbj1dkaqopsafatczrzb/ca_architecture_2x.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <script src="/style.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">John Doe</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">John Doe</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="null" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">John Doe</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-UI/第三章动画和绘图 -- 03.核心动画" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      03.核心动画
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="第三章动画和绘图-–-03-核心动画"><a href="#第三章动画和绘图-–-03-核心动画" class="headerlink" title="第三章动画和绘图 – 03.核心动画"></a>第三章动画和绘图 – 03.核心动画</h1><h2 id="一、学习目标"><a href="#一、学习目标" class="headerlink" title="一、学习目标"></a><strong>一、学习目标</strong></h2><ul>
+<li>Core Animation框架介绍</li>
+<li>Core Animation中的一些属性</li>
+<li>CABasicAnimation 介绍和使用</li>
+<li>CAKeyframeAnimation 介绍和使用</li>
+<li>CAAnimationGroup 介绍和使用</li>
+</ul>
+<a id="more"></a>
+<h2 id="二、课程内容"><a href="#二、课程内容" class="headerlink" title="二、课程内容"></a><strong>二、课程内容</strong></h2><h3 id="CALayer"><a href="#CALayer" class="headerlink" title="CALayer"></a><strong>CALayer</strong></h3><p>与之前学习的UIkit动画不同，Core Animation是直接作用在CALayer上的(并非UIView上)非常强大的跨Mac OS X和iOS平台的动画处理API，Core Animation的动画执行过程都是在后台操作的，不会阻塞主线程。<br>所以在了解动画之前先了解一些相关概念<br><img src="http://static.zybuluo.com/zhuoming/g0cetbj1dkaqopsafatczrzb/ca_architecture_2x.png" alt="ca_architecture_2x.png-21.8kB"><br><strong>CALayer的介绍</strong><br>在之前的学习中我们其实已经用到了CALayer,比如给某个View添加圆角。还有当利用drawRect:方法绘图的本质就是绘制到了UIView的layer（属性）。在iOS中CALayer的设计主要是了为了内容展示和动画操作，CALayer本身并不包含在UIKit中，它不能响应事件。由于CALayer在设计之初就考虑它的动画操作功能，CALayer很多（<strong>不是所有</strong>）属性在修改时都能形成动画效果，这种属性称为“隐式动画属性”，它不需要我们手动的触发。</p>
+<p><strong>CALayer的时间系统（了解）</strong><br>CALayer实现了CAMediaTiming协议. CALayer通过CAMediaTiming协议实现了一个有层级关系的时间系统.除了CALayer,CAAnimation也采纳了此协议,用来实现动画的时间系统.<br>在CA中,有一个Absolute Time(绝对时间)的概念,可以通过CACurrentMediaTime()获得,其实这个绝对时间就是将mach_absolute_time()转换成秒后的值.这个时间和系统的uptime有关,系统重启后CACurrentMediaTime()会被重置.类似坐标系中的相对坐标<br><strong>beginTime</strong> 开始时间，对于单纯的创建CALayer他们都是默认为0。需要注意的是在CA事务被提交的时候,如果图层中的动画的beginTime为0,则beginTime会被设定为当前图层的当前时间,使得动画立即开始.因为beginTime是指其父级对象的时间线上的某个时间,所有我们可以通过手动设置这个动画的beginTime,但需要注意的是这个beginTime需要为 CACurrentMediaTime()+延迟的秒数。<br><strong>timeOffset</strong> 时间偏移量，将动画的时间当成一个环，假设一个duration为5秒的动画,将timeOffset设置为2(或者7,模5为2),那么动画的运行则是从原来的2秒开始到5秒,接着再0秒到2秒,完成一次动画.<br><strong>speed</strong><br>speed属性用于设置当前对象的时间流相对于父级对象时间流的流逝速度,比如一个动画beginTime是0,但是speed是2,那么这个动画的1秒处相当于父级对象时间流中的2秒处. speed越大则说明时间流逝速度越快,那动画也就越快.比如一个speed为2的layer其所有的父辈的speed都是1,它有一个subLayer,speed也为2,那么一个8秒的动画在这个运行于这个subLayer只需2秒(8 / (2 <em> 2)).所以speed有叠加的效果.<br><em>*fillMode</em></em><br>fillMode的作用就是决定当前对象过了非active时间段的行为. 比如动画开始之前,动画结束之后。如果是一个动画CAAnimation,则需要将其removedOnCompletion设置为NO,要不然fillMode不起作用. 下面来讲各个fillMode的意义<br>kCAFillModeRemoved 这个是默认值,也就是说当动画开始前和动画结束后,动画对layer都没有影响,动画结束后,layer会恢复到之前的状态<br>kCAFillModeForwards 当动画结束后,layer会一直保持着动画最后的状态<br>kCAFillModeBackwards 这个和kCAFillModeForwards是相对的,就是在动画开始前,你只要将动画加入了一个layer,layer便立即进入动画的初始状态并等待动画开始.你可以这样设定测试代码,将一个动画加入一个layer的时候延迟5秒执行.然后就会发现在动画没有开始的时候,只要动画被加入了layer,layer便处于动画初始状态<br>kCAFillModeBoth 理解了上面两个,这个就很好理解了,这个其实就是上面两个的合成.动画加入后开始之前,layer便处于动画初始状态,动画结束后layer保持动画最后的状态.</p>
+<h3 id="Core-Animation介绍"><a href="#Core-Animation介绍" class="headerlink" title="Core Animation介绍"></a><strong>Core Animation介绍</strong></h3><h4 id="1-Core-Animation框架介绍"><a href="#1-Core-Animation框架介绍" class="headerlink" title="1.Core Animation框架介绍"></a><strong>1.Core Animation框架介绍</strong></h4><p>CAAnimation可分为四种：</p>
+<ul>
+<li>CABasicAnimation<br>通过设定起始点，终点，时间，动画会沿着你这设定点进行移动。可以看做特殊的CAKeyFrameAnimation</li>
+<li>CAKeyframeAnimation<br>Keyframe顾名思义就是关键点的frame，你可以通过设定CALayer的始点、中间关键点、终点的frame，时间，动画会沿你设定的轨迹进行移动</li>
+<li>CAAnimationGroup<br>Group也就是组合的意思，就是把对这个Layer的所有动画都组合起来。PS：一个layer设定了很多动画，他们都会同时执行，如何按顺序执行我到时候再讲。</li>
+<li>CATransition<br>这个就是苹果帮开发者封装好的一些动画</li>
+</ul>
+<p>下面是官方的示意图及解释<br><img src="http://static.zybuluo.com/zhuoming/am0wtg6yot27ie9rp736jfna/Snip20160216_17.png" alt="Snip20160216_17.png-103kB"></p>
+<p><img src="http://static.zybuluo.com/zhuoming/461l19rri9h34wfwmhna5jia/65cc0af7gw1dxlusbklpmj.jpg" alt="65cc0af7gw1dxlusbklpmj.jpg-42.7kB"></p>
+<h4 id="2-Core-Animation中的一些属性"><a href="#2-Core-Animation中的一些属性" class="headerlink" title="2.Core Animation中的一些属性"></a><strong>2.Core Animation中的一些属性</strong></h4><ul>
+<li>duration：动画的持续时间</li>
+<li>repeatCount：重复次数，无限循环可以设置HUGE_VALF或者MAXFLOAT</li>
+<li>repeatDuration：重复时间</li>
+<li>removedOnCompletion：默认为YES，代表动画执行完毕后就从图层上移除，图形会恢复到动画执行前的状态。如果想让图层保持显示动画执行后的状态，那就设置为NO，不过<strong>还要设置fillMode为kCAFillModeForwards</strong></li>
+<li>beginTime：可以用来设置动画延迟执行时间，若想延迟2s，就设置为CACurrentMediaTime()+2，CACurrentMediaTime()为图层的当前时间</li>
+<li>timingFunction：速度控制函数，控制动画运行的节奏</li>
+<li><p>delegate：动画代理</p>
+</li>
+<li><p>fillMode决定当前对象在非active时间段的行为。（上文有说明）</p>
+</li>
+<li>CAMediaTimingFunction:速度控制函数</li>
+</ul>
+<blockquote>
+<p>kCAMediaTimingFunctionLinear（线性）：匀速，给你一个相对静态的感觉<br>kCAMediaTimingFunctionEaseIn（渐进）：动画缓慢进入，然后加速离开<br>kCAMediaTimingFunctionEaseOut（渐出）：动画全速进入，然后减速的到达目的地<br>kCAMediaTimingFunctionEaseInEaseOut（渐进渐出）：动画缓慢的进入，中间加速，然后减速的到达目的地。这个是默认的动画行为。</p>
+<p><img src="http://static.zybuluo.com/zhuoming/hw9m6s2e012yojt6fkg79hwm/65cc0af7gw1dxlv7mhtj3j.jpg" alt="65cc0af7gw1dxlv7mhtj3j.jpg-27.1kB"></p>
+</blockquote>
+<h4 id="3-CABasicAnimation"><a href="#3-CABasicAnimation" class="headerlink" title="3.CABasicAnimation"></a><strong>3.CABasicAnimation</strong></h4><p>CABasicAnimation有三个比较重要的属性,fromValue,toValue,byValue,这三个属性都是可选的,但不能同时多于两个为非空.最终都是为了确定animation变化的起点和终点.<br>|属性|说明|<br>| –| –|<br>|keyPath|要改变的属性名称（传字符串）|<br>|fromValue|keyPath相应属性的初始值|<br>|toValue|keyPath相应属性的结束值|</p>
+<blockquote>
+<p>byValue和toValue的区别，前者是在当前的位置上增加多少，后者是到指定的位置</p>
+</blockquote>
+<p>代码示范<br>自定义一个layer<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">CALayer * layer = [CALayer layer];</div><div class="line">layer.backgroundColor = [UIColor cyanColor].CGColor;</div><div class="line">layer.frame = CGRectMake(0, 0, 50, 50);</div><div class="line">layer.cornerRadius = 25.f;</div><div class="line">layer.masksToBounds = YES;</div><div class="line">[self.view.layer addSublayer:layer];</div><div class="line">_subLayer = layer;</div></pre></td></tr></table></figure></p>
+<p>重写点击方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">- (void)touchesBegan:(NSSet&lt;UITouch *&gt; *)touches withEvent:(UIEvent *)event</div><div class="line">&#123;</div><div class="line">    UITouch *touch=touches.anyObject;</div><div class="line">    CGPoint touchPoint= [touch locationInView:self.view];</div><div class="line">    // 直接设置会出现隐形动画 duration 默认是0.25f</div><div class="line">    _subLayer.position = touchPoint;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="http://static.zybuluo.com/zhuoming/m2httx90iu6q5qr1qv3g39qm/ca03.gif" alt="ca03.gif-21.1kB"><br>我们可以看到隐式动画是匀速的,这时我们可以利用进行一些动画的配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//1.创建动画并指定动画属性 注意keyPath是有严格规定的</div><div class="line">CABasicAnimation *basicAnimation=[CABasicAnimation animationWithKeyPath:@&quot;position&quot;];</div><div class="line"></div><div class="line">//2.设置动画属性初始值和结束值</div><div class="line">// 2.1 basicAnimation.fromValue=[NSNumber numberWithInteger:50];//可以不设置，默认为图层初始状态</div><div class="line">basicAnimation.toValue=[NSValue valueWithCGPoint:touchPoint];</div><div class="line">// 2.2 设置其他动画属性</div><div class="line">basicAnimation.duration=2.0;//动画时间5秒</div><div class="line">//2.3 basicAnimation.repeatCount=HUGE_VALF;//设置重复次数,HUGE_VALF可看做无穷大，起到循环动画的效果</div><div class="line">basicAnimation.removedOnCompletion=NO;//运行一次是否移除动画</div><div class="line">//2.4 只有 removedOnCompletion 设置为 NO  fillmode 才生效</div><div class="line">basicAnimation.fillMode = kCAFillModeForwards;</div><div class="line">//2.5 设置运动速度</div><div class="line">basicAnimation.timingFunction=[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];</div><div class="line">//3.添加动画到图层，注意key相当于给动画进行命名，以后获得该动画时可以使用此名称获取  - animationForKey :</div><div class="line">[_subLayer addAnimation:basicAnimation forKey:@&quot;basicAnimation&quot;];</div></pre></td></tr></table></figure></p>
+<p>运行的效果图如下，肉眼能看到的动画时间变长了，速度不在是匀速的。<br><img src="http://static.zybuluo.com/zhuoming/emokmq1mrihb2nkaou3tjizk/ca05.gif" alt="ca05.gif-28.7kB"><br>我们通过更改动画keypath 达到更多的效果。比如下面的缩放事例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//缩放</div><div class="line">+(CABasicAnimation *)scale:(NSNumber *)Multiple orgin:(NSNumber *)orginMultiple durTimes:(float)time Rep:(float)repeatTimes</div><div class="line">&#123;</div><div class="line">    CABasicAnimation *animation=[CABasicAnimation animationWithKeyPath:@&quot;transform.scale&quot;];</div><div class="line">    animation.fromValue=orginMultiple;</div><div class="line">    animation.toValue=Multiple;</div><div class="line">    animation.duration=time;</div><div class="line">    animation.autoreverses=YES;</div><div class="line">    animation.repeatCount=repeatTimes;</div><div class="line">    animation.removedOnCompletion=NO;</div><div class="line">    animation.fillMode=kCAFillModeForwards;</div><div class="line">    return animation;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="http://static.zybuluo.com/zhuoming/zj528p1ycx4brftx5l27pbxt/ca06.gif" alt="ca06.gif-26.6kB"><br>更多的CABasicAnimation animationWithKeyPath Types 和部分注释如下：</p>
+<table>
+<thead>
+<tr>
+<th>animationWithKeyPath Type</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>transform.scale</td>
+<td>比例轉換</td>
+</tr>
+<tr>
+<td>transform.scale.x</td>
+<td>闊的比例轉換</td>
+</tr>
+<tr>
+<td>transform.scale.y</td>
+<td>高的比例轉換</td>
+</tr>
+<tr>
+<td>transform.rotation.z</td>
+<td>平面圖的旋轉</td>
+</tr>
+<tr>
+<td>opacity</td>
+<td>透明度</td>
+</tr>
+<tr>
+<td>zPosition</td>
+<td>层级</td>
+</tr>
+<tr>
+<td>position</td>
+<td>默认情况下类似view的center</td>
+</tr>
+</tbody>
+</table>
+<p>下面这些属性也是可用的<br><code>backgroundColor</code> <code>cornerRadius</code> <code>borderWidth</code> <code>boundscontents</code> <code>contentsRect</code> <code>cornerRadius</code> <code>frame</code> <code>hidden</code> <code>mask</code> <code>masksToBounds</code> <code>shadowColor</code> <code>shadowOffset</code> <code>shadowOpacity</code> <code>shadowRadius</code></p>
+<blockquote>
+<ul>
+<li>隐式属性动画的本质是这些属性的变动默认隐含了CABasicAnimation动画实现，详情大家可以参照Xcode帮助文档中“Animatable Properties”一节。</li>
+<li>在CALayer中很少使用frame属性，因为frame本身不支持动画效果，通常使用bounds和position代替。</li>
+<li>CALayer中透明度使用opacity表示而不是alpha；中心点使用position表示而不是center。</li>
+<li>anchorPoint属性是图层的锚点，范围在（0~1,0~1）表示在x、y轴的比例，这个点永远可以同position（中心点）重合，当图层中心点固定后，调整anchorPoint即可达到调整图层显示位置的作用（因为它永远和position重合）</li>
+</ul>
+</blockquote>
+<h4 id="4-CAKeyframeAnimation"><a href="#4-CAKeyframeAnimation" class="headerlink" title="4.CAKeyframeAnimation"></a><strong>4.CAKeyframeAnimation</strong></h4><p>CAKeyframeAnimation 就相当于 Flash 里的关键帧动画，如果你用过 Flash 制作动画的话你就知道，如果我们要实现一个简单的位置平移、大小缩放、形状变换，我们只需要使用补间动画就可以实现。具体操作就是给出动画的起始状态和结束状态两个关键帧，中间的动画过程只需要设置一个补间即可，剩下的事情软件会自动完成。而这里的起始状态和结束状态的概念，也被沿用到了 CAKeyframeAnimation 里所说的关键帧 。<br>CAKeyframeAnimation也是CAPropertyAnimation的子类，与CABasicAnimation的区别是：<br>CABasicAnimation只能从一个数值（fromValue）变到另一个数值（toValue），而CAKeyframeAnimation会使用一个NSArray保存这些数值<br>达到多帧的效果。<br>|属性|说明|<br>| –| –|<br>|values|上述的NSArray对象。里面的元素称为“关键帧”(keyframe)。动画对象会在指定的时间（duration）内，依次显示values数组中的每一个关键帧|<br>|path|可以设置一个CGPathRef、CGMutablePathRef，让图层按照路径轨迹移动。path只对CALayer的anchorPoint和position起作用。如果设置了path，那么values将被忽略|<br>|keyTimes|可以为对应的关键帧指定对应的时间点，其取值范围为0到1.0，keyTimes中的每一个时间值都对应values中的每一帧。如果没有设置keyTimes，各个关键帧的时间是平分的|</p>
+<p>现在我们简单的模拟 登录按钮加上缩放效果，输入框左右抖动的效果；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">CAKeyframeAnimation * keyani = [CAKeyframeAnimation animationWithKeyPath:@&quot;position&quot;];</div><div class="line">// 设置关键帧</div><div class="line">CGPoint   basePoint = _textfield.layer.position;</div><div class="line">NSValue * value1 = [NSValue valueWithCGPoint:CGPointMake(basePoint.x-10, basePoint.y)];</div><div class="line">NSValue * value2 = [NSValue valueWithCGPoint:CGPointMake(basePoint.x+8, basePoint.y)];</div><div class="line">NSValue * value3 = [NSValue valueWithCGPoint:CGPointMake(basePoint.x-5, basePoint.y)];</div><div class="line">keyani.values = @[value1,value2,value3];</div><div class="line">// 设置效果</div><div class="line">keyani.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];</div><div class="line">// 设置</div><div class="line">keyani.duration = 0.3;</div><div class="line">_textfield.layer.position = basePoint;</div><div class="line">[_textfield.layer addAnimation:keyani forKey:@&quot;shake&quot;];</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">///CAKeyframeAnimation 对象</div><div class="line">CAKeyframeAnimation *bounce = [CAKeyframeAnimation animationWithKeyPath:@&quot;transform&quot;];</div><div class="line"></div><div class="line">///设置动画的关键帧</div><div class="line">CATransform3D forward = CATransform3DMakeScale(1.3, 1.3, 1);</div><div class="line">CATransform3D back = CATransform3DMakeScale(0.7, 0.7, 1);</div><div class="line">CATransform3D forward2 = CATransform3DMakeScale(1.2, 1.2, 1);</div><div class="line">CATransform3D back2 = CATransform3DMakeScale(0.9, 0.9, 1);</div><div class="line">[bounce setValues:[NSArray arrayWithObjects:</div><div class="line">                   [NSValue valueWithCATransform3D:CATransform3DIdentity],</div><div class="line">                   [NSValue valueWithCATransform3D:forward],</div><div class="line">                   [NSValue valueWithCATransform3D:back],</div><div class="line">                   [NSValue valueWithCATransform3D:forward2],</div><div class="line">                   [NSValue valueWithCATransform3D:back2],</div><div class="line">                   [NSValue valueWithCATransform3D:CATransform3DIdentity],nil]];</div><div class="line">// 时间</div><div class="line">[bounce setDuration:1];</div><div class="line">[_btnLogin.layer addAnimation:bounce forKey:@&quot;bounceAnimation&quot;];</div></pre></td></tr></table></figure>
+<p>效果如下<br><img src="http://static.zybuluo.com/zhuoming/5m8gzzbp4ii4t2nye2u1lpvi/ca07.gif" alt="ca07.gif-25.3kB"></p>
+<h4 id="5-CAAnimationGroup"><a href="#5-CAAnimationGroup" class="headerlink" title="5.CAAnimationGroup"></a><strong>5.CAAnimationGroup</strong></h4><p>一个动画的效果常常无法满足我们的需求，这时候我们需要用动画组来组合一系列的动画。<br>下面我们利用三个动画组合成一个动画组，分别是一个</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">- (IBAction)btnlikeCLick:(UIButton *)sender &#123;</div><div class="line"></div><div class="line">    // 利用一个UIImageView 来代替button的移动可以消除动画结束的突兀感</div><div class="line">    UIImageView * imageview = [[UIImageView alloc]initWithFrame:sender.frame];</div><div class="line">    imageview.image = [sender imageForState:UIControlStateNormal];</div><div class="line">    imageview.contentMode = UIViewContentModeScaleAspectFit;</div><div class="line">    [sender.superview addSubview:imageview];</div><div class="line">    //----------------------------------------</div><div class="line">    // 动画 1帧动画来绘制按钮的上移轨迹</div><div class="line">    CAKeyframeAnimation * keyAniPosition = [CAKeyframeAnimation animationWithKeyPath:@&quot;position&quot;];</div><div class="line">    CGPoint basePoint = imageview.layer.position;</div><div class="line">    // 2.设置路径</div><div class="line">    //绘制贝塞尔曲线</div><div class="line">    UIBezierPath* aPath = [UIBezierPath bezierPath];</div><div class="line">    [aPath moveToPoint:basePoint];</div><div class="line">    [aPath addCurveToPoint:CGPointMake(basePoint.x-20, basePoint.y-150) controlPoint1:CGPointMake(basePoint.x-50, basePoint.y-50) controlPoint2:CGPointMake(basePoint.x+40, basePoint.y-100)];</div><div class="line">    keyAniPosition.path=aPath.CGPath;//设置path属性</div><div class="line">    //----------------------------------------</div><div class="line">    // 动画 2 基础动画来控制透明度</div><div class="line">    CABasicAnimation * baseAniOpacity = [CABasicAnimation animationWithKeyPath:@&quot;opacity&quot;];</div><div class="line">    baseAniOpacity.toValue = @0.0;</div><div class="line">    //----------------------------------------</div><div class="line">    // 动画 3 基础动画来控制3D翻转</div><div class="line">    CABasicAnimation *transformAnima = [CABasicAnimation animationWithKeyPath:@&quot;transform.rotation.y&quot;];</div><div class="line">    transformAnima.fromValue = @(0);</div><div class="line">    transformAnima.toValue = @(M_PI);</div><div class="line">    transformAnima.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];</div><div class="line">    //----------------------------------------</div><div class="line">    // 动画组 将三个动画组合起来</div><div class="line">    CAAnimationGroup * group = [CAAnimationGroup animation];</div><div class="line">    group.animations = @[keyAniPosition,baseAniOpacity,transformAnima];</div><div class="line">    // 如果上面的动画设置了 这里就不会生效 统一设置</div><div class="line">    group.duration = 1.3f;</div><div class="line">    group.delegate = self;</div><div class="line">    group.removedOnCompletion = NO;</div><div class="line">    group.fillMode = kCAFillModeForwards;</div><div class="line">    [imageview.layer addAnimation:group forKey:@&quot;group&quot;];</div><div class="line">    _imageView = imageview;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>效果如下<br><img src="http://static.zybuluo.com/zhuoming/hudg3395dkx2nlwtbfdcn02p/ca08.gif" alt="ca08.gif-46.2kB"></p>
+<h2 id="三、课程作业"><a href="#三、课程作业" class="headerlink" title="三、课程作业"></a><strong>三、课程作业</strong></h2><blockquote>
+<ul>
+<li>1.练习CABasicAnimation完成按钮点击放大或者旋转。</li>
+<li>2.练习CAKeyframeAnimation完成曲线动画</li>
+<li>3.练习CAAnimationGroup组织多个动画，并统一调配。</li>
+</ul>
+</blockquote>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/01/23/UI/第三章动画和绘图 -- 03.核心动画/" class="archive-article-date">
+  	<time datetime="2016-01-23T07:08:03.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-01-23</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UI/">UI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/01/24/UI/第四章UITouch和手势/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          iOS应用概述
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/01/22/UI/第三章动画和绘图 -- 02.绘图/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">02.绘图</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 John Doe
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接1</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接2</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接3</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接4</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接5</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接6</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

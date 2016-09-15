@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>18.UICollectionView（1） | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="第二章UI控件 – 18.UICollectionView（1）一、学习目标
+UICollectionView介绍
+UICollectionView的使用
+UICollectionView自定义Cell">
+<meta property="og:type" content="article">
+<meta property="og:title" content="18.UICollectionView（1）">
+<meta property="og:url" content="http://yoursite.com/2016/01/20/UI/第二章UI控件 -- 18.UICollectionView（1）/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第二章UI控件 – 18.UICollectionView（1）一、学习目标
+UICollectionView介绍
+UICollectionView的使用
+UICollectionView自定义Cell">
+<meta property="og:image" content="http://static.zybuluo.com/whunfios/itv9dobo8gs6xcn7h6x9d2ie/image_1alep1jvp1f101ka612i31t2s14vu9.png">
+<meta property="og:image" content="http://static.zybuluo.com/whunfios/egmz85sn5kxbqtuj9yij8frd/IMG_1178.PNG">
+<meta property="og:image" content="http://static.zybuluo.com/whunfios/n6mthrx5sq7ow544ruujha1n/image_1alercqht9ca2n71osl1kbi1c051r.png">
+<meta property="og:image" content="http://static.zybuluo.com/whunfios/9lc6q7x5e91fq7kr0flli2m8/image_1alesbushdoa12se1mh71ksj17cr28.png">
+<meta property="og:image" content="http://static.zybuluo.com/whunfios/jjy5il5nxkb3i5voq7q6f4hy/image_1aleseb681ebmmqd1gk9r3a1hog2l.png">
+<meta property="og:image" content="http://static.zybuluo.com/whunfios/j1pl2qrrrg3716gn6oi2blud/image_1alet3qbqilh18uurh1sflnd932.png">
+<meta property="og:updated_time" content="2016-09-15T15:31:29.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="18.UICollectionView（1）">
+<meta name="twitter:description" content="第二章UI控件 – 18.UICollectionView（1）一、学习目标
+UICollectionView介绍
+UICollectionView的使用
+UICollectionView自定义Cell">
+<meta name="twitter:image" content="http://static.zybuluo.com/whunfios/itv9dobo8gs6xcn7h6x9d2ie/image_1alep1jvp1f101ka612i31t2s14vu9.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <script src="/style.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">John Doe</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">John Doe</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="null" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">John Doe</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-UI/第二章UI控件 -- 18.UICollectionView（1）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      18.UICollectionView（1）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="第二章UI控件-–-18-UICollectionView（1）"><a href="#第二章UI控件-–-18-UICollectionView（1）" class="headerlink" title="第二章UI控件 – 18.UICollectionView（1）"></a>第二章UI控件 – 18.UICollectionView（1）</h1><h2 id="一、学习目标"><a href="#一、学习目标" class="headerlink" title="一、学习目标"></a><strong>一、学习目标</strong></h2><ul>
+<li>UICollectionView介绍</li>
+<li>UICollectionView的使用</li>
+<li>UICollectionView自定义Cell</li>
+</ul>
+<a id="more"></a>
+<h2 id="二、课程内容"><a href="#二、课程内容" class="headerlink" title="二、课程内容"></a><strong>二、课程内容</strong></h2><h3 id="1-UICollectionView介绍"><a href="#1-UICollectionView介绍" class="headerlink" title="1.UICollectionView介绍"></a><strong>1.UICollectionView介绍</strong></h3><p>我们之前学习了UITableView这个神奇的控件，它使得我们用极少的开销就能展示大量的数据。但是当我们面对图片浏览或左右商品展示的时候，UITableView视乎力不从心。这时我们需要使用UICollectionView来优雅的解决下面的布局要求。</p>
+<p><img src="http://static.zybuluo.com/whunfios/itv9dobo8gs6xcn7h6x9d2ie/image_1alep1jvp1f101ka612i31t2s14vu9.png" alt="image_1alep1jvp1f101ka612i31t2s14vu9.png-98.3kB"> <img src="http://static.zybuluo.com/whunfios/egmz85sn5kxbqtuj9yij8frd/IMG_1178.PNG" alt="IMG_1178.PNG-215.3kB"></p>
+<p>UITableView和UICollectionView非常的类似，都由dataSouce和delegate提供数据和处理相关事件，希望能对比着来学习。下面介绍一些重要的类和协议</p>
+<ul>
+<li>1、<strong>UICollectionViewController</strong><br>这个类与之前学习的UITableViewController类似，他负责管理集合视图、存储需要的数据、并能处理数据源和委托协议。</li>
+<li><p>2、<strong>UICollectionViewCell</strong><br>这个和UITableViewCell很像。通常你不需要创建UICollectionViewCell，你可以通过调用<code>dequeueReusableCellWithReuseIdentifier: forIndexPath:</code>来获得，当然你需要像获取tableViewCell提供一个CellIdentifier。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CellOne * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@&quot;CellOne&quot; forIndexPath:indexPath];</div></pre></td></tr></table></figure>
+</li>
+<li><p>3、<strong>UICollectionViewDataSource</strong><br>和UITableViewDataSource类似，数据源协议拥有几个必须实现的方法，以控制显示的个数，分组等。</p>
+</li>
+<li><p>4、<strong>UICollectionViewDelegate</strong><br>和UITableViewDelegate类似，你可以通过代理协议处理高亮或选中等事件。</p>
+</li>
+<li><p>5、<strong>UICollectionViewDelegateFlowLayout</strong><br>如果说前面4个都与UITableView很像，那这个就是UICollectionView特有的专门用来处理布局的类。正是它的存在，UICollectionView能显示很多美妙的布局。</p>
+</li>
+</ul>
+<h3 id="2-UICollectionView的使用"><a href="#2-UICollectionView的使用" class="headerlink" title="2.UICollectionView的使用"></a><strong>2.UICollectionView的使用</strong></h3><p>接下来我们通过一个实际的例子来展示如果使用</p>
+<ul>
+<li><p>1、我们先Main.storyboard，并从右下角拖出一个UICollectionView到上View同上调整好位置。（为了更好的看出CollectionView的位置，我修改了其背景色）<br><img src="http://static.zybuluo.com/whunfios/n6mthrx5sq7ow544ruujha1n/image_1alercqht9ca2n71osl1kbi1c051r.png" alt="image_1alercqht9ca2n71osl1kbi1c051r.png-114.4kB"></p>
+</li>
+<li><p>2、调整cell的大小并往里面拖一个UIImageView （将Tag设置成10，以方便在代码中取得），设置CellIdentifier为「ImageCell 」.<br><img src="http://static.zybuluo.com/whunfios/9lc6q7x5e91fq7kr0flli2m8/image_1alesbushdoa12se1mh71ksj17cr28.png" alt="image_1alesbushdoa12se1mh71ksj17cr28.png-67kB"></p>
+</li>
+<li><p>3、将UICollectionView关联到ViewController中，遵守UICollectionViewDataSource协议，并将UICollectionView的打他source设置成ViewController。<br><img src="http://static.zybuluo.com/whunfios/jjy5il5nxkb3i5voq7q6f4hy/image_1aleseb681ebmmqd1gk9r3a1hog2l.png" alt="image_1aleseb681ebmmqd1gk9r3a1hog2l.png-59.2kB"></p>
+</li>
+<li><p>4、代码如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">#import &quot;ViewController.h&quot;</div><div class="line"></div><div class="line">@interface ViewController ()&lt;UICollectionViewDataSource&gt;</div><div class="line">@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;</div><div class="line">@end</div><div class="line"></div><div class="line">@implementation ViewController</div><div class="line"></div><div class="line">- (void)viewDidLoad &#123;</div><div class="line">    [super viewDidLoad];</div><div class="line">    // 遵守协议 并设置代理</div><div class="line">    _collectionView.dataSource = self;</div><div class="line">&#125;</div><div class="line"></div><div class="line">#pragma mark - UICollectionViewDataSource</div><div class="line"></div><div class="line">- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section</div><div class="line">&#123;</div><div class="line">    return 100;</div><div class="line">&#125;</div><div class="line">- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath</div><div class="line">&#123;</div><div class="line">    UICollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@&quot;ImageCell&quot; forIndexPath:indexPath];</div><div class="line">    UIImageView * imageV = [cell viewWithTag:10];</div><div class="line">    imageV.image = [UIImage imageNamed:[NSString stringWithFormat:@&quot;Expression_%ld&quot;,indexPath.row+1]];</div><div class="line">    return cell;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+</li>
+<li><p>5、 至此我们就利用实现的效果如下<br><img src="http://static.zybuluo.com/whunfios/j1pl2qrrrg3716gn6oi2blud/image_1alet3qbqilh18uurh1sflnd932.png" alt="image_1alet3qbqilh18uurh1sflnd932.png-132kB"></p>
+</li>
+</ul>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/01/20/UI/第二章UI控件 -- 18.UICollectionView（1）/" class="archive-article-date">
+  	<time datetime="2016-01-20T07:08:32.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-01-20</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UI/">UI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/01/21/UI/第三章动画和绘图 -- 01.transform属性和系统动画/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          01.transform属性和系统动画
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/01/19/UI/第二章UI控件 -- 17.UITabBarController/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">17.UITabBarController</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 John Doe
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接1</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接2</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接3</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接4</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接5</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接6</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

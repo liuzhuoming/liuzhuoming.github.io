@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>11.UITableView（01） | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="第二章UI控件 – 11.UITableView（01）一、学习目标
+UITableView初步使用
+UITableView分段功能
+UITableViewCell重用机制">
+<meta property="og:type" content="article">
+<meta property="og:title" content="11.UITableView（01）">
+<meta property="og:url" content="http://yoursite.com/2016/01/15/UI/第二章UI控件 -- 11.UITableView（01）/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第二章UI控件 – 11.UITableView（01）一、学习目标
+UITableView初步使用
+UITableView分段功能
+UITableViewCell重用机制">
+<meta property="og:image" content="http://static.zybuluo.com/whunfios/9i0yi3ntz1ugrovnhjb9bxrc/name.plist.zip">
+<meta property="og:updated_time" content="2016-09-15T15:24:53.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="11.UITableView（01）">
+<meta name="twitter:description" content="第二章UI控件 – 11.UITableView（01）一、学习目标
+UITableView初步使用
+UITableView分段功能
+UITableViewCell重用机制">
+<meta name="twitter:image" content="http://static.zybuluo.com/whunfios/9i0yi3ntz1ugrovnhjb9bxrc/name.plist.zip">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <script src="/style.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">John Doe</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">John Doe</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="null" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">John Doe</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-UI/第二章UI控件 -- 11.UITableView（01）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      11.UITableView（01）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="第二章UI控件-–-11-UITableView（01）"><a href="#第二章UI控件-–-11-UITableView（01）" class="headerlink" title="第二章UI控件 – 11.UITableView（01）"></a>第二章UI控件 – 11.UITableView（01）</h1><h2 id="一、学习目标"><a href="#一、学习目标" class="headerlink" title="一、学习目标"></a><strong>一、学习目标</strong></h2><ul>
+<li>UITableView初步使用</li>
+<li>UITableView分段功能</li>
+<li>UITableViewCell重用机制</li>
+</ul>
+<a id="more"></a>
+<h2 id="二、课程内容"><a href="#二、课程内容" class="headerlink" title="二、课程内容"></a><strong>二、课程内容</strong></h2><h3 id="1-UITableView介绍"><a href="#1-UITableView介绍" class="headerlink" title="1.UITableView介绍"></a><strong>1.UITableView介绍</strong></h3><p>几乎所有的App都有表格视图,tableView主要展示一类相似的数据,比如我们之前的系统自带的设置应用。</p>
+<p>接下来我们利用UITableView实现一个通讯录，而在这之前我们需要了解UITableView的两个代理中负责内容的<strong>UITableViewDataSource</strong>是用来告诉UITableView一共有几组数据，每组数据有几行，每行该显示什么数据。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">展示数据的过程：</div><div class="line">// 1. 可选实现 如果不实现 默认是1组</div><div class="line">- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView;              // Default is 1 if not implemented</div><div class="line">// 2. 必须实现 返回某一组有多少行</div><div class="line">- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;</div><div class="line">// 3. 根据下标indexPath 返回一个UITableViewCell</div><div class="line">- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;</div><div class="line">// 4.每组的头部显示的文字</div><div class="line">- (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section;    </div><div class="line">// 5.每组的最后显示的文字</div><div class="line">- (nullable NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section;</div></pre></td></tr></table></figure></p>
+<h3 id="2-UITableView初步使用"><a href="#2-UITableView初步使用" class="headerlink" title="2.UITableView初步使用"></a><strong>2.UITableView初步使用</strong></h3><p>创建一个UITableView，并添加到ViewController.view,同时设置两个ViewController成为tableView的代理和数据源。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">self.tableview = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStyleGrouped];</div><div class="line">[self.view addSubview:self.tableview];</div><div class="line">self.tableview.dataSource = self;</div><div class="line">self.tableview.delegate = self;</div></pre></td></tr></table></figure></p>
+<p>接下来我们模拟一个通许录，首先新建一个person类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">@interface Person : NSObject</div><div class="line">// 姓名</div><div class="line">@property(nonatomic,copy)NSString* name;</div><div class="line">// 电话</div><div class="line">@property(nonatomic,copy)NSString* phoneNum;</div><div class="line">- (instancetype)initWithName:(NSString*)name PhoneNum:(NSString*)phoneNum;</div><div class="line">@end</div><div class="line"></div><div class="line">@implementation Person</div><div class="line">- (instancetype)initWithName:(NSString*)name PhoneNum:(NSString*)phoneNum</div><div class="line">&#123;</div><div class="line">    if (self = [super init]) &#123;</div><div class="line">        _name = name;</div><div class="line">        _phoneNum = phoneNum;</div><div class="line">    &#125;</div><div class="line">    return self;</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure></p>
+<p>给数组创建一个数据数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">// 创建一个可变空数组</div><div class="line">self.personArr = [@[] mutableCopy];</div><div class="line">// 往里面添加多个person对象</div><div class="line">Person * p1 = [[Person alloc]initWithName:@&quot;张三&quot; PhoneNum:@&quot;181 7897 7262&quot;];</div><div class="line">Person * p2 = [[Person alloc]initWithName:@&quot;张四&quot; PhoneNum:@&quot;190 7812 7234&quot;];</div><div class="line">Person * p3 = [[Person alloc]initWithName:@&quot;张五&quot; PhoneNum:@&quot;145 7137 7242&quot;];</div><div class="line">Person * p4 = [[Person alloc]initWithName:@&quot;张六&quot; PhoneNum:@&quot;153 1293 7262&quot;];</div><div class="line">Person * p5 = [[Person alloc]initWithName:@&quot;张七&quot; PhoneNum:@&quot;121 1122 2332&quot;];</div><div class="line"></div><div class="line">[self.personArr addObjectsFromArray:@[p1,p2,p3,p4,p5]];</div></pre></td></tr></table></figure></p>
+<p>接下来实现UitableView的datasource<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">#pragma mark - UITableViewDataSource</div><div class="line">// 返回一共几组</div><div class="line">- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView</div><div class="line">&#123;</div><div class="line">    return 1;</div><div class="line">&#125;</div><div class="line">// 根据组号返回行数</div><div class="line">- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section</div><div class="line">&#123;</div><div class="line">    return self.personArr.count; // 根据数组的数据返回行数</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath</div><div class="line">&#123;</div><div class="line">    UITableViewCell * cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@&quot;cell&quot;];</div><div class="line">    // 根据index拿到该显示的对象</div><div class="line">    Person * person = self.personArr[indexPath.row];</div><div class="line">    cell.textLabel.text = [NSString stringWithFormat:@&quot;%@  %@&quot;,person.name,person.phoneNum];</div><div class="line">    return cell;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>运行效果如下</p>
+<p>![xib11.png-31kB][2]<br>接下来我们将返回的组数改成3，并加上 另外两个数据源方法用来返回header和footer的文字。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">// 返回每一组的Header title</div><div class="line">- (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section</div><div class="line">&#123;</div><div class="line">    return [NSString stringWithFormat:@&quot;通讯录 header %ld&quot;,section];</div><div class="line">&#125;</div><div class="line">// 返回每一组的Footer title</div><div class="line">- (NSString*)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section</div><div class="line">&#123;</div><div class="line">    return [NSString stringWithFormat:@&quot;通讯录 footer %ld&quot;,section];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>![xib14.png-49kB][3]</p>
+<h3 id="3-UITableViewCell的介绍和重用机制"><a href="#3-UITableViewCell的介绍和重用机制" class="headerlink" title="3.UITableViewCell的介绍和重用机制"></a><strong>3.UITableViewCell的介绍和重用机制</strong></h3><p>UITableView的每一行都是一个UITableViewCell,通过<code>dataSource的 tableView:cellForRowAtIndexPath:</code>方法来初始化每⼀行<br>UITableViewCell内部有个默认的子视图:<strong>contentView</strong>,contentView是UITableViewCell所显示内容的父视图,可显示一些辅助指示视图。辅助指示视图的作⽤是显示一个表示动作的图标,可以通过设置UITableViewCellaccessoryType来显示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">UITableViewCellAccessoryNone   //cell没有任何的样式  </div><div class="line">UITableViewCellAccessoryDisclosureIndicator  //cell的右边有一个小箭头，距离右边有十几像素；  </div><div class="line">UITableViewCellAccessoryDetailDisclosureButton  //cell右边有一个蓝色的圆形button；  </div><div class="line">UITableViewCellAccessoryCheckmark  //cell右边的形状是对号；</div><div class="line"></div><div class="line">还可以通过cell的accessoryView属性来自定义辅助指示视图(⽐如往右边放一个开关)</div></pre></td></tr></table></figure></p>
+<p>Cell系统自带的风格</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">typedef NS_ENUM(NSInteger, UITableViewCellStyle) &#123;</div><div class="line">    UITableViewCellStyleDefault,    // 默认风格，自带标题和一个图片视图，图片在左</div><div class="line">    UITableViewCellStyleValue1,     // 只有标题和副标题 副标题在右边</div><div class="line">    UITableViewCellStyleValue2,     // 只有标题和副标题，副标题在左边标题的下边</div><div class="line">    UITableViewCellStyleSubtitle    // 自带图片视图和主副标题，主副标题都在左边，副标题在下</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p><strong>cell的工作</strong><br>在程序执行的时候，能看到多少条，它就创建多少条数据，如果视图滚动那么再创建新显示的内容。（系统自动调用）。即当一个cell出现在视野范围内的时候，就会调用创建一个cell。这样的逻辑看上去没有什么问题，但是假如通许录有一千个数据，我们是否需要创建一千个UITableViewCell？<br>当创建调用的时候，我们使用nslog打印消息，并打印创建的cell的地址。我们发现如果数据量非常大，用户在短时间内来回滚动的话，那么会创建大量的cell,一直开辟空间，且如果是往回滚，通过打印地址，我们会发现它并没有重用之前已经创建的cell，而是重新创建，开辟新的存储空间。也就是远不止一千个Cell。</p>
+<p><strong>cell的重用原理</strong></p>
+<p>（1） 随着tableView的不断滚动，系统就会不断的调用<code>- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath</code>来创建无数个UITableViewCell。而iOS设备的内存有限,如果用UITableView显示成千上万条数据,就需要成千上万 个UITableViewCell对象的话,那将会耗尽iOS设备的内存。要解决该问题,需要重用UITableViewCell对象</p>
+<p>（2）重⽤原理:当滚动列表时,部分UITableViewCell会移出窗口,UITableView会将窗口外的UITableViewCell放入一个对象池中,等待重用。当UITableViewdataSourceUITableViewCelldataSource会先查看这个对象池,如果池中有未使用的 UITableViewCelldataSource则会用新的数据来配置这个UITableViewCell,然后返回给 UITableView,重新显示到窗口中,从而避免创建新对象 。这样可以让创建的cell的数量维持在很低的水平，如果一个窗口中只能显示5个cell，那么cell重用之后，只需要创建6个cell就够了。</p>
+<p>（3）注意点：还有⼀个非常重要的问题:有时候需要自定义UITableViewCell(用⼀个子类继 承UITableViewCell),而且每⼀行⽤的不一定是同一种UITableViewCell,所以一 个UITableView可能拥有不同类型的UITableViewCell,对象池中也会有很多不同类型的 UITableViewCell,那么UITableView在重⽤用UITableViewCell时可能会得到错误类型的 UITableViewCell</p>
+<p>解决⽅方案UITableViewCellNSString *reuseIdentifier属性,可以在初始化UITableViewCell的时候传入一个特定的字符串标识来设置reuseIdentifier(UITableViewCellUITableViewdataSourceUITableViewCell时,先 通过一个字符串标识到对象池中查找对应类型的UITableViewCell对象,如果有,就重用,如果没有,就传入这个字符串标识来初始化⼀一个UITableViewCell</p>
+<p><strong>缓存优化的思路</strong>：<br>（1）先去缓存池中查找是否有满足条件(reuseIdentifier)的cell，若有那就直接拿来<br>（2）若没有，就自己创建一个cell并且设置一个唯一的标记（reuseIdentifier）<br>（3）给cell设置数据</p>
+<p>定义变量用来保存重用标记的值，这里不推荐使用宏（#define来处理）,因为该变量只在这个作用域的内部使用，且如果使用宏定义的话，定义和使用位置太分散，不利于阅读程序。由于其值不变，没有必要每次都开辟一次，所以用static定义为一个静态变量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">// 1.定义 reuseIdentifier</div><div class="line">static NSString * ID = @&quot;cell&quot;;</div><div class="line">// 2.尝试从缓存池中找</div><div class="line">UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ID];</div><div class="line">// 3。如果没有 创建一个并附上reuseIdentifier</div><div class="line">if (!cell) &#123;</div><div class="line">    cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];</div><div class="line">&#125;</div><div class="line">// 4.根据index拿到该显示的对象数据</div><div class="line">Person * person = self.personArr[indexPath.row];</div><div class="line">cell.textLabel.text = [NSString stringWithFormat:@&quot;%@  %@&quot;,person.name,person.phoneNum];</div><div class="line">// 5.返回cell</div><div class="line">return cell;</div></pre></td></tr></table></figure>
+<h2 id="三、练习"><a href="#三、练习" class="headerlink" title="三、练习"></a><strong>三、练习</strong></h2><ul>
+<li>1.将plist文件的数据读取出来</li>
+<li>2.接着通过tableView显示出来</li>
+<li>3.最后观察创建了一共多少个cell<br><img src="http://static.zybuluo.com/whunfios/9i0yi3ntz1ugrovnhjb9bxrc/name.plist.zip" alt="name.plist.zip-0.9kB"></li>
+</ul>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/01/15/UI/第二章UI控件 -- 11.UITableView（01）/" class="archive-article-date">
+  	<time datetime="2016-01-15T07:08:01.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-01-15</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UI/">UI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/01/15/UI/第二章UI控件 -- 12.UITableView（02）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          03.UIImageView
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/01/10/UI/第二章UI控件 -- 10.UIScrollView/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">10.UIScrollView</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 John Doe
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接1</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接2</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接3</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接4</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接5</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接6</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

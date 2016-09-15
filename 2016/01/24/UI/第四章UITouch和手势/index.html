@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>iOS应用概述 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="第四章UITouch和手势一、学习目标
+UITouch的介绍
+UITouch和响应者链">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS应用概述">
+<meta property="og:url" content="http://yoursite.com/2016/01/24/UI/第四章UITouch和手势/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第四章UITouch和手势一、学习目标
+UITouch的介绍
+UITouch和响应者链">
+<meta property="og:updated_time" content="2016-09-15T16:00:11.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS应用概述">
+<meta name="twitter:description" content="第四章UITouch和手势一、学习目标
+UITouch的介绍
+UITouch和响应者链">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <script src="/style.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">John Doe</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">John Doe</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="null" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">John Doe</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-UI/第四章UITouch和手势" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iOS应用概述
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="第四章UITouch和手势"><a href="#第四章UITouch和手势" class="headerlink" title="第四章UITouch和手势"></a>第四章UITouch和手势</h1><h2 id="一、学习目标"><a href="#一、学习目标" class="headerlink" title="一、学习目标"></a><strong>一、学习目标</strong></h2><ul>
+<li>UITouch的介绍</li>
+<li>UITouch和响应者链</li>
+</ul>
+<a id="more"></a>
+<h2 id="二、课程内容"><a href="#二、课程内容" class="headerlink" title="二、课程内容"></a><strong>二、课程内容</strong></h2><h3 id="1-UITouch"><a href="#1-UITouch" class="headerlink" title="1.UITouch"></a><strong>1.UITouch</strong></h3><p>UIView除了负责展示内容给用户外还负责响应用户事件。本章主要介绍UIView用户交互相关的属性和方法。</p>
+<blockquote>
+<p>结合第二章的内容学习。</p>
+</blockquote>
+<h4 id="1-1-UIView交互相关的属性"><a href="#1-1-UIView交互相关的属性" class="headerlink" title="1.1 UIView交互相关的属性"></a>1.1 UIView交互相关的属性</h4><ul>
+<li><strong>userInteractionEnabled</strong>：默认是YES，如果设置为NO则不响应用户事件，并且把当前控件从事件队列中删除。也就是说设置了userInterfaceEnabled属性的视图会打断响应者链导致该view的subview都无法响应事件。</li>
+<li><strong>multipleTouchEnabled</strong>：默认是NO，如果设置为YES则支持多点触碰。</li>
+<li><strong>exclusiveTouch</strong>：默认是NO，如果设置为YES则当前UIView会独占整个Touch事件。具体来说就是如果UIView设置了exclusiveTouch属性为YES则当这个UIView成为第一响应者时，在手指离开屏幕前其他view不会响应任何touch事件。</li>
+</ul>
+<h4 id="1-2-触摸响应"><a href="#1-2-触摸响应" class="headerlink" title="1.2 触摸响应"></a>1.2 触摸响应</h4><p>了解UIView的触碰响应之前，首先了解在iOS中触碰事件是什么，事件在视图模型中是如何传递的，视图在接收到一个事件是如何响应的。下面介绍触碰事件类UITouch和响应者链来解释事件的工作原理。<br>在iOS中UITouch类代表触碰事件。当用户触摸屏幕后就会产生相应的事件，所有相关的UITouch对象都被包装在事件中，被程序交由特定的对象处理。UITouch对象包括触碰的详细信息。<br>UITouch含有5个属性：</p>
+<ul>
+<li><strong>window</strong>：触碰产生时所处的窗口，由于窗口可能发生变化，当前所在的窗口不一定是最开始的窗口。</li>
+<li><strong>view</strong>：触碰产生时所处的视图。由于视图可能发生变化，当前视图也不一定是最初的视图。</li>
+<li><strong>tapCount</strong>：短时间内轻击（tap）屏幕的次数，可根据tapCount判断单击、双击或更多的轻击。</li>
+<li><strong>timestamp</strong>：时间戳记录了触碰事件产生或变化时的时间。单位是秒。</li>
+<li><strong>phase</strong>：触碰事件在屏幕上有一个周期，即触碰开始、触碰点移动、触碰结束，中途取消。通过phase可以查看当前触碰事件在一个周期中所处的状态。UITouchPhase是一个枚举：<code>UITouchPhaseBegan</code> <code>UITouchPhaseMoved</code> <code>UITouchPhaseStationary</code> <code>UITouchPhaseEnded</code> <code>UITouchPhaseCancelled</code></li>
+</ul>
+<p>　　当手指触碰到屏幕，无论是单点还是多点触碰，事件都会开始，直到用户所有的手指都离开屏幕。期间所有的UITouch对象都被封装在UIEvent事件对象中，由程序分发给处理者。事件记录了这个周期中所有触碰对象状态的变化。</p>
+<p>　　只要屏幕被触摸，系统会将诺干个触碰信息封装到UIEvent对象中发送给程序，由管理程序UIApplication对象将事件分发。<br>　　响应者对象就是可以响应事件并对事件作出处理的对象。在iOS中UIResponder类定义了响应者对象的所有方法。UIApplication、UIWindow、UIViewController、UIView以及UIKit中继承自UIView的控件都间接或直接继承自UIResponder类，这些类都可以当做响应者。<br>　　响应者链表示一系列响应者对象组成的事件传递的链条。当确定了第一响应者后，事件交由第一响应者处理，如果第一响应者不处理事件沿着响应者链传递，交给下一个响应者。一般来说，第一响应者是UIView对象或者UIView的子类对象，当其被触摸后事件交由它处理，如果它不处理，事件就会交给它的UIViewController处理（如果存在），然后是它的superview父视图对象，以此类推，直到顶层视图。如果顶层视图不处理则交给UIWindow对象处理，再到UIApplication对象（如果UIApplication继承自UIResponder）。如果整个响应者链都不响应这个事件则该事件被丢弃。<br>　　![20130707181937406.jpeg-16kB][4]<br>　　<br>　　UIView类继承了UIResponder类，要对事件作出处理还需要重写UIResponder类中定义的事件处理函数。根据不同的触碰状态，程序会调用相应的处理函数，这些函数包括：<br><code>-(void) touchesBegan:(NSSet *)touches withEvents:(UIEvent *)event;</code><br><code>-(void) touchesMoved:(NSSet *)touches withEvents:(UIEvent *)event;</code><br><code>-(void) touchesEnded:(NSSet *)touches withEvents:(UIEvent *)event;</code><br><code>-(void) touchesCancelled:(NSSet *)touches withEvents:(UIEvent *)event;</code></p>
+<p>比如我们要拖动一个视图这里先在touchesBegan中通过[touch locationInView:self.view]获取手指触摸在当前视图上的位置，用CGPoint变量记录，然后在手指移动事件touchesMoved方法中获取触摸对象当前位置，并通过于与原始位置的差值计算出移动偏移量，再设置当前视图的位置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">// 记录开始的路径</div><div class="line">CGPoint originalLocation;</div><div class="line">-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event</div><div class="line">&#123;</div><div class="line">    UITouch *touch = [touches anyObject];</div><div class="line">    originalLocation = [touch locationInView:self.view];</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event</div><div class="line">&#123;</div><div class="line">    UITouch *touch = [touches anyObject];</div><div class="line">    CGPoint currentLocation = [touch locationInView:self.view];</div><div class="line">    CGRect frame = self.view.frame;</div><div class="line">    frame.origin.x += currentLocation.x-originalLocation.x;</div><div class="line">    frame.origin.y += currentLocation.y-originalLocation.y; </div><div class="line">    self.view.frame = frame;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="2-手势"><a href="#2-手势" class="headerlink" title="2.手势"></a>2.手势</h3><p><strong>UIGestureRecognizer</strong>是一个手势基类，提供了简单的手势实现方式。衍生类如下：<br>|类  |  说明| 属性|<br>|—-|:—-|—-|<br>|UITabGestureRecognizer | 轻击手势|1.<strong>numberOfTapsRequired</strong> 点击次数　　　 2.<strong>numberOfTouchesRequired</strong> 手指个数|<br>|UIPinchGestureRecognizer |捏合手势|<strong>scale</strong>：初始值为1，两手指距离减少则scale不断变小；两个手指重合则变为0；　　<strong>velocity</strong>：初始值为0，手指移动的相对速度，两手指距离减少为负数，速度越快数值越少；两手指距离变大为整数，速度越快数值越大。|<br>|UIRotationGestureRecognizer | 旋转手势|<strong>rotation</strong>：初始值为0，两手指的旋转弧度，顺时针旋转为正数，逆时针旋转为负数。　　<strong>velocity</strong>：初始值为0手指一动的相对速度，顺时针为正数越快值越大；逆时针为负越快越小。|<br>|UISwipeGestureRecognizer |轻扫手势|<strong>numberOfTouchesRequired</strong>： 手指个数　　　　       <strong>direction</strong>：手势方向，如UISwipeGestureRecognizerDirectionRight 向右|<br>|UIPanGestureRecognizer|拖拽手势|<strong>mininumNumberOfTouches</strong>：默认值为1，最少手指数量　<strong>maxnumNumberOfTouches</strong>：最大手指数量|<br>|UILongPressGestrueRecognizer |长按手势|<strong>numberOfTapsRequired</strong>：默认值为0，轻击的次数　　<strong>numberOfTouchesRequired</strong>：默认值是1，手指数量。　　<strong>mininumPressDuration</strong>：默认值为0.5，单位是秒。　　<strong>allowableMovement</strong>：默认值为10，单位是像素．|</p>
+<p>手势相比触碰事件的好处是可以直接使用已经定义好的手势，开发者不用自己计算手指移动轨迹。UIView关于手势的方法：<br>|方法  |  说明|<br>|—-|:—-|<br>|<code>-(void) addGestureRecognizer:(UIGestureRecognizer *)gestureRecognizer</code>|添加手势|<br>|<code>-(void) removeGestureRecognizer:(UIGestureRecognizer *)getureRecognizer</code> |删除一个手势。|<br>|<code>-(BOOL) gestureRecognizerShouldBegan:(UIGestureRecognizer *)gestureRecognizer</code>| 询问是否开始执行该手势，默认返回YES。|</p>
+<p>三个初始化方法<br><code>-(id) initWithTarget:action:</code><br><code>-(void)addTarget:action:</code><br><code>-(void)removeTarget:action:</code></p>
+<p>手势的实际应用</p>
+<ol>
+<li>添加一个拖拽手势给aView<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//创建一个平移手势对象，该对象可以调用handelPan：方法</div><div class="line">UIPanGestureRecognizer *panGes = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handelPan:)];</div><div class="line">[self.aView addGestureRecognizer:panGes];</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>2.处理手势的方法如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">-(void)handelPan:(UIPanGestureRecognizer*)gestureRecognizer&#123;</div><div class="line">    //获取平移手势对象在self.view的位置点，并将这个点作为self.aView的center,这样就实现了拖动的效果</div><div class="line">    CGPoint curPoint = [gestureRecognizer locationInView:self.view];</div><div class="line">    [self.aView setCenter:curPoint];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="三、课程作业"><a href="#三、课程作业" class="headerlink" title="三、课程作业"></a><strong>三、课程作业</strong></h2><blockquote>
+<ul>
+<li>利用UItouch拖动图片UIImageView.</li>
+<li>利用UIPanGestureRecognizer实现拖动图片。</li>
+<li>利用UITabGestureRecognizer给图片和或者View添加点击事件。</li>
+<li>根据手势旋转和缩放图片</li>
+</ul>
+</blockquote>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/01/24/UI/第四章UITouch和手势/" class="archive-article-date">
+  	<time datetime="2016-01-24T07:08:32.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-01-24</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UI/">UI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/01/25/UI/第五章 自动布局/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          自动布局
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/01/23/UI/第三章动画和绘图 -- 03.核心动画/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">03.核心动画</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 John Doe
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接1</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接2</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接3</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接4</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接5</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接6</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

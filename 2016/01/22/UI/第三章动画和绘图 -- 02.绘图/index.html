@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>02.绘图 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="第三章动画和绘图 – 02.绘图一、学习目标
+Quartz概述和绘图基本知识
+绘制不同的图形
+绘制贝塞尔曲线">
+<meta property="og:type" content="article">
+<meta property="og:title" content="02.绘图">
+<meta property="og:url" content="http://yoursite.com/2016/01/22/UI/第三章动画和绘图 -- 02.绘图/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第三章动画和绘图 – 02.绘图一、学习目标
+Quartz概述和绘图基本知识
+绘制不同的图形
+绘制贝塞尔曲线">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/ajt37lr5yiv9ghuw5637idi2/547c2651933bf0d1068b5dd4_1.gif">
+<meta property="og:updated_time" content="2016-09-15T15:38:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="02.绘图">
+<meta name="twitter:description" content="第三章动画和绘图 – 02.绘图一、学习目标
+Quartz概述和绘图基本知识
+绘制不同的图形
+绘制贝塞尔曲线">
+<meta name="twitter:image" content="http://static.zybuluo.com/zhuoming/ajt37lr5yiv9ghuw5637idi2/547c2651933bf0d1068b5dd4_1.gif">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <script src="/style.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">John Doe</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">John Doe</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="null" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">John Doe</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-UI/第三章动画和绘图 -- 02.绘图" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      02.绘图
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="第三章动画和绘图-–-02-绘图"><a href="#第三章动画和绘图-–-02-绘图" class="headerlink" title="第三章动画和绘图 – 02.绘图"></a>第三章动画和绘图 – 02.绘图</h1><h2 id="一、学习目标"><a href="#一、学习目标" class="headerlink" title="一、学习目标"></a><strong>一、学习目标</strong></h2><ul>
+<li>Quartz概述和绘图基本知识</li>
+<li>绘制不同的图形</li>
+<li>绘制贝塞尔曲线</li>
+</ul>
+<a id="more"></a>
+<h2 id="二、课堂内容"><a href="#二、课堂内容" class="headerlink" title="二、课堂内容"></a><strong>二、课堂内容</strong></h2><h4 id="1-Quartz概述"><a href="#1-Quartz概述" class="headerlink" title="1.Quartz概述"></a>1.Quartz概述</h4><p>Quartz是Mac OS X的Darwin核心之上的绘图层，有时候也认为是CoreGraphics。共有两种部分组成Quartz：</p>
+<ul>
+<li>Quartz Compositor，合成视窗系统，管理和合成幕后视窗影像来建立Mac OS X使用者接口。</li>
+<li>Quartz 2D，是iOS和Mac OS X环境下的二维绘图引擎。</li>
+</ul>
+<p>涉及内容包括：基于路径的绘图，透明度绘图，遮盖，阴影，透明层，颜色管理，防锯齿渲染，生成PDF，以及PDF元数据相关处理。</p>
+<h4 id="2-视图绘制"><a href="#2-视图绘制" class="headerlink" title="2.视图绘制"></a>2.视图绘制</h4><p>在iOS上，所有的绘制，无论是否采用OpenGL、Quartz、UIKit、或者 Core Animation—都发生在UIView对象的区域内。如果使用系统提供的视图，绘制工作会自动得到处理。比如</p>
+<ul>
+<li>UILabel:显⽰文字</li>
+<li>UIImageView:显示图片</li>
+<li>UIButton:同时显示图片和⽂字(能点击)</li>
+</ul>
+<p>然而，如果想定义自己的定制视图，则必须自行提供绘制代码。</p>
+<h4 id="3-图形上下文"><a href="#3-图形上下文" class="headerlink" title="3.图形上下文"></a>3.图形上下文</h4><p>在调用您提供的drawRect:方法之前，视图对象会自动配置其绘制环境，使您的代码可以立即进行绘制。作为这些配置的一部分，UIView对象会为当前绘制环境创建一个图形上下文（Graphics Context ，是CGContextRef封装类型）。该图形上下文包含绘制系统执行后续绘制命令所需要的信息，定义了各种基本的绘制属性，比如绘制使用的颜色、裁剪区域、线的宽度及风格信息、字体信息、合成选项、以及几个其它信息。我们可以将Graphics Context理解为一块画布,我们可以在上面进行绘画操作,绘制完成后,将画布放到我们的view中显示即可,view看作是一个画框.</p>
+<h4 id="4-drawRect"><a href="#4-drawRect" class="headerlink" title="4.drawRect"></a>4.drawRect</h4><p><code>- (void)drawRect:(CGRect)rect</code><br>在drawRect:⽅法中才能取得跟view相关联的图形上下文，也才能将图绘制上去。这个方法会在第一次显示到屏幕上的时候调用<code>setNeedsDisplaysetNeedsDisplayInRect:</code>。</p>
+<h4 id="5-自定义view"><a href="#5-自定义view" class="headerlink" title="5.自定义view"></a>5.自定义view</h4><h5 id="⾃定义view的步骤"><a href="#⾃定义view的步骤" class="headerlink" title="⾃定义view的步骤"></a><strong>⾃定义view的步骤</strong></h5><p>1.获得图形上下文:<br><code>CGContextRef ctx = UIGraphicsGetCurrentContext();</code><br>2.拼接路径</p>
+<ul>
+<li>新建一个起点<br><code>void CGContextMoveToPoint(CGContextRef c, CGFloat x, CGFloat y)</code></li>
+<li>添加新的线段到某个点<br><code>void CGContextAddLineToPoint(CGContextRef c, CGFloat x, CGFloat y)</code></li>
+<li>添加一个矩形<br><code>void CGContextAddRect(CGContextRef c, CGRect rect)</code></li>
+<li>添加一个椭圆<br><code>void CGContextAddEllipseInRect(CGContextRef context, CGRect rect)</code></li>
+<li>添加一个圆弧<br><code>void CGContextAddArc(CGContextRef c, CGFloat x, CGFloat y, CGFloat radius, CGFloat startAngle, CGFloat endAngle, int clockwise)</code></li>
+</ul>
+<p>3.添加路径到上下文</p>
+<ul>
+<li>Mode参数决定绘制的模式<br><code>void CGContextDrawPath(CGContextRef c, CGPathDrawingMode mode)</code></li>
+<li>绘制空心路径<br><code>void CGContextStrokePath(CGContextRef c)</code></li>
+<li>绘制实心路径<br><code>void CGContextFillPath(CGContextRef c)</code></li>
+</ul>
+<blockquote>
+<p>tips<br>提示：一般以CGContextDraw、CGContextStroke、CGContextFill开头的函数，都是用来绘制路径的</p>
+</blockquote>
+<p>4.渲染到View上面<br> <code>CGContextStrokePath(ctx);</code></p>
+<h5 id="代码及效果"><a href="#代码及效果" class="headerlink" title="代码及效果"></a><strong>代码及效果</strong></h5><p><strong>1.画线</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">- (void)drawRect:(CGRect)rect &#123;</div><div class="line">    [self drawLine];</div><div class="line">&#125;</div><div class="line">- (void)drawLine</div><div class="line">&#123;</div><div class="line">    //-------------------------------</div><div class="line">    // 一个路径对象，可以对应多跟线</div><div class="line">    // 1.获取跟当前view想关联的上下文,系统自动帮我们创建的上下文</div><div class="line">    CGContextRef ctx = UIGraphicsGetCurrentContext();</div><div class="line">    // 设置上下文的状态,应该放在渲染之前就可以</div><div class="line">    // 创建对应颜色对象，调用set方法</div><div class="line">    [[UIColor redColor] set];</div><div class="line">    // 设置上下文的线宽</div><div class="line">    CGContextSetLineWidth(ctx, 15);</div><div class="line">    // 设置线段的连接样式</div><div class="line">    CGContextSetLineJoin(ctx, kCGLineJoinRound);</div><div class="line">    // 设置线段的端点样式,帽子</div><div class="line">    CGContextSetLineCap(ctx, kCGLineCapRound);</div><div class="line">    //------------------------------</div><div class="line">    // 2.拼接路径，UIBezierPath,封装好了一套很好使用的路径</div><div class="line">    UIBezierPath *path = [UIBezierPath bezierPath];</div><div class="line">    // 2.1 设置起点</div><div class="line">    [path moveToPoint:CGPointMake(30, 125)];</div><div class="line">    // 2.2 添加一根线到某个点</div><div class="line">    [path addLineToPoint:CGPointMake(220, 125)];</div><div class="line">    // 如果只使用一根路径，默认下一根线的起点在上一根跟线终点</div><div class="line">    [path addLineToPoint:CGPointMake(30, 300)];</div><div class="line">    [path addLineToPoint:CGPointMake(220, 300)];</div><div class="line">    //---------------------------------</div><div class="line">    // 3.添加路径到上下文</div><div class="line">    CGContextAddPath(ctx, path.CGPath);</div><div class="line">    // 4.渲染到view上面的图层</div><div class="line">    CGContextStrokePath(ctx);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>2.绘制曲线</strong> :一般通过贝塞尔曲线来绘制图形：UIBezierPath<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">-(void)drawLIneQuadCurve</div><div class="line">&#123;</div><div class="line">    // 1.获取上下文</div><div class="line">    CGContextRef ctx = UIGraphicsGetCurrentContext();</div><div class="line">    [[UIColor redColor] set];</div><div class="line">    // 2.拼接路径</div><div class="line">    UIBezierPath *path = [UIBezierPath bezierPath];</div><div class="line">    [path moveToPoint:CGPointMake(10, 125)];</div><div class="line">    [path addQuadCurveToPoint:CGPointMake(240, 125) controlPoint:CGPointMake(125, 0)];</div><div class="line">    // 3.路径添加到上下文</div><div class="line">    CGContextAddPath(ctx, path.CGPath);</div><div class="line">    // 4.渲染上下文</div><div class="line">    //以填充的方式渲染</div><div class="line">    //CGContextFillPath(ctx);</div><div class="line">    CGContextStrokePath(ctx);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>3.绘制矩形</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">- (void)drawRect</div><div class="line">&#123;</div><div class="line">    CGContextRef ctx = UIGraphicsGetCurrentContext();</div><div class="line">    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(50, 50, 100, 100) cornerRadius:50];</div><div class="line">    CGContextAddPath(ctx, path.CGPath);</div><div class="line">    // 设置填充的颜色</div><div class="line">    [[UIColor redColor] setFill];</div><div class="line">    // 线条的颜色</div><div class="line">    [[UIColor greenColor] setStroke];</div><div class="line">    // 填充：必须封闭的路径</div><div class="line">    // 即描边又填充</div><div class="line">    // 如果以后只需要描边，最好不要使用fill</div><div class="line">    CGContextDrawPath(ctx, kCGPathFillStroke);</div><div class="line">    //    CGContextFillPath(ctx);</div><div class="line">    CGContextStrokePath(ctx);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>4.绘制圆弧</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">- (void)drawArc:(CGRect)rect &#123;</div><div class="line">    // 画圆弧</div><div class="line">    // center：圆心</div><div class="line">    // radius：半径</div><div class="line">    // clockwise：当前是 yes：顺时针 no：逆时针</div><div class="line">    CGPoint center = CGPointMake(125, 125);</div><div class="line">    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(125, 125) radius:100 startAngle:0 endAngle:-M_PI_2  clockwise:NO];</div><div class="line">    // 添加一根线到圆心</div><div class="line">    [path addLineToPoint:center];</div><div class="line">    // 关闭路径：从路径的终点到起点</div><div class="line">    // [path closePath];</div><div class="line">    // 填充，默认会关闭路径，从路径的终点到起点</div><div class="line">    [path fill];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>5.绘制饼状图</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">- (void)drawArcRect:(CGRect)rect &#123;</div><div class="line">    // Drawing code</div><div class="line">    NSArray *datas = @[@25,@25,@50];</div><div class="line">    CGPoint center = CGPointMake(125, 125);</div><div class="line">    CGFloat r = 100;</div><div class="line">    CGFloat startA = 0;</div><div class="line">    CGFloat angle = 0;</div><div class="line">    CGFloat endA = 0;</div><div class="line">    for (NSNumber *number in datas) &#123;</div><div class="line">        // 遍历一个数据，绘制一根扇形</div><div class="line">        startA = endA;</div><div class="line">        angle = number.intValue / 100.0 * M_PI * 2;</div><div class="line">        endA = startA + angle;</div><div class="line">        // 描述圆弧</div><div class="line">        UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:center radius:r startAngle:startA endAngle:endA clockwise:YES];</div><div class="line">        [path addLineToPoint:center];</div><div class="line">        [[self randomColor] set];</div><div class="line">        [path fill];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">//当点击View的时候，重绘</div><div class="line">- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event</div><div class="line">&#123;</div><div class="line">    [self setNeedsDisplay];</div><div class="line">    </div><div class="line">&#125;</div><div class="line">//生成随机的颜色</div><div class="line">- (UIColor *)randomColor</div><div class="line">&#123;</div><div class="line">    CGFloat r = arc4random_uniform(256) / 255.0;</div><div class="line">    CGFloat g = arc4random_uniform(256) / 255.0;</div><div class="line">    CGFloat b = arc4random_uniform(256) / 255.0;</div><div class="line">    return [UIColor colorWithRed:r green:g blue:b alpha:1];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="三、课程作业"><a href="#三、课程作业" class="headerlink" title="三、课程作业"></a><strong>三、课程作业</strong></h2><ul>
+<li>自定义一个View，用drawRect绘制一个六芒星，或者太极图。<br><img src="http://static.zybuluo.com/zhuoming/ajt37lr5yiv9ghuw5637idi2/547c2651933bf0d1068b5dd4_1.gif" alt="547c2651933bf0d1068b5dd4_1.gif-243kB"></li>
+</ul>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/01/22/UI/第三章动画和绘图 -- 02.绘图/" class="archive-article-date">
+  	<time datetime="2016-01-22T07:08:02.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-01-22</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UI/">UI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/01/23/UI/第三章动画和绘图 -- 03.核心动画/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          03.核心动画
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/01/21/UI/第三章动画和绘图 -- 01.transform属性和系统动画/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">01.transform属性和系统动画</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 John Doe
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接1</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接2</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接3</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接4</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接5</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接6</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

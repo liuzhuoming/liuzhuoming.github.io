@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>05.UITextField | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="第二章UI控件 – 05.UITextField一、学习目标
+UITextField的使用
+学会处理键盘的遮挡">
+<meta property="og:type" content="article">
+<meta property="og:title" content="05.UITextField">
+<meta property="og:url" content="http://yoursite.com/2016/01/06/UI/第二章UI控件 -- 05.UITextField/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第二章UI控件 – 05.UITextField一、学习目标
+UITextField的使用
+学会处理键盘的遮挡">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/8dszshkeuuov07u1gk999ktu/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-01-29%20%E4%B8%8B%E5%8D%882.40.40.png">
+<meta property="og:image" content="http://static.zybuluo.com/whunfios/9bv2ceg03hmi6q5xvu5giahg/IMG_1129.png">
+<meta property="og:updated_time" content="2016-09-15T15:12:27.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="05.UITextField">
+<meta name="twitter:description" content="第二章UI控件 – 05.UITextField一、学习目标
+UITextField的使用
+学会处理键盘的遮挡">
+<meta name="twitter:image" content="http://static.zybuluo.com/zhuoming/8dszshkeuuov07u1gk999ktu/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-01-29%20%E4%B8%8B%E5%8D%882.40.40.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <script src="/style.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">John Doe</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">John Doe</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="null" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">John Doe</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-UI/第二章UI控件 -- 05.UITextField" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      05.UITextField
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="第二章UI控件-–-05-UITextField"><a href="#第二章UI控件-–-05-UITextField" class="headerlink" title="第二章UI控件 – 05.UITextField"></a>第二章UI控件 – 05.UITextField</h1><h2 id="一、学习目标"><a href="#一、学习目标" class="headerlink" title="一、学习目标"></a><strong>一、学习目标</strong></h2><ul>
+<li>UITextField的使用</li>
+<li>学会处理键盘的遮挡</li>
+</ul>
+<hr>
+<a id="more"></a>
+<h2 id="二、课程内容"><a href="#二、课程内容" class="headerlink" title="二、课程内容"></a><strong>二、课程内容</strong></h2><h3 id="1-UITextField的创建"><a href="#1-UITextField的创建" class="headerlink" title="1.UITextField的创建"></a><strong>1.UITextField的创建</strong></h3><p>还记得在学习Objective-C的时候，我们通过控制台向系统输入数据和展示数据。现在阶段我们可以通过用UILabel展示文字、通过UIImageView展示图片、通过UIButton接受用户的点击输入，今天我们将要的学习UITextField是输入框，可以接受用户的文本输入。</p>
+<blockquote>
+<p><i class="icon-apple"></i>  <strong>tips</strong><br>使用xib或者storyBoard可以快速查看UITextField的各项属性及功能</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>常用属性</th>
+<th style="text-align:center">说明</th>
+<th>详细说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Placeholder</td>
+<td style="text-align:center">可以在文本框中显示灰色的字</td>
+<td>用于提示用户应该在这个文本框输入什么内容。当这个文本框中输入了数据时，用于提示的灰色的字将会自动消失。</td>
+</tr>
+<tr>
+<td>Disabled</td>
+<td style="text-align:center">若选中此项，用户将不能更改文本框内容。</td>
+</tr>
+<tr>
+<td>接下来是三个按钮</td>
+<td style="text-align:center">用来设置对齐方式。</td>
+</tr>
+<tr>
+<td>Border Style</td>
+<td style="text-align:center">选择边界风格</td>
+</tr>
+<tr>
+<td>Clear Button</td>
+<td style="text-align:center">清除按钮就是出一个现在文本框右边的小 X</td>
+<td>Never appears ： 从不出现  Appears while editing ： 编辑时出现   Appears unless editing   Is always visible ： 总是可见</td>
+</tr>
+<tr>
+<td>Clear when editing begins</td>
+<td style="text-align:center">若选中此项，则当开始编辑这个文本框时，文本框中之前的内容会被清除掉。</td>
+<td>比如，你现在这个文本框 A 中输入了 “What” ，之后去编辑文本框 B，若再回来编辑文本框 A ，则其中的”What” 会被立即清除</td>
+</tr>
+<tr>
+<td>Text Color</td>
+<td style="text-align:center">设置文本框中文本的颜色</td>
+</tr>
+<tr>
+<td>Font</td>
+<td style="text-align:center">设置文本的字体与字号。</td>
+</tr>
+<tr>
+<td>Min Font Size</td>
+<td style="text-align:center">设置文本框可以显示的最小字体（不过我感觉没什么用）</td>
+</tr>
+<tr>
+<td>Adjust To Fit</td>
+<td style="text-align:center">指定当文本框尺寸减小时，文本框中的文本是否也要缩小</td>
+<td>选择它，可以使得全部文本都可见，即使文本很长。但是这个选项要跟 Min Font Size 配合使用，文本再缩小，也不会小于设定的 Min Font Size 。</td>
+</tr>
+<tr>
+<td>Captitalization</td>
+<td style="text-align:center">设置大写。</td>
+<td>None ： 不设置大写   Words ： 每个单词首字母大写，这里的单词指的是以空格分开的字符串  Sentances ： 每个句子的第一个字母大写，这里的句子是以句号加空格分开的字符串   All Characters ： 所以字母大写</td>
+</tr>
+<tr>
+<td>Correction</td>
+<td style="text-align:center">检查拼写，默认是 YES 。</td>
+</tr>
+<tr>
+<td>Keyboard</td>
+<td style="text-align:center">选择键盘类型，比如全数字、字母和数字等</td>
+<td>1.Default:显示默认的虚拟键盘。  ASCII Capable:显示英文字母键盘。 Numbers and Punctuation:显示数字和标点符号键盘。 Number Pad:显示数字键盘。 Phone Pad:显示电话拨号键盘。 E-mail Address:显示输入 E-mail 地址的虚拟键盘。 Decimal Pad:显示可输入数字和小数点的虚拟键盘。</td>
+</tr>
+<tr>
+<td>Return Key</td>
+<td style="text-align:center">选择返回键</td>
+<td>可以选择 Search 、 Return 、 Done 等。</td>
+</tr>
+<tr>
+<td>Auto-enable Return Key</td>
+<td style="text-align:center">如选择此项，则只有至少在文本框输入一个字符后键盘的返回键才有效。</td>
+</tr>
+<tr>
+<td>Secure</td>
+<td style="text-align:center">当你的文本框用作密码输入框时，可以选择这个选项，此时，字符显示为星号。</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"> //初始化textfield并设置位置及大小</div><div class="line">UITextField *tf1 = [[UITextField alloc]initWithFrame:CGRectMake(20, 20, 130, 30)];</div><div class="line">//设置边框样式，只有设置了才会显示边框样式</div><div class="line">tf1.borderStyle = UITextBorderStyleRoundedRect;</div><div class="line">//设置输入框的背景颜色，此时设置为白色 枚举 如果使用了自定义的背景图片边框会被忽略掉</div><div class="line">tf1.backgroundColor = [UIColor whiteColor];</div><div class="line">//当输入框没有内容时，灰色字体提示 提示内容为password</div><div class="line">tf1.placeholder = @&quot;password&quot;;</div><div class="line">//设置输入框内容的字体样式和大小</div><div class="line">tf1.font = [UIFont fontWithName:@&quot;Arial&quot; size:20.0f];</div><div class="line">//设置字体颜色</div><div class="line">tf1.textColor = [UIColor redColor];</div><div class="line">//输入框中是否有个叉号，在什么时候显示，用于一次性删除输入框中的内容 </div><div class="line">tf1.clearButtonMode = UITextFieldViewModeAlways;</div><div class="line">//输入框中一开始就有的文字</div><div class="line">tf1.text = @&quot;一开始就在输入框的文字&quot;;</div><div class="line">//每输入一个字符就变成点 用语密码输入</div><div class="line">tf1.secureTextEntry = YES;</div><div class="line">//是否纠错</div><div class="line">tf1.autocorrectionType = UITextAutocorrectionTypeNo;</div><div class="line">//再次编辑就清空</div><div class="line">tf1.clearsOnBeginEditing = YES;</div><div class="line">//内容对齐方式</div><div class="line">tf1.textAlignment = UITextAlignmentLeft;</div><div class="line">//内容的垂直对齐方式  </div><div class="line">tf1.minimumFontSize = 20;</div><div class="line">//设置键盘的样式</div><div class="line">tf1.keyboardType = UIKeyboardTypeNumberPad;</div><div class="line">//首字母是否大写</div><div class="line">tf1.autocapitalizationType = UITextAutocapitalizationTypeNone;</div><div class="line">//return键变成什么键</div><div class="line">tf1.returnKeyType =UIReturnKeyDone;</div><div class="line">//键盘外观默认外观，浅灰色</div><div class="line">textView.keyboardAppearance=UIKeyboardAppearanceDefault;</div><div class="line">//设置代理 用于实现协议</div><div class="line">tf1.delegate = self;</div><div class="line">//把textfield加到视图中</div><div class="line">[self.view addSubview:tf1];</div></pre></td></tr></table></figure>
+<p><img src="http://static.zybuluo.com/zhuoming/8dszshkeuuov07u1gk999ktu/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-01-29%20%E4%B8%8B%E5%8D%882.40.40.png" alt="屏幕快照 2016-01-29 下午2.40.40.png-38.4kB"></p>
+<h3 id="2-UITextField的代理"><a href="#2-UITextField的代理" class="headerlink" title="2.UITextField的代理"></a><strong>2.UITextField的代理</strong></h3><p>UITextField与UIButton一样继承于UIControl,都可以与用户交互，不同的是一旦UITextField获得焦点,系统会根据UITextField的设置弹出不同的键盘。通常的我们需要监听UITextField的输入情况，比如当用户点击了某个UITextField，我们需要判断弹起的键盘是否会挡住视图。这时候我们可以通过实现UITextField的代理来实现对其的监听。</p>
+<p>让我们来看一下<code>&lt;UITextFieldDelegate&gt;</code>里面的方法</p>
+<p>返回一个BOOL值，指定是否循序文本字段开始编辑<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField&#123;</div><div class="line">    return YES;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>开始编辑时触发，文本字段将成为first responder<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (void)textFieldDidBeginEditing:(UITextField *)textField&#123;&#125;</div></pre></td></tr></table></figure></p>
+<p>返回BOOL值，指定是否允许文本字段结束编辑，当编辑结束，文本字段会让出first responder<br>要想在用户结束编辑时阻止文本字段消失，可以返回NO<br>这对一些文本字段必须始终保持活跃状态的程序很有用，比如即时消息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">- (BOOL)textFieldShouldEndEditing:(UITextField *)textField&#123;</div><div class="line">    return NO;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>当用户使用自动更正功能，把输入的文字修改为推荐的文字时，就会调用这个方法。<br>这对于想要加入撤销选项的应用程序特别有用<br>可以跟踪字段内所做的最后一次修改，也可以对所有编辑做日志记录,用作审计用途。<br>要防止文字被改变可以返回NO<br>这个方法的参数中有一个NSRange对象，指明了被改变文字的位置，建议修改的文本也在其中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">- (BOOL)textField:(UITextField*)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string&#123;</div><div class="line">    return YES;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>返回一个BOOL值指明是否允许根据用户请求清除内容<br>可以设置在特定条件下才允许清除内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"> - (BOOL)textFieldShouldClear:(UITextField *)textField&#123;</div><div class="line">    return YES;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>返回一个BOOL值，指明是否允许在按下回车键时结束编辑<br>如果允许要调用resignFirstResponder 方法，这回导致结束编辑，而键盘会被收起[textField resignFirstResponder];<br>查一下resign这个单词的意思就明白这个方法了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">-(BOOL)textFieldShouldReturn:(UITextField *)textField&#123;</div><div class="line">    return YES;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="3-键盘处理"><a href="#3-键盘处理" class="headerlink" title="3.键盘处理"></a><strong>3.键盘处理</strong></h3><ol>
+<li><p>注册通知监听 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];</div></pre></td></tr></table></figure>
+</li>
+<li><p>触发的方法</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> *  根据键盘弹起的高度刷新</div><div class="line"> */</div><div class="line">- (- (void)keyBoardChangeFrame:(NSNotification *)noti</div><div class="line">&#123;</div><div class="line">    // 观察里面信息可以获得事件和frme</div><div class="line">    NSLog(@&quot;userInfo = %@&quot;,noti.userInfo);</div><div class="line">    CGFloat time = [noti.userInfo[@&quot;UIKeyboardAnimationDurationUserInfoKey&quot;] doubleValue];</div><div class="line">    CGRect keyBoardFrame = [noti.userInfo[@&quot;UIKeyboardFrameEndUserInfoKey&quot;] CGRectValue];</div><div class="line">    // 找当前的第一响应者</div><div class="line">    UIView * fistResponder ;</div><div class="line">    for (UIView *subView in self.view.subviews) &#123;</div><div class="line">        if ([subView isFirstResponder]) &#123;</div><div class="line">            fistResponder = subView;</div><div class="line">            break;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    if (fistResponder == nil) &#123;</div><div class="line">        return;</div><div class="line">    &#125;</div><div class="line">    // 如果响应者的底边 大于 键盘的Y   ==&gt; 也就是挡住</div><div class="line">    [UIView animateWithDuration:time animations:^&#123;</div><div class="line">        </div><div class="line">        // 第一响应者的底部 到 view的底部的距离   减去  keyboard的高度</div><div class="line">        CGFloat offset = self.view.frame.size.height - CGRectGetMaxY(fistResponder.frame) - keyBoardFrame.size.height-50;</div><div class="line">        /**</div><div class="line">         *  对接近底部的textFiel 进行容错</div><div class="line">         */</div><div class="line">        if (fabs(offset)&gt;fabs(keyBoardFrame.size.height)) &#123;</div><div class="line">            offset+=50;</div><div class="line">        &#125;</div><div class="line">        if (CGRectGetMaxY(fistResponder.frame) &gt; keyBoardFrame.origin.y ) &#123;</div><div class="line">            self.view.frame = CGRectMake(0, offset, self.view.frame.size.width, self.view.frame.size.height);</div><div class="line">        &#125;else&#123;</div><div class="line">            self.view.frame = self.view.bounds;</div><div class="line">        &#125;</div><div class="line">    &#125;];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p> <i class="icon-apple"></i>  Tips<br>私有API会导致上架被拒<br>   <del>~  UIView * fistResponder = [[[UIApplication sharedApplication] keyWindow] performSelector:@selector(firstResponder)]; ~</del></p>
+</blockquote>
+<h2 id="三、课堂练习"><a href="#三、课堂练习" class="headerlink" title="三、课堂练习"></a><strong>三、课堂练习</strong></h2><blockquote>
+<p>根据以下效果图实现登录功能。可以设置一个固定账号密码用来判断登录是否成功，如（账号为whunf@whunf.com 密码为 whunfios）</p>
+</blockquote>
+<p><img src="http://static.zybuluo.com/whunfios/9bv2ceg03hmi6q5xvu5giahg/IMG_1129.png" alt="IMG_1129.png-33.5kB"></p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/01/06/UI/第二章UI控件 -- 05.UITextField/" class="archive-article-date">
+  	<time datetime="2016-01-06T07:08:32.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-01-06</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UI/">UI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/01/07/UI/第二章UI控件 -- 06.UITextView/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          06.UITextView
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/01/05/UI/第二章 UI控件 -- 04.UIButton/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">04.UIButton</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 John Doe
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接1</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接2</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接3</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接4</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接5</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接6</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

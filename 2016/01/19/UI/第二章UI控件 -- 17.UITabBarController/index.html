@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>17.UITabBarController | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="第二章UI控件 – 17.UITabBarController一、学习目标
+UITabBarController 介绍和使用
+UITabBarItem 介绍和使用
+自定义 UITabBarController">
+<meta property="og:type" content="article">
+<meta property="og:title" content="17.UITabBarController">
+<meta property="og:url" content="http://yoursite.com/2016/01/19/UI/第二章UI控件 -- 17.UITabBarController/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第二章UI控件 – 17.UITabBarController一、学习目标
+UITabBarController 介绍和使用
+UITabBarItem 介绍和使用
+自定义 UITabBarController">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/tgdjmr6c91grbj0y58cqtwin/xib14.jpg">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/wpdfr04oqhdkq10yvlbsuw1w/tabbar_controllerviews.jpg">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/dymt9pxks0tcdndabxwo1h6u/08231954_i9Wk.jpg">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/cfzwuzlzdz32977dodrghh59/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-01-31%20%E4%B8%8B%E5%8D%884.48.59.png">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/ek0iuwm88r3p2symcq2wmava/xib8.gif">
+<meta property="og:updated_time" content="2016-09-15T15:31:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="17.UITabBarController">
+<meta name="twitter:description" content="第二章UI控件 – 17.UITabBarController一、学习目标
+UITabBarController 介绍和使用
+UITabBarItem 介绍和使用
+自定义 UITabBarController">
+<meta name="twitter:image" content="http://static.zybuluo.com/zhuoming/tgdjmr6c91grbj0y58cqtwin/xib14.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <script src="/style.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">John Doe</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">John Doe</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="null" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">John Doe</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-UI/第二章UI控件 -- 17.UITabBarController" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      17.UITabBarController
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="第二章UI控件-–-17-UITabBarController"><a href="#第二章UI控件-–-17-UITabBarController" class="headerlink" title="第二章UI控件 – 17.UITabBarController"></a>第二章UI控件 – 17.UITabBarController</h1><h2 id="一、学习目标"><a href="#一、学习目标" class="headerlink" title="一、学习目标"></a><strong>一、学习目标</strong></h2><ul>
+<li>UITabBarController 介绍和使用</li>
+<li>UITabBarItem 介绍和使用</li>
+<li>自定义 UITabBarController</li>
+</ul>
+<a id="more"></a>
+<h2 id="二、课程内容"><a href="#二、课程内容" class="headerlink" title="二、课程内容"></a><strong>二、课程内容</strong></h2><h3 id="1-UITabBarController介绍"><a href="#1-UITabBarController介绍" class="headerlink" title="1.UITabBarController介绍"></a><strong>1.UITabBarController介绍</strong></h3><p> UITabBarController和UINavigationController一样是个容器类的UIViewController，常常用它和UINavigation结合作为项目的基本框架，管理控制器之间的切换。比如我们常用的微信<br><img src="http://static.zybuluo.com/zhuoming/tgdjmr6c91grbj0y58cqtwin/xib14.jpg" alt="xib14.jpg-18.2kB"></p>
+<p>UITabBarController主要用来管理你提供的content view controllers,而每一个 content view controller则负责管理自己的view层级关系，通常，当你的程序想要提供一些平行（同一个等级的）的不同界面，而恰好这些界面使用到的数据是一类的，或者功能是一个系列的，那 tab bar interface 是非常有用的.     在这样的 tab bar interface界面中，你可以设置许多的 tab ，每一个 tab则一定要指定一个content view controller,当某个tab被点击时，UITabBarController就会选中该tab并且显示该viewController所持有的content view<br>来看官网的两张示例图：</p>
+<p><img src="http://static.zybuluo.com/zhuoming/wpdfr04oqhdkq10yvlbsuw1w/tabbar_controllerviews.jpg" alt="tabbar_controllerviews.jpg-111.9kB"></p>
+<p><img src="http://static.zybuluo.com/zhuoming/dymt9pxks0tcdndabxwo1h6u/08231954_i9Wk.jpg" alt="08231954_i9Wk.jpg-35.6kB"></p>
+<h3 id="2-UITabBarController使用"><a href="#2-UITabBarController使用" class="headerlink" title="2.UITabBarController使用"></a><strong>2.UITabBarController使用</strong></h3><p>通过storyboard，我们用一个UITabBarController控制三个视图控制器，如下图所示<br><img src="http://static.zybuluo.com/zhuoming/cfzwuzlzdz32977dodrghh59/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-01-31%20%E4%B8%8B%E5%8D%884.48.59.png" alt="屏幕快照 2016-01-31 下午4.48.59.png-221.5kB"><br>其运行效果如下<br><img src="http://static.zybuluo.com/zhuoming/ek0iuwm88r3p2symcq2wmava/xib8.gif" alt="xib8.gif-144.3kB"></p>
+<p>用代码实现以上效果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions &#123;</div><div class="line">    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];</div><div class="line">    self.window.backgroundColor = [UIColor whiteColor];</div><div class="line">    //1.初始化一个UITabBarController控制器</div><div class="line">    UITabBarController *tabbarVC=[[UITabBarController alloc]init];</div><div class="line">    //设置控制器为Window的根控制器</div><div class="line">    self.window.rootViewController= tabbarVC;</div><div class="line">    //2.创建子控制器</div><div class="line">    UIViewController * VC1=[[UIViewController alloc]init];</div><div class="line">    VC1.view.backgroundColor=[UIColor redColor];</div><div class="line">    // 系统样式的Item</div><div class="line">    VC1.tabBarItem = [[UITabBarItem alloc]initWithTabBarSystemItem:UITabBarSystemItemFavorites tag:0];</div><div class="line">    </div><div class="line">    UIViewController * VC2 = [UIViewController new];</div><div class="line">    VC2.view.backgroundColor = [UIColor blueColor];</div><div class="line">    // 通过图片创建tabBarItem</div><div class="line">    VC2.tabBarItem = [[UITabBarItem alloc]initWithTitle:@&quot;VC2&quot; image:[UIImage imageNamed:@&quot;tab1.png&quot;] tag:0];</div><div class="line">    </div><div class="line">    UIViewController * VC3 = [UIViewController new];</div><div class="line">    VC3.view.backgroundColor = [UIColor yellowColor];</div><div class="line">    // 通过两个图片创建tabBarItem,</div><div class="line">    VC3.tabBarItem = [[UITabBarItem alloc]initWithTitle:@&quot;VC3&quot; image:[UIImage imageNamed:@&quot;tab1.png&quot;] selectedImage:[UIImage imageNamed:@&quot;tab1_select&quot;]];</div><div class="line">    // 给UITabBarController 给这个是有序的</div><div class="line">    tabbarVC.viewControllers = @[VC1,VC2,VC3];</div><div class="line">    return YES;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="2-UITabBarItem使用"><a href="#2-UITabBarItem使用" class="headerlink" title="2.UITabBarItem使用"></a><strong>2.UITabBarItem使用</strong></h3><p>UITabBarItem除了可以设置图片外还有一些常用的属性：<br><strong>改变UITabBarItem 字体颜色</strong><br>在 appDelegate的<code>didFinishLaunchingWithOptions</code>中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor], NSForegroundColorAttributeName, [UIFont fontWithName:@&quot;Helvetica&quot; size:12.0f],NSFontAttributeName,nil] forState:UIControlStateNormal];</div></pre></td></tr></table></figure></p>
+<p><strong>改变UITabBarItem的选中和非选中图片</strong><br>这种方式可以完全显示图片，不会有填充色。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">vc1.tabBarItem.image = [ImageNamed(@&quot;tabicon1_unselect&quot;) imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];</div><div class="line">vc1.tabBarItem.selectedImage = [ImageNamed(@&quot;tabicon1_select&quot;) imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];</div></pre></td></tr></table></figure></p>
+<h2 id="三、课程作业"><a href="#三、课程作业" class="headerlink" title="三、课程作业"></a><strong>三、课程作业</strong></h2><blockquote>
+<ul>
+<li>创建一个UITabBarController上面带4个VC。</li>
+<li>用不同的方式创建每个VC对应的UITabBarItem。</li>
+<li>探索在UITabBarController管理下的VC的生命周期。</li>
+<li>在第一个VC如何给第二个VC传值。</li>
+</ul>
+</blockquote>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/01/19/UI/第二章UI控件 -- 17.UITabBarController/" class="archive-article-date">
+  	<time datetime="2016-01-19T07:08:32.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-01-19</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UI/">UI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/01/20/UI/第二章UI控件 -- 18.UICollectionView（1）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          18.UICollectionView（1）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/01/17/UI/第二章UI控件 -- 16.UINavigationController/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">16.UINavigationController</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 John Doe
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接1</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接2</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接3</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接4</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接5</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接6</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

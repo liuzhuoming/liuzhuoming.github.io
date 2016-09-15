@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>03.UIImageView | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="第二章UI控件 – 13.UITableView（03）一、学习目标
+代码自定义UITableViewCell
+xib自定义UITableViewCell
+MVC的应用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="03.UIImageView">
+<meta property="og:url" content="http://yoursite.com/2016/01/04/UI/第二章UI控件 -- 13.UITableView（03）/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第二章UI控件 – 13.UITableView（03）一、学习目标
+代码自定义UITableViewCell
+xib自定义UITableViewCell
+MVC的应用">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/5qb0ee3exvmmdibue2xlitui/1.1_zh_CN.png">
+<meta property="og:image" content="http://static.zybuluo.com/whunfios/vvsf4rgztzo97t9gngsojbqo/WeChat%E6%A1%86%E6%9E%B6.zip">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/rqabtmnnl3x4hs7h9zm3jdbf/xib178png.png">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/lvho5evbs1mftit8nmer6oqv/xib19.png">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/luv3nldqwnx1bqr8p0vxdcg1/xib20.png">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/4st4hjhm9de1uqun2wm2qwar/xib21.png">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/9v7f087lu92ikoudg1he62xz/xib22.png">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/xhqoo6vvpr6dxr5wbo23ud58/2013120612.png">
+<meta property="og:updated_time" content="2016-09-15T15:26:43.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="03.UIImageView">
+<meta name="twitter:description" content="第二章UI控件 – 13.UITableView（03）一、学习目标
+代码自定义UITableViewCell
+xib自定义UITableViewCell
+MVC的应用">
+<meta name="twitter:image" content="http://static.zybuluo.com/zhuoming/5qb0ee3exvmmdibue2xlitui/1.1_zh_CN.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <script src="/style.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">John Doe</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">John Doe</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="null" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">John Doe</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-UI/第二章UI控件 -- 13.UITableView（03）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      03.UIImageView
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="第二章UI控件-–-13-UITableView（03）"><a href="#第二章UI控件-–-13-UITableView（03）" class="headerlink" title="第二章UI控件 – 13.UITableView（03）"></a>第二章UI控件 – 13.UITableView（03）</h1><h2 id="一、学习目标"><a href="#一、学习目标" class="headerlink" title="一、学习目标"></a><strong>一、学习目标</strong></h2><ul>
+<li>代码自定义UITableViewCell</li>
+<li>xib自定义UITableViewCell</li>
+<li>MVC的应用</li>
+</ul>
+<a id="more"></a>
+<h2 id="二、课程内容"><a href="#二、课程内容" class="headerlink" title="二、课程内容"></a><strong>二、课程内容</strong></h2><h3 id="1-代码自定义UITableViewCell"><a href="#1-代码自定义UITableViewCell" class="headerlink" title="1.代码自定义UITableViewCell"></a><strong>1.代码自定义UITableViewCell</strong></h3><p>系统自带的UITableViewCell往往不能满足我们的业务需求。现在我们来学习如何用代码自定义一个Cell。让我们模仿微信的聊天列表。</p>
+<p><img src="http://static.zybuluo.com/zhuoming/5qb0ee3exvmmdibue2xlitui/1.1_zh_CN.png" alt="1.1_zh_CN.png-114kB"><br><strong>先来做一些准备工作</strong><br>利用UITabarController+UINavigationController搭建一个框架。</p>
+<blockquote>
+<p>因为暂时没有学习到相关的内容，这里提供一份框架代码：<br><img src="http://static.zybuluo.com/whunfios/vvsf4rgztzo97t9gngsojbqo/WeChat%E6%A1%86%E6%9E%B6.zip" alt="WeChat框架.zip-1839.7kB"><br><img src="http://static.zybuluo.com/zhuoming/rqabtmnnl3x4hs7h9zm3jdbf/xib178png.png" alt="xib178png.png-24.7kB"></p>
+</blockquote>
+<p>准备一些假数据，建立一个模型数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">@interface ChetListModel : NSObject</div><div class="line">// 好友名字</div><div class="line">@property(nonatomic,copy)NSString* name;</div><div class="line">// 图片的名字</div><div class="line">@property(nonatomic,copy)NSString* headImg;</div><div class="line">// 内容</div><div class="line">@property(nonatomic,copy)NSString* content;</div><div class="line">// 时间</div><div class="line">@property(nonatomic,copy)NSString* time;</div><div class="line">@end</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">- (NSMutableArray *)checkModelArr</div><div class="line">&#123;</div><div class="line">    if (_checkModelArr) &#123;</div><div class="line">        return _checkModelArr;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    ChetListModel * m1 = [[ChetListModel alloc]initWithName:@&quot;周杰伦&quot; HeadImg:@&quot;1.jpg&quot; content:@&quot;哎哟不错哦&quot; time:@&quot;刚刚&quot;];</div><div class="line">    ChetListModel * m2 = [[ChetListModel alloc]initWithName:@&quot;雷军&quot; HeadImg:@&quot;2.jpg&quot; content:@&quot;10点开抢,绝不耍猴&quot; time:@&quot;下午10：31&quot;];</div><div class="line">    ChetListModel * m3 = [[ChetListModel alloc]initWithName:@&quot;罗永浩&quot; HeadImg:@&quot;3.jpg&quot; content:@&quot;大家来买个锤子呗&quot; time:@&quot;昨天&quot;];</div><div class="line">    ChetListModel * m4 = [[ChetListModel alloc]initWithName:@&quot;Jobs&quot; HeadImg:@&quot;4.jpg&quot; content:@&quot;你这个cell没有重用&quot; time:@&quot;昨天&quot;];</div><div class="line">    ChetListModel * m5 = [[ChetListModel alloc]initWithName:@&quot;马云&quot; HeadImg:@&quot;10.jpeg&quot; content:@&quot;集齐5福召唤神龙&quot; time:@&quot;昨天&quot;];</div><div class="line">    ChetListModel * m6 = [[ChetListModel alloc]initWithName:@&quot;马化腾&quot; HeadImg:@&quot;11.jpg&quot; content:@&quot;楼上给我个敬业福可好&quot; time:@&quot;昨天&quot;];</div><div class="line">    ChetListModel * m7 = [[ChetListModel alloc]initWithName:@&quot;李彦宏&quot; HeadImg:@&quot;12.jpg&quot; content:@&quot;静看楼上撕逼&quot; time:@&quot;昨天&quot;];</div><div class="line">    </div><div class="line">    _checkModelArr  = [@[m1,m2,m3,m4,m5,m6,m7,m1,m2,m3,m4,m5,m6,m7,m1,m2,m3,m4,m5,m6,m7] mutableCopy];</div><div class="line"></div><div class="line">    return _checkModelArr;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>代码自定义cell</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line">- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath</div><div class="line">&#123;</div><div class="line">    //1. 定义ID</div><div class="line">    static NSString * ID = @&quot;Cell&quot;;</div><div class="line">    //2. 获取cell</div><div class="line">    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ID];</div><div class="line">    if (!cell) &#123;</div><div class="line">        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];</div><div class="line">        //--------------------------------------</div><div class="line">        // 创建自定义的cell</div><div class="line">        UIImageView * headImg = [[UIImageView alloc]initWithFrame:CGRectMake(8, 10, 44, 44)];</div><div class="line">        // 在从缓存池中 tag 用来获取这个view</div><div class="line">        headImg.tag = 10;</div><div class="line">        // 圆角</div><div class="line">        [headImg.layer setCornerRadius:5.0f];</div><div class="line">        [headImg.layer setMasksToBounds:YES];</div><div class="line">        [cell.contentView addSubview:headImg];</div><div class="line">        //--------------------------------------</div><div class="line">        // 名字</div><div class="line">        UILabel * lbName = [[UILabel alloc]initWithFrame:CGRectMake(60, 8, 150, 20)];</div><div class="line">        [lbName setFont:[UIFont systemFontOfSize:16]];</div><div class="line">        lbName.tag = 11;</div><div class="line">        [cell.contentView addSubview:lbName];</div><div class="line">        //--------------------------------------</div><div class="line">        // 事件</div><div class="line">        UILabel * lbdate = [[UILabel alloc]initWithFrame:CGRectMake(218, 8, 94, 10)];</div><div class="line">        [lbdate setAlpha:0.8];</div><div class="line">        [lbdate setFont:[UIFont systemFontOfSize:12]];</div><div class="line">        [lbdate setTextAlignment:NSTextAlignmentRight];</div><div class="line">        [lbdate setTextColor:[UIColor grayColor]];</div><div class="line">        lbdate.tag = 12;</div><div class="line">        [cell.contentView addSubview:lbdate];</div><div class="line">        //--------------------------------------</div><div class="line">        // 内容</div><div class="line">        UILabel * lbContent = [[UILabel alloc]initWithFrame:CGRectMake(60,36, 150, 16)];</div><div class="line">        [lbContent setTextColor:[UIColor grayColor]];</div><div class="line">        [lbContent setFont:[UIFont systemFontOfSize:14]];</div><div class="line">        lbContent.tag = 13;</div><div class="line">        [cell.contentView addSubview:lbContent];</div><div class="line">    &#125;</div><div class="line">    //4.显示数据</div><div class="line">    ChetListModel * model = self.checkModelArr[indexPath.row];</div><div class="line">    // 通过tag获取cell里面的视图</div><div class="line">    UIImageView * headImg = (UIImageView *)[cell viewWithTag:10];</div><div class="line">    headImg.image = [UIImage imageNamed:model.headImg];</div><div class="line">    UILabel * lbName = (UILabel *)[cell viewWithTag:11];</div><div class="line">    lbName.text = model.name;</div><div class="line">    UILabel * lbdate = (UILabel *)[cell viewWithTag:12];</div><div class="line">    lbdate.text = model.time;</div><div class="line">    UILabel * lbContent = (UILabel *)[cell viewWithTag:13];</div><div class="line">    lbContent.text = model.content;</div><div class="line">    </div><div class="line">    return cell;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>运行效果如下<br><img src="http://static.zybuluo.com/zhuoming/lvho5evbs1mftit8nmer6oqv/xib19.png" alt="xib19.png-49.4kB"></p>
+<h3 id="2-代码自定义UITableViewCell优化"><a href="#2-代码自定义UITableViewCell优化" class="headerlink" title="2.代码自定义UITableViewCell优化"></a><strong>2.代码自定义UITableViewCell优化</strong></h3><p>我们将tableViewcell子类化，以减少在VC中的代码。<br>// 创建一个cell的类 <code>CheckListCell</code><br>UITableViewCell.h<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">@interface CheckListCell : UITableViewCell</div><div class="line">@property (nonatomic, strong) UIImageView * headImg;</div><div class="line">@property (nonatomic, strong) UILabel * lbName;</div><div class="line">@property (nonatomic, strong) UILabel * lbdate;</div><div class="line">@property (nonatomic, strong) UILabel * lbContent;</div><div class="line">// 拥有一个模型对象</div><div class="line">@property (nonatomic, strong) ChetListModel * model;</div><div class="line">+ (instancetype)initWithTable:(UITableView*)tableView Model:(ChetListModel*)model;</div><div class="line">@end</div></pre></td></tr></table></figure></p>
+<p>UITableViewCell.m<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">@implementation CheckListCell</div><div class="line"></div><div class="line"></div><div class="line">+ (instancetype)initWithTable:(UITableView*)tableView Model:(ChetListModel*)model</div><div class="line">&#123;</div><div class="line">    //1. 定义ID 建议使用类名</div><div class="line">    static NSString * ID = @&quot;CheckListCell&quot;;</div><div class="line">    //2. 获取cell</div><div class="line">    CheckListCell * cell = [tableView dequeueReusableCellWithIdentifier:ID];</div><div class="line">    if (!cell) &#123;</div><div class="line">        cell = [[CheckListCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];</div><div class="line">    &#125;</div><div class="line">    cell.model = model;</div><div class="line">    return cell;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier</div><div class="line">&#123;</div><div class="line">    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];</div><div class="line">    //--------------------------------------</div><div class="line">    // 创建自定义的控件</div><div class="line">    UIImageView * headImg = [[UIImageView alloc]initWithFrame:CGRectMake(8, 10, 44, 44)];</div><div class="line">    _headImg = headImg;</div><div class="line">    // 这里省略了一些控件的创建</div><div class="line">    </div><div class="line">    return self;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 数据赋值</div><div class="line">- (void)setModel:(ChetListModel *)model</div><div class="line">&#123;</div><div class="line">    _model = model;</div><div class="line">    _headImg.image = [UIImage imageNamed:model.headImg];</div><div class="line">    _lbName.text = model.name;</div><div class="line">    _lbdate.text = model.time;</div><div class="line">    _lbContent.text = model.content;</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure></p>
+<p>将UITableViewCell子例画了之后，我们在VC中代码就精简了很多<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath</div><div class="line">&#123;</div><div class="line">    // 1.获取该显示的数据</div><div class="line">    ChetListModel * model = self.checkModelArr[indexPath.row];</div><div class="line">    // 2.创建cell</div><div class="line">    CheckListCell * cell = [CheckListCell initWithTable:tableView Model:model];</div><div class="line">    return cell;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="3-代码自定义UITableViewCell"><a href="#3-代码自定义UITableViewCell" class="headerlink" title="3.代码自定义UITableViewCell"></a><strong>3.代码自定义UITableViewCell</strong></h3><p>想通过Xib创建Cell  <code>CheckListXibCell</code>，只需在创建的时候勾上同时创建一个Xib file<br><img src="http://static.zybuluo.com/zhuoming/luv3nldqwnx1bqr8p0vxdcg1/xib20.png" alt="xib20.png-42.6kB"><br>我们往xib的View上拖拽一些控件<br><img src="http://static.zybuluo.com/zhuoming/4st4hjhm9de1uqun2wm2qwar/xib21.png" alt="xib21.png-74.4kB"><br>同样的我们在CheckListXibCell.h添加一个model属性，而且像上面一样将代码封装起来。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">+ (instancetype)initWithTable:(UITableView *)tableView Model:(ChetListModel *)model</div><div class="line">&#123;</div><div class="line">    //1. 定义ID 建议使用类名</div><div class="line">    static NSString * ID = @&quot;CheckListXibCell&quot;;</div><div class="line">    //2. 获取cell</div><div class="line">    CheckListXibCell * cell = [tableView dequeueReusableCellWithIdentifier:ID];</div><div class="line">    if (!cell) &#123;</div><div class="line">        // 加载xib cell的方法</div><div class="line">        cell = [[[NSBundle mainBundle]loadNibNamed:@&quot;CheckListXibCell&quot; owner:nil options:nil]lastObject];</div><div class="line">    &#125;</div><div class="line">    //3. 重写model的set方法 与上面一致 不再赘述</div><div class="line">    cell.model = model;</div><div class="line">    return cell;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>非常值得注意的是,用xib创建的cell一定要记得在xib面板添加reuseIdentifier,否则不能实现重用。<br><img src="http://static.zybuluo.com/zhuoming/9v7f087lu92ikoudg1he62xz/xib22.png" alt="xib22.png-46.1kB"></p>
+<h3 id="4-MVC的应用"><a href="#4-MVC的应用" class="headerlink" title="4.MVC的应用"></a><strong>4.MVC的应用</strong></h3><p>我们曾在课程4中学习过MVC模型，在刚刚的代码中有着很好的体现，UIViewController 把数据model显示在显示在tableView上。在我们后期还会有更多的MVC应用，比如用户改变了某个数据模型（微博点赞），视图是如何更新体现的。<br><strong>MVC逻辑图</strong><br>  <img src="http://static.zybuluo.com/zhuoming/xhqoo6vvpr6dxr5wbo23ud58/2013120612.png" alt="2013120612.png-43.3kB"></p>
+<h2 id="三、课程作业"><a href="#三、课程作业" class="headerlink" title="三、课程作业"></a><strong>三、课程作业</strong></h2><blockquote>
+<ul>
+<li>1.搭建微信的框架</li>
+<li>2.给第一个页面（checkListVC）添加一个UITableView并用代码实现功能。</li>
+<li>3.利用xib创建cell实现功能。</li>
+</ul>
+</blockquote>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/01/04/UI/第二章UI控件 -- 13.UITableView（03）/" class="archive-article-date">
+  	<time datetime="2016-01-04T07:08:03.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-01-04</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UI/">UI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/01/04/UI/第二章 UI控件 -- 03.UIImageView/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          03.UIImageView
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/01/03/UI/第二章 UI控件 -- 02.UILabel/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">02.UILabel</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 John Doe
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接1</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接2</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接3</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接4</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接5</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接6</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

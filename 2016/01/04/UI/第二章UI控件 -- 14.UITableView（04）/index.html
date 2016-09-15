@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>03.UIImageView | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="第二章UI控件 – 14.UITableView（04）一、学习目标
+静态UITableViewCell 介绍和使用
+UISearchController 介绍和使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="03.UIImageView">
+<meta property="og:url" content="http://yoursite.com/2016/01/04/UI/第二章UI控件 -- 14.UITableView（04）/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第二章UI控件 – 14.UITableView（04）一、学习目标
+静态UITableViewCell 介绍和使用
+UISearchController 介绍和使用">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/qeavneofgs4xya0jvyca9f8q/xib24.png">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/0j9guheufg0j65xqgivvndgw/xib25.png">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/3xz4xys2m2neyjako4ss95rj/xib23.png">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/z5y7dl84gbtpueux70p3sfhf/xib27.png">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/lbx2n657ec89fk9pjexkg01o/xib27.jpeg">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/l03yuztapc8kf9ze14vgdlh1/231948577536965.gif">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/fptgdgrie5vvk82bbda4fbws/xib29.gif">
+<meta property="og:updated_time" content="2016-09-15T15:27:11.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="03.UIImageView">
+<meta name="twitter:description" content="第二章UI控件 – 14.UITableView（04）一、学习目标
+静态UITableViewCell 介绍和使用
+UISearchController 介绍和使用">
+<meta name="twitter:image" content="http://static.zybuluo.com/zhuoming/qeavneofgs4xya0jvyca9f8q/xib24.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <script src="/style.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">John Doe</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">John Doe</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="null" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">John Doe</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-UI/第二章UI控件 -- 14.UITableView（04）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      03.UIImageView
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="第二章UI控件-–-14-UITableView（04）"><a href="#第二章UI控件-–-14-UITableView（04）" class="headerlink" title="第二章UI控件 – 14.UITableView（04）"></a>第二章UI控件 – 14.UITableView（04）</h1><h2 id="一、学习目标"><a href="#一、学习目标" class="headerlink" title="一、学习目标"></a><strong>一、学习目标</strong></h2><ul>
+<li>静态UITableViewCell 介绍和使用</li>
+<li>UISearchController 介绍和使用</li>
+</ul>
+<a id="more"></a>
+<h2 id="二、课程内容"><a href="#二、课程内容" class="headerlink" title="二、课程内容"></a><strong>二、课程内容</strong></h2><h3 id="1-静态UITableViewCell"><a href="#1-静态UITableViewCell" class="headerlink" title="1.静态UITableViewCell"></a><strong>1.静态UITableViewCell</strong></h3><p>这节我们用静态的UItableViewCell来完善微信小项目的后两个页面我和发现。注意静态的UITableViewCell只能在UITableViewController中使用，常用与基本不会改变的cell。<br>这个是UITableViewController<br><img src="http://static.zybuluo.com/zhuoming/qeavneofgs4xya0jvyca9f8q/xib24.png" alt="xib24.png-47kB"><br>然后把Cell改成static<br><img src="http://static.zybuluo.com/zhuoming/0j9guheufg0j65xqgivvndgw/xib25.png" alt="xib25.png-29.6kB"><br>最后往cell里面拖入控件即可<br><img src="http://static.zybuluo.com/zhuoming/3xz4xys2m2neyjako4ss95rj/xib23.png" alt="xib23.png-91.9kB"></p>
+<blockquote>
+<p>大家自己动手完善我的页面</p>
+</blockquote>
+<p>最终的运行效果如下</p>
+<p><img src="http://static.zybuluo.com/zhuoming/z5y7dl84gbtpueux70p3sfhf/xib27.png" alt="xib27.png-37.3kB"></p>
+<p><img src="http://static.zybuluo.com/zhuoming/lbx2n657ec89fk9pjexkg01o/xib27.jpeg" alt="xib27.jpeg-27.4kB"></p>
+<h3 id="2-UISearchController"><a href="#2-UISearchController" class="headerlink" title="2.UISearchController"></a><strong>2.UISearchController</strong></h3><p>UISearchController 是苹果专为 UITableView 搜索封装的一个类。里面内置了一个 UITableView 用于显示搜索的结果。它可以和一个需要搜索功能的controller 关联起来，其它的像原 TableView 和搜索结果 TableView 的切换， mask 的显示等等都封装好了，使用起来非常非常的简单。特别是要实现全屏搜索时使用最多。全屏搜索的意思是如果你用了  NavigationBar 当点击搜索框时 TableView 会自动弹上去覆盖<br>NavigationBar，达到一种全屏搜索的效果，这一切 UISearchController 都封装好了，如果自己写就比较麻烦一些。<br><img src="http://static.zybuluo.com/zhuoming/l03yuztapc8kf9ze14vgdlh1/231948577536965.gif" alt="231948577536965.gif-232.9kB"></p>
+<p>所以我们利用UISearchDisplayController把微信的通许录的界面完善。首先我们往UItableView中添加一个UISearchDisplayController。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">UISearchController * searchC = [[UISearchController alloc]initWithSearchResultsController:nil];</div><div class="line">self.searchC = searchC;</div><div class="line">[searchC.searchBar sizeToFit];</div><div class="line">self.tableView.tableHeaderView = searchC.searchBar;</div><div class="line">self.searchC.searchResultsUpdater = self;</div><div class="line">searchC.dimsBackgroundDuringPresentation = NO;</div><div class="line">// 用一个数组来装搜索的结果</div><div class="line">self.searchArr = [@[] mutableCopy];</div></pre></td></tr></table></figure></p>
+<p>实现代理方法<code>updateSearchResultsForSearchController</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">// 这里能获取每次输入的文字，需要对数据进行过滤</div><div class="line">- (void)updateSearchResultsForSearchController:(UISearchController *)searchController</div><div class="line">&#123;</div><div class="line">    [self.searchArr removeAllObjects];</div><div class="line">    NSLog(@&quot;%@&quot;,searchController.searchBar.text);</div><div class="line">    for (AddressModel * model in self.addressModelArr) &#123;</div><div class="line">        if ([model.name containsString:searchController.searchBar.text]) &#123;</div><div class="line">            [self.searchArr addObject:model];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    [self.tableView reloadData];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>tableView的数据源代理方法如下 注意<code>isActive</code>属性<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section</div><div class="line">&#123;</div><div class="line">   // isActive用来区分SearchController是否在用</div><div class="line">    return self.searchC.isActive ? self.searchArr.count :self.addressModelArr.count;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath</div><div class="line">&#123;</div><div class="line">    static NSString * ID = @&quot;UITableViewCellStyleDefault&quot;;</div><div class="line">    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ID];</div><div class="line">    if (!cell) &#123;</div><div class="line">        cell =  [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    AddressModel * model = self.searchC.isActive?self.searchArr[indexPath.row]:self.addressModelArr[indexPath.row] ;</div><div class="line">    cell.imageView.image = [UIImage imageNamed:model.headImg];</div><div class="line">    cell.textLabel.text = model.name ;</div><div class="line">    return cell;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>实现效果如下：<br><img src="http://static.zybuluo.com/zhuoming/fptgdgrie5vvk82bbda4fbws/xib29.gif" alt="xib29.gif-2496.4kB"></p>
+<h2 id="三、课程作业"><a href="#三、课程作业" class="headerlink" title="三、课程作业"></a><strong>三、课程作业</strong></h2><blockquote>
+<ul>
+<li>1.利用静态cell完善微信我和发现这两个界面</li>
+<li>2.用UISearchController实现上次作业通许录的搜索功能</li>
+</ul>
+</blockquote>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/01/04/UI/第二章UI控件 -- 14.UITableView（04）/" class="archive-article-date">
+  	<time datetime="2016-01-04T07:08:32.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-01-04</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UI/">UI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/01/05/UI/第二章 UI控件 -- 04.UIButton/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          04.UIButton
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/01/04/UI/第二章 UI控件 -- 03.UIImageView/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">03.UIImageView</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 John Doe
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接1</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接2</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接3</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接4</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接5</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接6</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

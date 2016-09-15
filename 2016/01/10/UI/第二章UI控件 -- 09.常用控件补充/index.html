@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>09.常用控件补充 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="第二章UI控件 – 09.常用控件补充一、学习目标
+UISegmentedControl 介绍和使用
+UIActivityIndicatorView的代理事件
+UIProgressView 介绍和使用
+UIStepper 介绍和使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="09.常用控件补充">
+<meta property="og:url" content="http://yoursite.com/2016/01/10/UI/第二章UI控件 -- 09.常用控件补充/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第二章UI控件 – 09.常用控件补充一、学习目标
+UISegmentedControl 介绍和使用
+UIActivityIndicatorView的代理事件
+UIProgressView 介绍和使用
+UIStepper 介绍和使用">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/e2d10sgs9i91wfg6alela6bt/xib12.png">
+<meta property="og:image" content="http://static.zybuluo.com/whunfios/w1j58va0i6a2cve2un1zamfy/image_1ald4l61br321qa07dughtsmj9.png">
+<meta property="og:image" content="http://static.zybuluo.com/whunfios/d4aj7cs5t53rvfxyl1oq74kn/image_1ald50kae1a931h28uv5lmkq9em.png">
+<meta property="og:image" content="http://static.zybuluo.com/whunfios/kcpshatqy2bdd26zpskf2lbp/image_1ald5f5ue28m898cdg10lvtdt13.png">
+<meta property="og:updated_time" content="2016-09-15T15:27:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="09.常用控件补充">
+<meta name="twitter:description" content="第二章UI控件 – 09.常用控件补充一、学习目标
+UISegmentedControl 介绍和使用
+UIActivityIndicatorView的代理事件
+UIProgressView 介绍和使用
+UIStepper 介绍和使用">
+<meta name="twitter:image" content="http://static.zybuluo.com/zhuoming/e2d10sgs9i91wfg6alela6bt/xib12.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <script src="/style.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">John Doe</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">John Doe</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="null" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">John Doe</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-UI/第二章UI控件 -- 09.常用控件补充" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      09.常用控件补充
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="第二章UI控件-–-09-常用控件补充"><a href="#第二章UI控件-–-09-常用控件补充" class="headerlink" title="第二章UI控件 – 09.常用控件补充"></a>第二章UI控件 – 09.常用控件补充</h1><h2 id="一、学习目标"><a href="#一、学习目标" class="headerlink" title="一、学习目标"></a><strong>一、学习目标</strong></h2><ul>
+<li>UISegmentedControl 介绍和使用</li>
+<li>UIActivityIndicatorView的代理事件</li>
+<li>UIProgressView 介绍和使用</li>
+<li>UIStepper 介绍和使用</li>
+</ul>
+<a id="more"></a>
+<hr>
+<h2 id="二、课程内容"><a href="#二、课程内容" class="headerlink" title="二、课程内容"></a><strong>二、课程内容</strong></h2><p>至今我们学习了不少的控件：UIButton、UILabel、UIImageView和UITextField等，希望大家能掌握控件的基本学习方法。</p>
+<h3 id="1-UISegmentedControl-介绍和使用"><a href="#1-UISegmentedControl-介绍和使用" class="headerlink" title="1.UISegmentedControl 介绍和使用"></a><strong>1.UISegmentedControl 介绍和使用</strong></h3><p>分段控制器，常用于执行多选一的情景。<br><img src="http://static.zybuluo.com/zhuoming/e2d10sgs9i91wfg6alela6bt/xib12.png" alt="xib12.png-41.2kB"><br>  接下我们看下如何用代码来设置UISegmentedControl的样式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">NSArray * titleArr = @[@&quot;新&quot;,@&quot;研&quot;,@&quot;科&quot;,@&quot;技&quot;];</div><div class="line">// 通过title数组进行初始化</div><div class="line">UISegmentedControl * seg  = [[UISegmentedControl alloc]initWithItems:titleArr];</div><div class="line">seg.frame = CGRectMake(0, 0, 300, 50);</div><div class="line">seg.center = self.view.center;</div><div class="line">//设置默认选项,代码更改也是如此</div><div class="line">seg.selectedSegmentIndex = 10;</div><div class="line">//边框颜色</div><div class="line">seg.tintColor = [UIColor yellowColor];</div><div class="line">// 7.0 后废弃的样式</div><div class="line">seg.segmentedControlStyle = UISegmentedControlStylePlain;</div><div class="line">// 设置在点击后是否弹起</div><div class="line">seg.momentary = YES;</div><div class="line">//设置指定索引的title</div><div class="line">[seg setTitle:@&quot;❤新&quot; forSegmentAtIndex:1];</div><div class="line">//设置指定索引的图片</div><div class="line">[seg setImage:[UIImage imageNamed:@&quot;新研科技.png&quot;] forSegmentAtIndex:3];</div><div class="line">// 在指定索引利用图片插入一个选项</div><div class="line">[seg insertSegmentWithImage:[UIImage imageNamed:@&quot;mei.png&quot;] atIndex:2 animated:NO];</div><div class="line">// 在指定索引利用title插入一个选项</div><div class="line">[seg insertSegmentWithTitle:@&quot;insert&quot; atIndex:3 animated:NO];</div><div class="line">// 移除指定索引的选项</div><div class="line">[seg removeSegmentAtIndex:0 animated:NO];</div><div class="line">// 设置指定某个索引选项的宽度</div><div class="line">[seg setWidth:30.f forSegmentAtIndex:2];</div></pre></td></tr></table></figure></p>
+<p>　通过查看UISegmentedControl.h可以发现UISegmentedControl像UIButton一样继承于UIControl,所以它是可以用户交互的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">// 对值的改变事件添加处理方法</div><div class="line">//监听的是这个事件：UIControlEventValueChanged，值改变事件</div><div class="line">[seg addTarget:seg action:@selector(segChange:) forControlEvents:UIControlEventValueChanged];</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"> - (void)segChange:(UISegmentedControl*)seg</div><div class="line">&#123;</div><div class="line">    // 用户当前点击的index</div><div class="line">    NSInteger index = seg.selectedSegmentIndex;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="2-UIActivityIndicatorView-介绍和使用"><a href="#2-UIActivityIndicatorView-介绍和使用" class="headerlink" title="2.UIActivityIndicatorView 介绍和使用"></a><strong>2.UIActivityIndicatorView 介绍和使用</strong></h3><p>活动指示器通常用于在App做耗时操作是提示用户App当前还在处于活动状态。比如在网络请求时，使用活动提示器可以避免长时间不更新页面，被用户误以为App卡死从而强行关闭App。<br><img src="http://static.zybuluo.com/whunfios/w1j58va0i6a2cve2un1zamfy/image_1ald4l61br321qa07dughtsmj9.png" alt="image_1ald4l61br321qa07dughtsmj9.png-70.9kB"><br>活动指示器的常用属性和方法如下<br>| 常用属性  | 定义  |<br>| ——–   | :—– : |<br>| 指示器的样式  |  activityIndicatorViewStyle   |<br>|  当停止动画的时候，是否隐藏。默认为YES |hidesWhenStopped |<br>| 实例化指示器对象，根据样式设置尺寸，不需要手动设置| <code>-(id)initWithActivityIndicatorStyle:(UIActivityIndicatorViewStyle)style;</code> |<br>| 开启动画    | <code>- (void)startAnimating;</code> |<br>| 关闭动画   | <code>- (void)stopAnimating;</code>  |<br>| 是否在动画   |  - (BOOL)isAnimating;|  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];</div><div class="line">// 设置指示器位置</div><div class="line">indicator.center = self.view.center;</div><div class="line">// 开启动画，必须调用，否则无法显示</div><div class="line">[indicator startAnimating];</div><div class="line">[self.view addSubview:indicator];</div></pre></td></tr></table></figure>
+<h3 id="3-UIProgressView-介绍和使用"><a href="#3-UIProgressView-介绍和使用" class="headerlink" title="3.UIProgressView 介绍和使用"></a><strong>3.UIProgressView 介绍和使用</strong></h3><p>进度条与UISlider不同，他不可以与用户进行交互。<br><img src="http://static.zybuluo.com/whunfios/d4aj7cs5t53rvfxyl1oq74kn/image_1ald50kae1a931h28uv5lmkq9em.png" alt="image_1ald50kae1a931h28uv5lmkq9em.png-55.6kB"></p>
+<p>常用属性如下：<br>| 常用属性  | 定义  |<br>| ——–   | —–  |<br>| progressViewStyle   | 设置进度条风格样式  |<br>| progress   |  设置进度条进度(0.0-1.0之间，默认为0.0) |<br>| progressTintColor   | 设置已走过进度的进度条颜色 |<br>| trackTintColor   | 设置未走过进度的进度条颜色 |  </p>
+<h3 id="4-UIStepper-介绍和使用"><a href="#4-UIStepper-介绍和使用" class="headerlink" title="4.UIStepper 介绍和使用"></a><strong>4.UIStepper 介绍和使用</strong></h3><p>这是一个用于递增的控件，继承自UIControl，它主要的事件是UIControlEventValueChanged。<br><img src="http://static.zybuluo.com/whunfios/kcpshatqy2bdd26zpskf2lbp/image_1ald5f5ue28m898cdg10lvtdt13.png" alt="image_1ald5f5ue28m898cdg10lvtdt13.png-65kB"></p>
+<p>常用属性如下<br>| 常用属性  | 定义  |<br>| ——–   | —–  |<br>| value   | 当前所表示的值，默认0.0  |<br>| minimumValue   |  最小可以表示的值，默认0.0 |<br>| maximumValue   | 最大可以表示的值，默认100.0 |<br>| stepValue   | 每次递增或递减的值，默认1.0 |<br>| continuous   | 控制是否持续触发UIControlEventValueChanged事件。默认YES，即当按住时每次值改变都触发一次UIControlEventValueChanged事件，否则只有在释放按钮时触发UIControlEventValueChanged事件。 |<br>| autorepeat   | 控制是否在按住是自动持续递增或递减。默认YES。 |<br>| wraps   | 控制值是否在[minimumValue,maximumValue]区间内循环。默认NO。 | </p>
+<hr>
+<h2 id="三、作业"><a href="#三、作业" class="headerlink" title="三、作业"></a><strong>三、作业</strong></h2><ul>
+<li>1、 练习使用UISegmentedControl来实现单选效果。</li>
+<li>2、 练习使用UIActivityIndicatorView来模拟耗时操作，并与5秒后停止并隐藏。</li>
+<li>3、 练习使用UIProgressView来模拟下载文件的进度。</li>
+<li>4、 练习使用UIStepper来设置商品购买数，要求必须是5的倍数。</li>
+</ul>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/01/10/UI/第二章UI控件 -- 09.常用控件补充/" class="archive-article-date">
+  	<time datetime="2016-01-10T07:08:01.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-01-10</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UI/">UI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/01/10/UI/第二章UI控件 -- 10.UIScrollView/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          10.UIScrollView
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/01/09/UI/第二章UI控件 -- 08.UIPickerView和UIDatePicker/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">08.UIPickerView和UIDatePicker</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 John Doe
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接1</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接2</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接3</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接4</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接5</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接6</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
