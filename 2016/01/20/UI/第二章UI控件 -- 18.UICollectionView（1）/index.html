@@ -64,8 +64,6 @@ UICollectionView自定义Cell">
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/随笔">随笔</a></li>
-	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
@@ -131,8 +129,6 @@ UICollectionView自定义Cell">
 				
 					<li><a href="/">主页</a></li>
 		        
-					<li><a href="/tags/随笔">随笔</a></li>
-		        
 				</ul>
 			</nav>
 			<nav class="header-nav">
@@ -183,7 +179,7 @@ UICollectionView自定义Cell">
 <ul>
 <li>1、<strong>UICollectionViewController</strong><br>这个类与之前学习的UITableViewController类似，他负责管理集合视图、存储需要的数据、并能处理数据源和委托协议。</li>
 <li><p>2、<strong>UICollectionViewCell</strong><br>这个和UITableViewCell很像。通常你不需要创建UICollectionViewCell，你可以通过调用<code>dequeueReusableCellWithReuseIdentifier: forIndexPath:</code>来获得，当然你需要像获取tableViewCell提供一个CellIdentifier。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CellOne * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@&quot;CellOne&quot; forIndexPath:indexPath];</div></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CellOne * cell = [collectionView <span class="string">dequeueReusableCellWithReuseIdentifier:</span>@<span class="string">"CellOne"</span> <span class="string">forIndexPath:</span>indexPath];</div></pre></td></tr></table></figure>
 </li>
 <li><p>3、<strong>UICollectionViewDataSource</strong><br>和UITableViewDataSource类似，数据源协议拥有几个必须实现的方法，以控制显示的个数，分组等。</p>
 </li>
@@ -201,7 +197,7 @@ UICollectionView自定义Cell">
 <li><p>3、将UICollectionView关联到ViewController中，遵守UICollectionViewDataSource协议，并将UICollectionView的打他source设置成ViewController。<br><img src="http://static.zybuluo.com/whunfios/jjy5il5nxkb3i5voq7q6f4hy/image_1aleseb681ebmmqd1gk9r3a1hog2l.png" alt="image_1aleseb681ebmmqd1gk9r3a1hog2l.png-59.2kB"></p>
 </li>
 <li><p>4、代码如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">#import &quot;ViewController.h&quot;</div><div class="line"></div><div class="line">@interface ViewController ()&lt;UICollectionViewDataSource&gt;</div><div class="line">@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;</div><div class="line">@end</div><div class="line"></div><div class="line">@implementation ViewController</div><div class="line"></div><div class="line">- (void)viewDidLoad &#123;</div><div class="line">    [super viewDidLoad];</div><div class="line">    // 遵守协议 并设置代理</div><div class="line">    _collectionView.dataSource = self;</div><div class="line">&#125;</div><div class="line"></div><div class="line">#pragma mark - UICollectionViewDataSource</div><div class="line"></div><div class="line">- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section</div><div class="line">&#123;</div><div class="line">    return 100;</div><div class="line">&#125;</div><div class="line">- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath</div><div class="line">&#123;</div><div class="line">    UICollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@&quot;ImageCell&quot; forIndexPath:indexPath];</div><div class="line">    UIImageView * imageV = [cell viewWithTag:10];</div><div class="line">    imageV.image = [UIImage imageNamed:[NSString stringWithFormat:@&quot;Expression_%ld&quot;,indexPath.row+1]];</div><div class="line">    return cell;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"ViewController.h"</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span> ()&lt;<span class="title">UICollectionViewDataSource</span>&gt;</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">weak</span>, <span class="keyword">nonatomic</span>) <span class="keyword">IBOutlet</span> <span class="built_in">UICollectionView</span> *collectionView;</div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ViewController</span></span></div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line">    <span class="comment">// 遵守协议 并设置代理</span></div><div class="line">    _collectionView.dataSource = <span class="keyword">self</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">#pragma mark - UICollectionViewDataSource</span></div><div class="line"></div><div class="line">- (<span class="built_in">NSInteger</span>)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView numberOfItemsInSection:(<span class="built_in">NSInteger</span>)section</div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> <span class="number">100</span>;</div><div class="line">&#125;</div><div class="line">- (<span class="built_in">UICollectionViewCell</span> *)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView cellForItemAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath</div><div class="line">&#123;</div><div class="line">    <span class="built_in">UICollectionViewCell</span> * cell = [collectionView dequeueReusableCellWithReuseIdentifier:<span class="string">@"ImageCell"</span> forIndexPath:indexPath];</div><div class="line">    <span class="built_in">UIImageView</span> * imageV = [cell viewWithTag:<span class="number">10</span>];</div><div class="line">    imageV.image = [<span class="built_in">UIImage</span> imageNamed:[<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"Expression_%ld"</span>,indexPath.row+<span class="number">1</span>]];</div><div class="line">    <span class="keyword">return</span> cell;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
 </li>
 <li><p>5、 至此我们就利用实现的效果如下<br><img src="http://static.zybuluo.com/whunfios/j1pl2qrrrg3716gn6oi2blud/image_1alet3qbqilh18uurh1sflnd932.png" alt="image_1alet3qbqilh18uurh1sflnd932.png-132kB"></p>
 </li>
@@ -300,7 +296,7 @@ UICollectionView自定义Cell">
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
-		open_in_new: false,
+		open_in_new: true,
 		root: "/"
 	}
 </script>
