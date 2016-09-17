@@ -7,24 +7,29 @@
   <title>蓝牙基础开发 | 卓</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="蓝牙基础开发
-本文针对iOS开发
+本文针对iOS开发，把demo放出来 喜欢的star一下 ！
 
+希望大家看完这篇文章会对蓝牙开发有个基本的了解，能开发简单的蓝牙App。
 蓝牙的特点：与WIFI通讯相比，蓝牙低耗，对于设备电量要求比较低；速度快,极限好像是20ms,超过这个时间，虽然代码不再执行，但低层代码还在不停的发送数据，容易使得手机发烫，除了特殊需求（音乐实时律动,手指取色发送），一般不要发送太快。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="蓝牙基础开发">
 <meta property="og:url" content="http://liuzhuoming.github.io/2016/04/01/蓝牙基础开发/index.html">
 <meta property="og:site_name" content="卓">
 <meta property="og:description" content="蓝牙基础开发
-本文针对iOS开发
+本文针对iOS开发，把demo放出来 喜欢的star一下 ！
 
+希望大家看完这篇文章会对蓝牙开发有个基本的了解，能开发简单的蓝牙App。
 蓝牙的特点：与WIFI通讯相比，蓝牙低耗，对于设备电量要求比较低；速度快,极限好像是20ms,超过这个时间，虽然代码不再执行，但低层代码还在不停的发送数据，容易使得手机发烫，除了特殊需求（音乐实时律动,手指取色发送），一般不要发送太快。">
-<meta property="og:updated_time" content="2016-09-17T07:03:40.000Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/646038-a80b67c38f960fda.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2016-09-17T07:09:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="蓝牙基础开发">
 <meta name="twitter:description" content="蓝牙基础开发
-本文针对iOS开发
+本文针对iOS开发，把demo放出来 喜欢的star一下 ！
 
+希望大家看完这篇文章会对蓝牙开发有个基本的了解，能开发简单的蓝牙App。
 蓝牙的特点：与WIFI通讯相比，蓝牙低耗，对于设备电量要求比较低；速度快,极限好像是20ms,超过这个时间，虽然代码不再执行，但低层代码还在不停的发送数据，容易使得手机发烫，除了特殊需求（音乐实时律动,手指取色发送），一般不要发送太快。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/646038-a80b67c38f960fda.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="卓" type="application/atom+xml">
   
@@ -161,8 +166,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="蓝牙基础开发"><a href="#蓝牙基础开发" class="headerlink" title="蓝牙基础开发"></a>蓝牙基础开发</h1><blockquote>
-<p>本文针对iOS开发</p>
+<p>本文针对iOS开发，把<a href="https://github.com/liuzhuoming/BLEDemo" target="_blank" rel="external">demo</a>放出来 喜欢的star一下 ！</p>
 </blockquote>
+<p>希望大家看完这篇文章会对蓝牙开发有个基本的了解，能开发简单的蓝牙App。</p>
 <h2 id="蓝牙的特点："><a href="#蓝牙的特点：" class="headerlink" title="蓝牙的特点："></a>蓝牙的特点：</h2><p>与WIFI通讯相比，蓝牙<strong>低耗</strong>，对于设备电量要求比较低；<strong>速度快</strong>,极限好像是20ms,超过这个时间，虽然代码不再执行，但低层代码还在不停的发送数据，容易使得手机发烫，除了特殊需求（音乐实时律动,手指取色发送），一般不要发送太快。</p>
 <a id="more"></a>
 <h2 id="蓝牙相关的框架："><a href="#蓝牙相关的框架：" class="headerlink" title="蓝牙相关的框架："></a>蓝牙相关的框架：</h2><p>CoreBluetooth.frameWork</p>
@@ -184,6 +190,7 @@
 <p>Characteristic 里面有个notify,只有打开才能接受到蓝牙的返回数据。Characteristic 里面也有很多属性，但本文不展开讲解。</p>
 </blockquote>
 <h2 id="具体例子讲解"><a href="#具体例子讲解" class="headerlink" title="具体例子讲解"></a>具体例子讲解</h2><h3 id="蓝牙开发的流程"><a href="#蓝牙开发的流程" class="headerlink" title="蓝牙开发的流程"></a>蓝牙开发的流程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">st=&gt;start: 扫描:</div><div class="line">op=&gt;operation: 获扫描到周边对象</div><div class="line">cond=&gt;condition: 检测是否符合需求</div><div class="line">sub=&gt;subroutine: 继续扫描</div><div class="line">op2=&gt;operation: 连接该周边对象,停止扫描。</div><div class="line">op3=&gt;operation: 记录相应的特征，以供后面</div><div class="line">发送和接受周边的返回信息。</div><div class="line">e=&gt;end</div><div class="line">st-&gt;op-&gt;cond</div><div class="line">cond(yes)-&gt;op2-&gt;op3-&gt;e</div><div class="line">cond(no)-&gt;sub-&gt;op</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/646038-a80b67c38f960fda.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="IMG_1007.PNG"></p>
 <p>##基本流程代码讲解</p>
 <ol>
 <li><p><strong>创建手机中心</strong> ，首先你要有一个中心CBCentralManager 这个中心代表你的设备，它提供了一系列的代理方法来管理与之相连的周边对象CBPeripheral。</p>
