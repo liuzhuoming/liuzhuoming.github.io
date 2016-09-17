@@ -4,28 +4,24 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>07.UISwitch和UISlider | 卓</title>
+  <title>LightBlue 基础使用教程 | 卓</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="第二章UI控件 – 07.UISwitch和UISlider一、学习目标
-学会使用UISwitch
-学会使用UISlider">
+  <meta name="description" content="LightBlue 基础使用教程LightBlue 介绍
+在测试硬件的时候我通常使用稳定成熟的第三方工具来测试硬件是否正常。一般来说，如果使用LightBlue测试成功说明硬件没有问题，是查找问题和划分责任的好办法。以下摘自Appstore的介绍">
 <meta property="og:type" content="article">
-<meta property="og:title" content="07.UISwitch和UISlider">
-<meta property="og:url" content="http://liuzhuoming.github.io/2016/01/08/UI/第二章UI控件 -- 07.UISwitch和UISlider/index.html">
+<meta property="og:title" content="LightBlue 基础使用教程">
+<meta property="og:url" content="http://liuzhuoming.github.io/2016/04/01/LightBlue 基础使用教程./index.html">
 <meta property="og:site_name" content="卓">
-<meta property="og:description" content="第二章UI控件 – 07.UISwitch和UISlider一、学习目标
-学会使用UISwitch
-学会使用UISlider">
-<meta property="og:image" content="http://static.zybuluo.com/whunfios/tyl8fal3hdwirs8elbzng95y/222.png">
-<meta property="og:image" content="http://static.zybuluo.com/zhuoming/6bylgdks0ip7cqlbm2wwby9z/xib13.png">
-<meta property="og:image" content="http://static.zybuluo.com/zhuoming/6bylgdks0ip7cqlbm2wwby9z/xib13.png">
-<meta property="og:updated_time" content="2016-09-15T15:15:57.000Z">
+<meta property="og:description" content="LightBlue 基础使用教程LightBlue 介绍
+在测试硬件的时候我通常使用稳定成熟的第三方工具来测试硬件是否正常。一般来说，如果使用LightBlue测试成功说明硬件没有问题，是查找问题和划分责任的好办法。以下摘自Appstore的介绍">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/6d4augy8lgp0iy1vwtb9d9y8/QQ20160125-0@2x.png">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/hly9x5l65vniyc7n6krchuva/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-01-25%20%E4%B8%8B%E5%8D%883.22.14.png">
+<meta property="og:updated_time" content="2016-09-17T04:23:45.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="07.UISwitch和UISlider">
-<meta name="twitter:description" content="第二章UI控件 – 07.UISwitch和UISlider一、学习目标
-学会使用UISwitch
-学会使用UISlider">
-<meta name="twitter:image" content="http://static.zybuluo.com/whunfios/tyl8fal3hdwirs8elbzng95y/222.png">
+<meta name="twitter:title" content="LightBlue 基础使用教程">
+<meta name="twitter:description" content="LightBlue 基础使用教程LightBlue 介绍
+在测试硬件的时候我通常使用稳定成熟的第三方工具来测试硬件是否正常。一般来说，如果使用LightBlue测试成功说明硬件没有问题，是查找问题和划分责任的好办法。以下摘自Appstore的介绍">
+<meta name="twitter:image" content="http://static.zybuluo.com/zhuoming/6d4augy8lgp0iy1vwtb9d9y8/QQ20160125-0@2x.png">
   
     <link rel="alternative" href="/atom.xml" title="卓" type="application/atom+xml">
   
@@ -143,7 +139,7 @@
 </nav>
 
       <div class="body-wrap">
-        <article id="post-UI/第二章UI控件 -- 07.UISwitch和UISlider" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-LightBlue 基础使用教程." class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -153,7 +149,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      07.UISwitch和UISlider
+      LightBlue 基础使用教程
     </h1>
   
 
@@ -161,85 +157,67 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="第二章UI控件-–-07-UISwitch和UISlider"><a href="#第二章UI控件-–-07-UISwitch和UISlider" class="headerlink" title="第二章UI控件 – 07.UISwitch和UISlider"></a>第二章UI控件 – 07.UISwitch和UISlider</h1><h2 id="一、学习目标"><a href="#一、学习目标" class="headerlink" title="一、学习目标"></a><strong>一、学习目标</strong></h2><ul>
-<li>学会使用UISwitch</li>
-<li>学会使用UISlider</li>
-</ul>
-<a id="more"></a>
-<hr>
-<h2 id="二、课程内容"><a href="#二、课程内容" class="headerlink" title="二、课程内容"></a><strong>二、课程内容</strong></h2><h3 id="1-了解并使用UISwitch"><a href="#1-了解并使用UISwitch" class="headerlink" title="1.了解并使用UISwitch"></a><strong>1.了解并使用UISwitch</strong></h3><p>iOS系统中常常会有类似开关的控件，比如下图中系统设置中的。这个控件叫UISwitch。<br>UISwitch开关控件的常用属性如下<br>| 常用属性  | 定义  |<br>| ——–   | —–  |<br>| onTintColor   | 处于on时switch 的颜色  |<br>| tintColor   |  处于off时switch 的颜色 |<br>| onImage   | 设置on 的图标，iOS7后已经无效 |<br>| offImage   | 设置off的图标，iOS7后已经无效 |<br>| on   | 设置switch的开关  |<br>| thumbTintColor   |  中间滑块的颜色<br>  |<br>我们通过StoryBoard来快速的了解下这个简单的控件<br><img src="http://static.zybuluo.com/whunfios/tyl8fal3hdwirs8elbzng95y/222.png" alt="222.png-62.1kB"></p>
-<p>同样的用代码实现也相当的简单<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 注意这个后面的大小并没有生效，因为该控件是默认大小且不可改变的</span></div><div class="line">UISwitch * <span class="keyword">sw</span> = [[UISwitch alloc]initWithFrame:CGRectMake(100, 100, 100, 100)];</div><div class="line"><span class="comment">// 滑块颜色</span></div><div class="line"><span class="keyword">sw</span>.thumbTintColor = [UIColor redColor];</div><div class="line"><span class="comment">// 打开的颜色</span></div><div class="line"><span class="keyword">sw</span>.onTintColor = [UIColor cyanColor];</div><div class="line"><span class="comment">// 设置状态</span></div><div class="line"><span class="keyword">sw</span>.<span class="keyword">on</span> = <span class="keyword">NO</span>;</div><div class="line">[self.<span class="keyword">view</span> addSubview:<span class="keyword">sw</span>];</div></pre></td></tr></table></figure></p>
-<p>同样的我们注意到UISwitch继承于UIcontrol，所以它可以添加事件，具体代码如下<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 给UISwitch添加响应事件方法</span></div><div class="line">    [sw <span class="string">addTarget:</span>self <span class="string">action:</span><span class="meta">@selector</span>(<span class="string">switchChange:</span>) <span class="string">forControlEvents:</span>UIControlEventValueChanged];</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)<span class="string">switchOpen:</span>(UISwitch*)sw</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (sw.isOn) &#123; <span class="comment">//isOn 是On的get别名</span></div><div class="line">        NSLog(@<span class="string">"开关打开了"</span>);</div><div class="line">    &#125;<span class="keyword">else</span></div><div class="line">    &#123;</div><div class="line">        NSLog(@<span class="string">"开关关闭了"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="2-了解并使用UISlider"><a href="#2-了解并使用UISlider" class="headerlink" title="2.了解并使用UISlider"></a><strong>2.了解并使用UISlider</strong></h3><p>在iOS中经常可以看到类似于进度条的控件,比如,音量的控制、播放进度的控制。在 iOS 开发中,这种使用滑块来改变数值的控件称为滑块控件。滑块控件使用 UISider 表示,它继承自 UIControl,是一个可以与用户进行交互的控件。</p>
-<p>UISlider常用的属性表</p>
-<table>
-<thead>
-<tr>
-<th>常用属性</th>
-<th>定义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>value</td>
-<td>当前的值</td>
-</tr>
-<tr>
-<td>minimumValue</td>
-<td>当值可以改变时，滑块可以滑动到最小位置的值，默认为0.0</td>
-</tr>
-<tr>
-<td>maximumValue</td>
-<td>当值可以改变时，滑块可以滑动到最大位置的值，默认为1.0</td>
-</tr>
-<tr>
-<td>continuous</td>
-<td>如果设置YES，在拖动滑块的任何时候，滑块的值都会改变。默认设置为YES</td>
-</tr>
-<tr>
-<td>minimumValueImage</td>
-<td>滑块条最小值处设置的图片，默认为nil</td>
-</tr>
-<tr>
-<td>maximumValueImage</td>
-<td>滑块条最大值处设置的图片,默认为nil</td>
-</tr>
-<tr>
-<td>thumbTintColor</td>
-<td>当前滑块的颜色，默认为白色</td>
-</tr>
-<tr>
-<td></td>
-</tr>
-<tr>
-<td>currentThumbImage</td>
-<td>当前滑块的图片</td>
-</tr>
-<tr>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>我们通过更改不同的属性来观察这个空间</p>
-<p><img src="http://static.zybuluo.com/zhuoming/6bylgdks0ip7cqlbm2wwby9z/xib13.png" alt="xib13.png-40.9kB"></p>
-<blockquote>
-<p>系统不提供更改滑块大小的方法，我们可以通过设置滑块图片的大小来实现</p>
+        <h1 id="LightBlue-基础使用教程"><a href="#LightBlue-基础使用教程" class="headerlink" title="LightBlue 基础使用教程"></a>LightBlue 基础使用教程</h1><h2 id="LightBlue-介绍"><a href="#LightBlue-介绍" class="headerlink" title="LightBlue 介绍"></a>LightBlue 介绍</h2><blockquote>
+<p>在测试硬件的时候我通常使用<strong>稳定成熟</strong>的第三方工具来测试硬件是否正常。一般来说，如果使用LightBlue测试成功说明硬件没有问题，是查找问题和划分责任的好办法。<br>以下摘自Appstore的介绍</p>
 </blockquote>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[self.slider <span class="string">setThumbImage:</span>[UIImage <span class="string">imageNamed:</span>@<span class="string">"圆勾"</span>] <span class="string">forState:</span>UIControlStateNormal];</div><div class="line">[self.slider <span class="string">setThumbImage:</span>[UIImage <span class="string">imageNamed:</span>@<span class="string">"圆勾"</span>] <span class="string">forState:</span>UIControlStateHighlighted];</div></pre></td></tr></table></figure>
-<h2 id="三、练习"><a href="#三、练习" class="headerlink" title="三、练习"></a><strong>三、练习</strong></h2><p>完成根据提示下面的灯泡界面。</p>
-<p><img src="http://static.zybuluo.com/zhuoming/6bylgdks0ip7cqlbm2wwby9z/xib13.png" alt="IMG_1133.PNG-40.2kB"></p>
+<a id="more"></a>
+<h3 id="1-支持蓝牙4-0"><a href="#1-支持蓝牙4-0" class="headerlink" title="1.支持蓝牙4.0"></a>1.支持蓝牙4.0</h3><blockquote>
+<p> LightBlue can test all of your devices that use Bluetooth 4.0 Low Energy (also known as Bluetooth Smart, or Bluetooth Light). </p>
+</blockquote>
+<h3 id="2-支持两种模式–中心（模拟手机）和周边（模拟蓝牙设备）"><a href="#2-支持两种模式–中心（模拟手机）和周边（模拟蓝牙设备）" class="headerlink" title="2.支持两种模式–中心（模拟手机）和周边（模拟蓝牙设备）"></a>2.支持两种模式–中心（模拟手机）和周边（模拟蓝牙设备）</h3><blockquote>
+<p>LightBlue has two modes, Central and Peripheral. In Central mode you can scan and connect to all devices around you. You can also clone any peripheral you connect to and make that clone a peripheral of LightBlue. In peripheral mode, your iOS devices simulates your peripheral hardware. You can add and rename services and characteristics.</p>
+</blockquote>
+<h3 id="3-支持读、写和通知，同时可以读取到RSSI-蓝牙强度"><a href="#3-支持读、写和通知，同时可以读取到RSSI-蓝牙强度" class="headerlink" title="3.支持读、写和通知，同时可以读取到RSSI(蓝牙强度)"></a>3.支持读、写和通知，同时可以读取到RSSI(蓝牙强度)</h3><blockquote>
+<p>Full support of read, write, and notify is included. You can view the signal strength (RSSI) to get an idea of how close you are to the peripheral.</p>
+<p>Use this to test your new BLE Heart Rate Monitor, temperature sensor, TI CC2540 Keyfob, Nordic uBlue, Panasonic PAN1720, etc.<br>Developers can use LightBlue to test the hardware or firmware of their BTLE peripherals.</p>
+</blockquote>
+<h3 id="4-具体功能包括-Key-Features"><a href="#4-具体功能包括-Key-Features" class="headerlink" title="4.具体功能包括 Key Features:"></a>4.具体功能包括 Key Features:</h3><ul>
+<li>Scan for any peripherals  <strong>搜索蓝牙设备</strong></li>
+<li>Get common info (UUID, RSSI ) <strong>获取蓝牙的信息(唯一识别码,信号强度</strong>）</li>
+<li>Browse Characteristics and Services <strong>浏览特征和服务</strong></li>
+<li>Register for Notifications <strong>注册通知</strong></li>
+<li>Read Services <strong>读取服务</strong></li>
+<li>Write Services in Hex, Oct, Bin, Decimal or Ascii <strong>向服务写入各种类型的数据</strong></li>
+<li>Save Peripheral profiles <strong>保存周边对象的属性</strong></li>
+<li>Download preconfigured Peripheral profile  <strong>下载周边对象的预配置</strong></li>
+<li>Log Central and Peripheral events  <strong>打印中心和周边的事件</strong></li>
+</ul>
+<h3 id="5-支持的设备"><a href="#5-支持的设备" class="headerlink" title="5.支持的设备"></a>5.支持的设备</h3><blockquote>
+<p>In order to use this app, you must have iOS7 installed on an iPhone5, iPod Touch (5th generation) or iPad (3rd generation). </p>
+<p>This app will not work on iPhone4, iPhone3GS, iPhone3G or iPod Touches before the 5th generation.</p>
+</blockquote>
+<hr>
+<h2 id="LightBlue-展示"><a href="#LightBlue-展示" class="headerlink" title="LightBlue 展示"></a>LightBlue 展示</h2><ol>
+<li><strong>打开LightBlue</strong></li>
+</ol>
+<blockquote>
+<p>如果蓝牙已正常打开</p>
+</blockquote>
+<p><img src="http://static.zybuluo.com/zhuoming/6d4augy8lgp0iy1vwtb9d9y8/QQ20160125-0@2x.png" alt="QQ20160125-0@2x.png-822.5kB"></p>
+<ol>
+<li><strong>点击即连接设备</strong></li>
+</ol>
+<p><img src="http://static.zybuluo.com/zhuoming/hly9x5l65vniyc7n6krchuva/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-01-25%20%E4%B8%8B%E5%8D%883.22.14.png" alt="屏幕快照 2016-01-25 下午3.22.14.png-774.3kB"></p>
+<ol>
+<li><p><strong>打开接收通道</strong></p>
+</li>
+<li><p><strong>发送数据</strong></p>
+</li>
+<li><p><strong>查看Log</strong></p>
+</li>
+</ol>
 
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/01/08/UI/第二章UI控件 -- 07.UISwitch和UISlider/" class="archive-article-date">
-  	<time datetime="2016-01-08T07:08:32.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-01-08</time>
+      <a href="/2016/04/01/LightBlue 基础使用教程./" class="archive-article-date">
+  	<time datetime="2016-04-01T07:08:01.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-04-01</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UI/">UI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/蓝牙/">蓝牙</a></li></ul>
 	</div>
 
       
@@ -252,18 +230,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/01/09/UI/第二章UI控件 -- 08.UIPickerView和UIDatePicker/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/04/01/蓝牙基础开发/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          08.UIPickerView和UIDatePicker
+          蓝牙基础开发
         
       </div>
     </a>
   
   
-    <a href="/2016/01/07/UI/第二章UI控件 -- 06.UITextView/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">06.UITextView</div>
+    <a href="/2016/01/26/UI/第六章 Interface Builder/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Interface Builder</div>
       <i class="icon-circle-right"></i>
     </a>
   
