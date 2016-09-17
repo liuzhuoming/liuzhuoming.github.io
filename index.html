@@ -131,6 +131,66 @@
       <div class="body-wrap">
         
   
+    <article id="post-iOS支付宝集成（官方）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/09/iOS支付宝集成（官方）/">蓝牙基础开发</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="iOS支付宝集成（官方）"><a href="#iOS支付宝集成（官方）" class="headerlink" title="iOS支付宝集成（官方）"></a>iOS支付宝集成（官方）</h1><p>本文写于 2016-4-9，参考<a href="https://doc.open.alipay.com/doc2/detail.htm?spm=a219a.7629140.0.0.IUdcPA&amp;treeId=59&amp;articleId=103563&amp;docType=1">官方开发文档</a>、</p>
+<h2 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1. 准备工作"></a>1. 准备工作</h2><p>公司申请成为商家 <a href="https://doc.open.alipay.com/doc2/detail.htm?treeId=58&amp;articleId=103542&amp;docType=1">商户签约审核</a></p>
+<h2 id="2、密钥"><a href="#2、密钥" class="headerlink" title="2、密钥"></a>2、密钥</h2><h3 id="2-1-生成RSA密钥"><a href="#2-1-生成RSA密钥" class="headerlink" title="2.1 生成RSA密钥"></a>2.1 生成RSA密钥</h3><ol>
+<li>打开终端 输入<br><code>openssl</code></li>
+<li>生成RSA私钥<br><code>openssl&gt; genrsa -out rsa_private_key.pem 1024</code></li>
+<li>生成RSA公钥<br><code>openssl&gt; rsa -in rsa_private_key.pem -pubout -out rsa_public_key.pem</code></li>
+<li>将RSA私钥转换成PKCS8格式<br><code>openssl&gt; pkcs8 -topk8 -inform PEM -in rsa_private_key.pem -outform PEM -nocrypt</code></li>
+<li>你会得到以下图示<br><img src="http://static.zybuluo.com/zhuoming/o7rusi3oatz5nm0lxt3lezrr/2.pic.jpg" alt="2.pic.jpg-245.7kB"></li>
+</ol>
+        <p class="article-more-link">
+          <a  href="/2016/04/09/iOS支付宝集成（官方）/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/04/09/iOS支付宝集成（官方）/" class="archive-article-date">
+  	<time datetime="2016-04-09T07:08:02.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-04-09</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/蓝牙/">蓝牙</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-蓝牙基础开发" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -610,62 +670,6 @@
       
       <a href="/2016/01/20/UI/第二章UI控件 -- 18.UICollectionView（1）/" class="archive-article-date">
   	<time datetime="2016-01-20T07:08:32.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-01-20</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UI/">UI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-UI/第二章UI控件 -- 17.UITabBarController" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/19/UI/第二章UI控件 -- 17.UITabBarController/">17.UITabBarController</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="第二章UI控件-–-17-UITabBarController"><a href="#第二章UI控件-–-17-UITabBarController" class="headerlink" title="第二章UI控件 – 17.UITabBarController"></a>第二章UI控件 – 17.UITabBarController</h1><h2 id="一、学习目标"><a href="#一、学习目标" class="headerlink" title="一、学习目标"></a><strong>一、学习目标</strong></h2><ul>
-<li>UITabBarController 介绍和使用</li>
-<li>UITabBarItem 介绍和使用</li>
-<li>自定义 UITabBarController</li>
-</ul>
-        <p class="article-more-link">
-          <a  href="/2016/01/19/UI/第二章UI控件 -- 17.UITabBarController/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/01/19/UI/第二章UI控件 -- 17.UITabBarController/" class="archive-article-date">
-  	<time datetime="2016-01-19T07:08:32.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-01-19</time>
 </a>
       
 	<div class="article-tag tagcloud">

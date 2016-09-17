@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>蓝牙基础开发 | 卓</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="iOS支付宝集成（官方）本文写于 2016-4-9，参考官方开发文档、
+1. 准备工作公司申请成为商家 商户签约审核
+2、密钥2.1 生成RSA密钥
+打开终端 输入openssl
+生成RSA私钥openssl&amp;gt; genrsa -out rsa_private_key.pem 1024
+生成RSA公钥openssl&amp;gt; rsa -in rsa_private_key.pem -pubout">
+<meta property="og:type" content="article">
+<meta property="og:title" content="蓝牙基础开发">
+<meta property="og:url" content="http://liuzhuoming.github.io/2016/04/09/iOS支付宝集成（官方）/index.html">
+<meta property="og:site_name" content="卓">
+<meta property="og:description" content="iOS支付宝集成（官方）本文写于 2016-4-9，参考官方开发文档、
+1. 准备工作公司申请成为商家 商户签约审核
+2、密钥2.1 生成RSA密钥
+打开终端 输入openssl
+生成RSA私钥openssl&amp;gt; genrsa -out rsa_private_key.pem 1024
+生成RSA公钥openssl&amp;gt; rsa -in rsa_private_key.pem -pubout">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/o7rusi3oatz5nm0lxt3lezrr/2.pic.jpg">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/wm6ti9zqzapuvogzbocsikjn/3.pic.jpg">
+<meta property="og:image" content="http://static.zybuluo.com/zhuoming/0jg4epk3cf88b9b1gyth4d33/4.pic.jpg">
+<meta property="og:updated_time" content="2016-09-17T07:15:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="蓝牙基础开发">
+<meta name="twitter:description" content="iOS支付宝集成（官方）本文写于 2016-4-9，参考官方开发文档、
+1. 准备工作公司申请成为商家 商户签约审核
+2、密钥2.1 生成RSA密钥
+打开终端 输入openssl
+生成RSA私钥openssl&amp;gt; genrsa -out rsa_private_key.pem 1024
+生成RSA公钥openssl&amp;gt; rsa -in rsa_private_key.pem -pubout">
+<meta name="twitter:image" content="http://static.zybuluo.com/zhuoming/o7rusi3oatz5nm0lxt3lezrr/2.pic.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="卓" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <script src="/style.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://i1.piimg.com/567571/7add4803df2eb24e.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">卓明</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">卓明</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="http://i1.piimg.com/567571/7add4803df2eb24e.png" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">卓明</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-iOS支付宝集成（官方）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      蓝牙基础开发
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="iOS支付宝集成（官方）"><a href="#iOS支付宝集成（官方）" class="headerlink" title="iOS支付宝集成（官方）"></a>iOS支付宝集成（官方）</h1><p>本文写于 2016-4-9，参考<a href="https://doc.open.alipay.com/doc2/detail.htm?spm=a219a.7629140.0.0.IUdcPA&amp;treeId=59&amp;articleId=103563&amp;docType=1" target="_blank" rel="external">官方开发文档</a>、</p>
+<h2 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1. 准备工作"></a>1. 准备工作</h2><p>公司申请成为商家 <a href="https://doc.open.alipay.com/doc2/detail.htm?treeId=58&amp;articleId=103542&amp;docType=1" target="_blank" rel="external">商户签约审核</a></p>
+<h2 id="2、密钥"><a href="#2、密钥" class="headerlink" title="2、密钥"></a>2、密钥</h2><h3 id="2-1-生成RSA密钥"><a href="#2-1-生成RSA密钥" class="headerlink" title="2.1 生成RSA密钥"></a>2.1 生成RSA密钥</h3><ol>
+<li>打开终端 输入<br><code>openssl</code></li>
+<li>生成RSA私钥<br><code>openssl&gt; genrsa -out rsa_private_key.pem 1024</code></li>
+<li>生成RSA公钥<br><code>openssl&gt; rsa -in rsa_private_key.pem -pubout -out rsa_public_key.pem</code></li>
+<li>将RSA私钥转换成PKCS8格式<br><code>openssl&gt; pkcs8 -topk8 -inform PEM -in rsa_private_key.pem -outform PEM -nocrypt</code></li>
+<li>你会得到以下图示<br><img src="http://static.zybuluo.com/zhuoming/o7rusi3oatz5nm0lxt3lezrr/2.pic.jpg" alt="2.pic.jpg-245.7kB"></li>
+</ol>
+<a id="more"></a>
+<ol>
+<li>把黄色框框内（不包括–bigin– 和 –end–）的字母复制出来，用编辑器（推荐使用<a href="http://www.sublimetext.com" target="_blank" rel="external">sublime</a>）打开，粘贴进去你会得到这样带空格换行的文本（注意左边的行号）<br><img src="http://static.zybuluo.com/zhuoming/wm6ti9zqzapuvogzbocsikjn/3.pic.jpg" alt="3.pic.jpg-81kB"></li>
+<li>将行号去掉，并保存成.txt<br><img src="http://static.zybuluo.com/zhuoming/0jg4epk3cf88b9b1gyth4d33/4.pic.jpg" alt="4.pic.jpg-82.6kB"></li>
+</ol>
+<blockquote>
+<p>TIPS<br> 2、3、4前面的<code>openssl&gt;</code>是自带的不需要输入的<br>如果没有明确的cd到某个具体路径  默认路径是用户根目录 <code>/Users/yourUserName</code></p>
+</blockquote>
+<h3 id="2-2-上传密钥"><a href="#2-2-上传密钥" class="headerlink" title="2.2 上传密钥"></a>2.2 上传密钥</h3><p>参考<a href="https://doc.open.alipay.com/doc2/detail?treeId=59&amp;articleId=103676&amp;docType=1" target="_blank" rel="external">上传密钥-官方文档</a></p>
+<h2 id="3、集成支付宝"><a href="#3、集成支付宝" class="headerlink" title="3、集成支付宝"></a>3、集成支付宝</h2><p>这里集成的支付宝是为了在移动端方便，所以包含了一些本属于后台的工作</p>
+<h3 id="3-1-导入代码"><a href="#3-1-导入代码" class="headerlink" title="3.1 导入代码"></a>3.1 导入代码</h3><p> <a href="https://doc.open.alipay.com/doc2/detail?treeId=59&amp;articleId=103676&amp;docType=1" target="_blank" rel="external">导入代码-官方文档</a></p>
+<ol>
+<li>导入相应的库文件</li>
+<li>更改https</li>
+<li><p><strong>重点将官方demo中的下列文件拖到项目中</strong></p>
+<blockquote>
+<ul>
+<li>AlipaySDK.bundle</li>
+<li>AlipaySDK.framework</li>
+<li>AliSDKDemo\Util及下面所有文件</li>
+<li>AliSDKDemo\openssl及下面所有文件</li>
+<li>libcrypto.a</li>
+<li>libssl.a</li>
+<li>Order.h</li>
+<li>Order.m</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h3 id="3-2-针对Demo的运行注意"><a href="#3-2-针对Demo的运行注意" class="headerlink" title="3.2 针对Demo的运行注意"></a>3.2 针对Demo的运行注意</h3><ol>
+<li>command+B 运行报错 参考<a href="https://doc.open.alipay.com/doc2/detail.htm?spm=a219a.7629140.0.0.pWfP7s&amp;treeId=59&amp;articleId=103677&amp;docType=1" target="_blank" rel="external">官方说明</a> </li>
+</ol>
+<blockquote>
+<ul>
+<li>对于<code>Cannot find interface declaration for &#39;NSObject&#39;, superclass of &#39;Base64&#39;</code> 等错误，只需在报错的地方导入相应的头文件。</li>
+<li>对于opssl的错误 点击项目名称，点击“Build Settings”选项卡，在搜索框中，以关键字“search”搜索，对“Header Search<br>Paths”增加头文件路径：$(SRCROOT)/项目名称。如果头文件信息已增加，可不必再增加。</li>
+</ul>
+</blockquote>
+<ol>
+<li>添加URL Schemes</li>
+</ol>
+<blockquote>
+<p>点击项目名称，点击“Info”选项卡，在“URL Types”选项中，点击“+”，在“URL<br>Schemes”中输入“alisdkdemo”。“alisdkdemo”来自于文件“APViewController.m”的NSString<br>*appScheme = @“alisdkdemo”;。</p>
+</blockquote>
+<h3 id="3-3示例代码"><a href="#3-3示例代码" class="headerlink" title="3.3示例代码"></a>3.3示例代码</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">IBAction</span>)btnBuyCLick:(<span class="built_in">UIButton</span> *)sender &#123;</div><div class="line">    </div><div class="line">    <span class="comment">/**</span></div><div class="line">     *  输入是否合法</div><div class="line">     */</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> (!(_tfName.text.length &gt; <span class="number">0</span> &amp;&amp; _tfPrice.text.length &gt; <span class="number">0</span> &amp;&amp;([<span class="keyword">self</span> isPureInt:_tfPrice.text]||[<span class="keyword">self</span> isPureFloat:_tfPrice.text]))) &#123;</div><div class="line">        <span class="built_in">UIAlertView</span> *alert = [[<span class="built_in">UIAlertView</span> alloc] initWithTitle:<span class="string">@"提示"</span></div><div class="line">                                                        message:<span class="string">@"请填入合法的字符"</span></div><div class="line">                                                       delegate:<span class="keyword">self</span></div><div class="line">                                              cancelButtonTitle:<span class="string">@"确定"</span></div><div class="line">                                              otherButtonTitles:<span class="literal">nil</span>];</div><div class="line">        [alert show];</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">   </div><div class="line">    </div><div class="line">    </div><div class="line">    </div><div class="line">    <span class="comment">/*============================================================================*/</span></div><div class="line">    <span class="comment">/*=======================需要填写商户app申请的===================================*/</span></div><div class="line">    <span class="comment">/*============================================================================*/</span></div><div class="line">    <span class="built_in">NSString</span> *partner = <span class="string">@"2088121427784129"</span>;</div><div class="line">    <span class="built_in">NSString</span> *seller = <span class="string">@"zhifubao@whunf.com.cn"</span>;</div><div class="line">    <span class="built_in">NSString</span> *privateKey = <span class="string">@"MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAMX/TsnXuiWmVB20UN9svlYc4sbLgPzTu8TarYnF1UZtcC5VP0VGLxlUTBywldDIq3p9UbnOt91avNvEV+PTAanyNeQy6iDG4/BZ7YhsSF8vTVgHbDaua/Aynz/Xb0kUX+o+E7LR6tRFNAqbEjPhatmhM62uIEM6hei3sFJFwUt1AgMBAAECgYEAjOvy8tw1JBjnI6E0MmFec0Hp8l3jd49nxGt0OmvxKUg5IPERsEeMvDVwWrcgWlKJIgxR/7Ju0QCFDNIJUCDdvAwPIAtjxweV3RugsASWXST5CqsyGtPpLnMZy7OdYFAT9hKkcEq+poUjbFpqDLFoRKfQqZD6tZM0/xbfxoZe8H0CQQDm9CoOqyrgHaTwa2aMvy64LXOKJL2NagFEevx0Vj7zvzFUOCynU1gSDDq3p2V20fdeQBBssceJrRigXy5OM4eTAkEA23gxKw7PSh+qyNL4i4kzpvQp/c336F/Gb7DUZrVqwb1gLnPXFvzsWodTu9g5p4+f8kckvw0H0U0mwy7BHJM11wJAKkjj9mGSbQwgacBQO065oBD6SX2mkuCosMAPvsEXr4r+3huW2V/iDRPeIEfuxM12i/QQzcXS8bsWei5TDRBULwJADumCxb8y3IF8VDrpgmmnJc/vTnyBPLvNOueT9wqan2FjuKRMWBaFZL1PNjNB7521q3ukBos3HcSVPqvdmThzbwJBAM1pjTSZ6FBMUMqJJJJgvfmiYUZ+5EwOsWObKl8WLqVR5trUEH1/483M5q+gD2GnGBjysdfCsKufoE7CtAGYctg="</span>;</div><div class="line">    <span class="comment">/*============================================================================*/</span></div><div class="line">    <span class="comment">/*============================================================================*/</span></div><div class="line">    <span class="comment">/*============================================================================*/</span></div><div class="line">    </div><div class="line">    <span class="comment">//partner和seller获取失败,提示</span></div><div class="line">    <span class="keyword">if</span> ([partner length] == <span class="number">0</span> ||</div><div class="line">        [seller length] == <span class="number">0</span> ||</div><div class="line">        [privateKey length] == <span class="number">0</span>)</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">UIAlertView</span> *alert = [[<span class="built_in">UIAlertView</span> alloc] initWithTitle:<span class="string">@"提示"</span></div><div class="line">                                                        message:<span class="string">@"缺少partner或者seller或者私钥。"</span></div><div class="line">                                                       delegate:<span class="keyword">self</span></div><div class="line">                                              cancelButtonTitle:<span class="string">@"确定"</span></div><div class="line">                                              otherButtonTitles:<span class="literal">nil</span>];</div><div class="line">        [alert show];</div><div class="line">      </div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">/*</span></div><div class="line">     *生成订单信息及签名</div><div class="line">     */</div><div class="line">    <span class="comment">//将商品信息赋予AlixPayOrder的成员变量</span></div><div class="line">    Order *order = [[Order alloc] init];</div><div class="line">    order.partner = partner;</div><div class="line">    order.seller = seller;</div><div class="line">    order.tradeNO = [<span class="keyword">self</span> generateTradeNO]; <span class="comment">//订单ID（由商家自行制定）</span></div><div class="line">    order.productName = _tfName.text; <span class="comment">//商品标题</span></div><div class="line">    order.productDescription = _tfName.text; <span class="comment">//商品描述</span></div><div class="line">    order.amount = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%.2f"</span>,<span class="number">0.1</span>]; <span class="comment">//商品价格</span></div><div class="line">    order.notifyURL =  <span class="string">@"http://www.whunf.com.cn"</span>; <span class="comment">//回调URL</span></div><div class="line">    </div><div class="line">    order.service = <span class="string">@"mobile.securitypay.pay"</span>;</div><div class="line">    order.paymentType = <span class="string">@"1"</span>;</div><div class="line">    order.inputCharset = <span class="string">@"utf-8"</span>;</div><div class="line">    order.itBPay = <span class="string">@"30m"</span>;</div><div class="line">    order.showUrl = <span class="string">@"m.alipay.com"</span>;</div><div class="line">    </div><div class="line">    <span class="comment">//应用注册scheme,在AlixPayDemo-Info.plist定义URL types</span></div><div class="line">    <span class="built_in">NSString</span> *appScheme = <span class="string">@"AliPayDemo"</span>;</div><div class="line">    </div><div class="line">    <span class="comment">//将商品信息拼接成字符串</span></div><div class="line">    <span class="built_in">NSString</span> *orderSpec = [order description];</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"orderSpec = %@"</span>,orderSpec);</div><div class="line">    </div><div class="line">    <span class="comment">//获取私钥并将商户信息签名,外部商户可以根据情况存放私钥和签名,只需要遵循RSA签名规范,并将签名字符串base64编码和UrlEncode</span></div><div class="line">    <span class="keyword">id</span>&lt;DataSigner&gt; signer = CreateRSADataSigner(privateKey);</div><div class="line">    <span class="built_in">NSString</span> *signedString = [signer signString:orderSpec];</div><div class="line">    </div><div class="line">    <span class="comment">//将签名成功字符串格式化为订单字符串,请严格按照该格式</span></div><div class="line">    <span class="built_in">NSString</span> *orderString = <span class="literal">nil</span>;</div><div class="line">    <span class="keyword">if</span> (signedString != <span class="literal">nil</span>) &#123;</div><div class="line">        orderString = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@&amp;sign=\"%@\"&amp;sign_type=\"%@\""</span>,</div><div class="line">                       orderSpec, signedString, <span class="string">@"RSA"</span>];</div><div class="line">        </div><div class="line">        [[AlipaySDK defaultService] payOrder:orderString fromScheme:appScheme callback:^(<span class="built_in">NSDictionary</span> *resultDic) &#123;</div><div class="line">            <span class="built_in">NSLog</span>(<span class="string">@"reslut = %@"</span>,resultDic);</div><div class="line">        &#125;];</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">#pragma mark -</span></div><div class="line"><span class="meta">#pragma mark   ==============产生随机订单号==============</span></div><div class="line"></div><div class="line"></div><div class="line">- (<span class="built_in">NSString</span> *)generateTradeNO</div><div class="line">&#123;</div><div class="line">    <span class="keyword">static</span> <span class="keyword">int</span> kNumber = <span class="number">15</span>;</div><div class="line">    </div><div class="line">    <span class="built_in">NSString</span> *sourceStr = <span class="string">@"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"</span>;</div><div class="line">    <span class="built_in">NSMutableString</span> *resultStr = [[<span class="built_in">NSMutableString</span> alloc] init];</div><div class="line">    srand((<span class="keyword">unsigned</span>)time(<span class="number">0</span>));</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; kNumber; i++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">unsigned</span> index = rand() % [sourceStr length];</div><div class="line">        <span class="built_in">NSString</span> *oneStr = [sourceStr substringWithRange:<span class="built_in">NSMakeRange</span>(index, <span class="number">1</span>)];</div><div class="line">        [resultStr appendString:oneStr];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> resultStr;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">#pragma mark   ==============判断是否符合==============</span></div><div class="line"><span class="comment">//判断是否为整形：</span></div><div class="line"></div><div class="line">- (<span class="built_in">BOOL</span>)isPureInt:(<span class="built_in">NSString</span>*)string&#123;</div><div class="line">    <span class="built_in">NSScanner</span>* scan = [<span class="built_in">NSScanner</span> scannerWithString:string];</div><div class="line">    <span class="keyword">int</span> val;</div><div class="line">    <span class="keyword">return</span>[scan scanInt:&amp;val] &amp;&amp; [scan isAtEnd];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//判断是否为浮点形：</span></div><div class="line"></div><div class="line">- (<span class="built_in">BOOL</span>)isPureFloat:(<span class="built_in">NSString</span>*)string&#123;</div><div class="line">    <span class="built_in">NSScanner</span>* scan = [<span class="built_in">NSScanner</span> scannerWithString:string];</div><div class="line">    <span class="keyword">float</span> val;</div><div class="line">    <span class="keyword">return</span>[scan scanFloat:&amp;val] &amp;&amp; [scan isAtEnd];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/04/09/iOS支付宝集成（官方）/" class="archive-article-date">
+  	<time datetime="2016-04-09T07:08:02.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-04-09</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/蓝牙/">蓝牙</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2016/04/01/蓝牙基础开发/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">蓝牙基础开发</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 卓明
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/UI/" style="font-size: 15px;">UI</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/蓝牙/" style="font-size: 10px;">蓝牙</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://zaynliu.github.io">ZaynLiu</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">生命不息&lt;br&gt;折腾不止&lt;br&gt;人生在世&lt;br&gt;有你就好</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
